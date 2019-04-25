@@ -1,0 +1,27 @@
+// aqui iran los procedimientos almacenados para intercambiar y pegar ala base de datos por ejemplo
+
+------------------------------------------paco el login segun su level---------------------------
+-- tabla tipo_usuario 
+SELECT * FROM tipo_usuario
+INSERT INTO tipo_usuario(nom_tipo,cod_tipo) VALUES('admin','a1')
+INSERT INTO tipo_usuario(nom_tipo,cod_tipo) VALUES('usuario','a2')
+-- tabla rol --
+SELECT * FROM rol
+INSERT INTO rol(nom_rol,cod_rol,estado) VALUES('superadmin','a1',1)
+INSERT INTO rol(nom_rol,cod_rol,estado) VALUES('empleado','a2',1)
+
+-- SP_LOGIN  tienes que crear un usuario admin y uno empleado los estados estan arriba 
+DROP PROCEDURE IF EXISTS LOGIN
+CREATE PROCEDURE LOGIN
+(
+_user VARCHAR(33),
+_pass VARCHAR(33)
+)
+BEGIN
+	SELECT u.id_user,u.username, r.nom_rol,ti.nom_tipo FROM user u
+	INNER JOIN tipo_usuario ti on u.tipo_usuario_id_tipo = ti.id_tipo
+	INNER JOIN rol r on r.cod_rol = u.rol_cod_rol
+	WHERE u.username = _user and password = _pass and u.estado = 1;
+END
+CALL LOGIN('11','11')
+--------------------------------------------------------------------------------------------------
