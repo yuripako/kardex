@@ -9,7 +9,7 @@
           <li class="breadcrumb-item">
             <a href="#">Principal</a>
           </li>
-          <li class="breadcrumb-item active">Vendedor</li>
+          <li class="breadcrumb-item active">Tipos de Documentos</li>
         </ol>
 
   
@@ -18,13 +18,13 @@
           
       
         <div class="alert alert-success" role="alert" id="borradocat">
-			 	  <label for="">Se Elimino el vendedor correctamente!</label>
+			 	  <label for="">Se Elimino el Tipo de documento </label>
 		</div>
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdvendedor" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Vendedor</button>
+           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdtipodocs" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Tipo de documento</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -32,27 +32,29 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>
-                    <th>Nombre</th>
-                    <th>Documento</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Zona</th>
-                    <th>Región</th>
+                    <th>Descripción tipo</th>
+                    <th>Prefijo</th>
+                    <th>Tipo</th>
+                    <th>Serie</th>
+                    <th>Correlativo</th>
+                    <th>Descipción</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
   
                 <tbody >
-                <?php $cont=1; foreach ($vendedor as $item) { ?>  
+                <?php $cont=1; foreach ($tipodocs as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->nombre . ' ' . $item->apellido; ?></td>
-                     <td><?= $item->dni_nif; ?></td>
-                     <td><?= $item->telefono; ?></td>
-                     <td><?= $item->correo; ?></td>
-                     <td><?= $item->zona; ?></td>
+                     <td><?= $item->nom_doc; ?></td>
+                     <td><?= $item->prefijo_doc; ?></td>
+                     <td><?= $item->cod_doc; ?></td>
+                     <td><?= $item->serie; ?></td>
+                     <td><?= $item->correlativo; ?></td>
+                     <td><?= $item->descripcion; ?></td>                     
                      <td><?= $item->region; ?></td>                     
+                     
                      <td>
                          <?php
                          if ($item->estado == '1') {
