@@ -10,7 +10,8 @@ class Articulo extends CI_Controller {
             redirect(base_url());
         }	
         $this->load->model('Inicio_model');
-        $this->load->model('Articulo_model');
+				$this->load->model('Articulo_model');
+				
 	}
 
 	public function index()
@@ -93,7 +94,7 @@ class Articulo extends CI_Controller {
  {
 	 $id =  $this->input->post('id');
 	 $query = $this->Articulo_model->eliminarProducto($id);
-	 echo json_encode($query );
+   echo $query[0]->salida;
  }
 
 
