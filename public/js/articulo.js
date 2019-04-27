@@ -12,6 +12,7 @@ function cargocategoria() {
 		success: function (response) {
 			//console.log(response);
 		  $("#categoria").html(response);
+		  $("#ucategoria").html(response);
 		}
 	});
 }
@@ -24,6 +25,7 @@ function cargounidades() {
 		success: function (response) {
 			//console.log(response);
 		  $("#unidad").html(response);
+		  $("#uunidad").html(response);
 		}
 	});
 }
@@ -36,6 +38,7 @@ function cargomoneda() {
 		success: function (response) {
 			//console.log(response);
 		  $("#moneda").html(response);
+		  $("#umoneda").html(response);
 		}
 	});
 }
@@ -52,7 +55,7 @@ function agregar_producto() {
 	var bien		= $("#bien").val();
 	var impuesto    = $("#impuesto").val();
 	var descripcion = $("#descripcion").val();
-   
+ 
 	if (codigo=="" || nombre=="" || moneda=="" || categoria=="" ||estado=="" || unidad=="" || lote=="" || bien=="" || impuesto=="" ||descripcion=="") {
 	   alert("Todo los campos son obligatorios!!!");	
 	}else{
@@ -146,4 +149,23 @@ function eliminar_producto(id) {
 	
 		}
 	});
+  }
+
+
+  function editar_producto(id,codigo,nombre,moneda,categoria,estado,unidad,lote,bien,impuesto,descripcion)
+	 {
+	
+		alert(moneda);
+		$("#id").val(id);
+		$("#ucodigo").val(codigo);
+	    $("#unombre").val(nombre);
+		$("#umoneda").val(moneda);
+		$("#ucategoria").val(categoria);
+		$("#uestado").val(estado);
+		$("#uunidad").val(unidad);
+	    $("#ulote").val(lote);
+		$("#ubien").val(bien);
+		$("#uimpuesto").val(impuesto);
+	    $("#udescripcion").val(descripcion);
+	
   }
