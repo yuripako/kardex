@@ -155,7 +155,7 @@ function eliminar_producto(id) {
   function editar_producto(id,codigo,nombre,moneda,categoria,estado,unidad,lote,bien,impuesto,descripcion)
 	 {
 	
-		alert(moneda);
+		alert(unidad);
 		$("#id").val(id);
 		$("#ucodigo").val(codigo);
 	    $("#unombre").val(nombre);

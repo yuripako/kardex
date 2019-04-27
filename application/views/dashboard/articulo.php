@@ -76,8 +76,8 @@
                     <td class="text-center">
                         <div class="btn-group">
                         	<button onclick="eliminar_producto(<?= $item->id_item?>);" title="ELIMINAR PRODUCTO" class="btn btn-danger" > <i class="fas fa-trash "></i> </button>
-                        	<button data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="editar_producto(<?= $item->id_item?>,'<?= $item->cod_item  ?>','<?= $item->nom_item  ?>','<?= $item->nom_mone  ?>',
-                          '<?= $item->nom_cate  ?>','<?= $item->estado  ?>','<?= $item->nom_unid  ?>','<?= $item->num_lote  ?>','<?= $item->tip_bien  ?>','<?= $item->ind_iva  ?>',
+                        	<button data-toggle="modal" data-target=".bd-example-modal-lg2" onclick="editar_producto(<?= $item->id_item?>,'<?= $item->cod_item  ?>','<?= $item->nom_item  ?>','<?= $item->cod_mone  ?>',
+                          '<?= $item->id_cate  ?>','<?= $item->estado  ?>','<?= $item->cod_unid  ?>','<?= $item->num_lote  ?>','<?= $item->tip_bien  ?>','<?= $item->ind_iva  ?>',
                           '<?= $item->descripcion  ?>' );" title="EDITAR PRODUCTO"   class="btn btn-warning"> <i class="fas fa-edit "></i> </button>
                         	                 <!-- id,codigo,nombre,moneda,categoria,estado,unidad,lote,bien,impuesto,descripcion -->
                         </div>
