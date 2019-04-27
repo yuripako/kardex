@@ -90,11 +90,11 @@ class Articulo extends CI_Controller {
 	 echo json_encode(11);
  }
 	
- public function eliminar_productos()
+ public function eliminar_productos()  
  {
 	 $id =  $this->input->post('id');
 	 $query = $this->Articulo_model->eliminarProducto($id);
-   echo $query[0]->salida;
+   echo $query[0]->rpta;
  }
 
 

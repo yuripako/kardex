@@ -62,8 +62,8 @@ class Articulo_model extends CI_Model {
 
 	public function eliminarProducto($id)
 	{ 
-	    $this->db->query("CALL BORRAR_PRODUCTO('".$id."',@salida);");   
-		$query = $this->db->query("SELECT @salida as salida;");  
+	    $this->db->query("CALL BORRAR_PRODUCTO('".$id."',@rpta);");   
+		$query = $this->db->query("SELECT @rpta as rpta;");  
         return $query->result();
 	}
 

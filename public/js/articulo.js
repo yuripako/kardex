@@ -138,19 +138,9 @@ function eliminar_producto(id) {
 			id : id
 		},
 		success: function (response) {
-		//console.log(JSON.parse(response));
-		switch (JSON.parse(response)) {
-			case 1:
-			alert ("no se puede eliminar este productos porque se encuentra en uso!"); 
-			  break; 
-			case 2:
-				alert ("se elimino correctamente!");
-				window.location.href="Articulo";   
-			  break; 
-			default: 
-			 alert("ERROR EN EL SISTEMA");
-		  }
-		
+		 	alert(response);
+			window.location.href="Articulo";   
+	
 		}
 	});
   }
