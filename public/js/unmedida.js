@@ -4,16 +4,15 @@ function agregar_unmedida () {
     var codigoubl = $("#codigoubl").val();
     var descripcion = $("#descripcionund").val();    
     var estado = $("#estadound").val();
-    
      $.ajax({
          type: "post",
          url: "Unmedida/addunmedida",
          data: {           
-           codigo : codigo,
-           nombre : nombre,
-           codigoubl : codigoubl,
-           descripcion : descripcion,           
-           estado : estado
+            codigo : codigo,
+            nombre : nombre,           
+            codigoubl : codigoubl,
+            descripcion : descripcion,
+            estado : estado
          },  
          success: function (response) {
              //console.log(response);
@@ -32,24 +31,24 @@ function agregar_unmedida () {
 }
 
 function actualizar_unmedida(cod_unid,nom_unid,cod_ubl,descripcion,estado) {
-    $("#codigound").val(cod_unid);    
-    $("#nombreund").val(nom_unid);
-    $("#codigoubl").val(cod_ubl);
-    $("#descipcionund").val(descripcion);  
-    $("#estadound").val(estado);
+    $("#ucodigound").val(cod_unid);    
+    $("#unombreund").val(nom_unid);
+    $("#ucodigoubl").val(cod_ubl);
+    $("#udescripcionund").val(descripcion);  
+    $("#uestadound").val(estado);
     
 }
 
-function updatemedida() {
-    var codigo = $("#codigound").val();
-    var nombre = $("#nombreund").val();
-    var codigoubl = $("#codigoubl").val();
-    var descripcion = $("#descripcionund").val();    
-    var estado = $("#estadound").val();
+function updateunmedida() {
+    var codigo = $("#ucodigound").val();
+    var nombre = $("#unombreund").val();
+    var codigoubl = $("#ucodigoubl").val();
+    var descripcion = $("#udescripcionund").val();    
+    var estado = $("#uestadound").val();
 
     $.ajax({
         type: "post",
-        url: "Unmedida/updmedida",
+        url: "Unmedida/updunmedida",
         data: {
             codigo : codigo,
             nombre : nombre,

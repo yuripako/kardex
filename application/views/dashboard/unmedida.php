@@ -158,12 +158,12 @@
   </div>
 </div>
 
- <!-- Modal Editar Vendedor -->
+ <!-- Modal Editar Unidad -->
  <div class="modal fade" id="modaleditarunmedida" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Vendedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Unidad</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -176,7 +176,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Codigo Unidad*</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="codigound">
+                  <input type="text" class="form-control" id="ucodigound">
                 </div>
               </div>
             </div>
@@ -184,7 +184,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Nombre</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="nombreund">
+                  <input type="text" class="form-control" id="unombreund">
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Codigo Ubl </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="codigoubl">
+                  <input type="text" class="form-control" id="ucodigoubl">
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Descripcion </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="descripcionund">
+                  <input type="text" class="form-control" id="udescripcionund">
                 </div>
               </div>
             </div>            
@@ -208,7 +208,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
                 <div class="col-sm-8">
-                  <select class="custom-select" id="estadound">
+                  <select class="custom-select" id="uestadound">
                       <option selected>--[ seleccione estado ]--</option>
                       <option value="1">Activo</option>
                       <option value="0">Inactivo</option>                        

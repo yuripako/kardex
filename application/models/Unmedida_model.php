@@ -20,7 +20,7 @@ class Unmedida_model extends CI_Model {
         $opc = 2;        
         $query = $this->db->query(" CALL SP_UNIDAD('".$opc."','".$cod_unid."','".$nom_unid."','".$cod_ubl."','".$descripcion."','".$estado."') ");   
     }
-    public function actualiza_unmedida($uidvendedor,$cod_unid,$nom_unid,$cod_ubl,$descripcion,$estado)
+    public function actualiza_unmedida($cod_unid,$nom_unid,$cod_ubl,$descripcion,$estado)
     {
         $opc = 3;        
         $query = $this->db->query(" CALL SP_UNIDAD('".$opc."','".$cod_unid."','".$nom_unid."','".$cod_ubl."','".$descripcion."','".$estado."') ");           
