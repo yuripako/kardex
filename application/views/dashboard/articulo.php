@@ -158,7 +158,7 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
                       <div class="col-sm-8">
                         <select class="form-control"  id="estado">
-                          <option>--[ Seleecione ]--</option>
+                          <option value="">--[ Seleecione ]--</option>
                           <option value="1">Activo</option>
                           <option value="0">Inactivo</option>
                         </select>
@@ -192,7 +192,7 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bien </label>
                       <div class="col-sm-8">
                         <select class="form-control" id="bien">
-                          <option>--[ Seleecione ]--</option>
+                          <option value="">--[ Seleecione ]--</option>
                           <option value="1">P1</option>
                           <option value="2">P2</option>
                           <option value="3">P3</option>
@@ -206,7 +206,7 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Impuesto </label>
                       <div class="col-sm-8">
                         <select class="form-control"  id="inpuesto">
-                          <option>--[ Seleecione ]--</option>
+                          <option  value="">--[ Seleecione ]--</option>
                           <option value="0">Afectado</option>
                           <option value="1">No Afectado</option>
                          

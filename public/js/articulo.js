@@ -57,6 +57,9 @@ function agregar_producto() {
 	   alert("Todo los campos son obligatorios!!!");	
 	}else{
 
+
+   
+
 	$.ajax({
 		type: "post",
 		url: "Articulo/verificar_codigo",

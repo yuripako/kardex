@@ -31,16 +31,16 @@ class Articulo extends CI_Controller {
 	public function cargo_categorias()
 	{
 	  $query = $this->Articulo_model->select_categorias();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option  value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
-			echo "<option value='$item->id_cate'>".$item->nom_cate."</option>";
+			echo "<option  value='$item->id_cate'>".$item->nom_cate."</option>";
 		}
 	}
 
 	public function cargo_unidades()
 	{
 	  $query = $this->Articulo_model->select_unidades();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option  value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_unid'>".$item->nom_unid."</option>";
 		}
@@ -49,7 +49,7 @@ class Articulo extends CI_Controller {
 	public function cargo_monedas()
 	{
 	  $query = $this->Articulo_model->select_monedas();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
