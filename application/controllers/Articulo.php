@@ -10,7 +10,8 @@ class Articulo extends CI_Controller {
             redirect(base_url());
         }	
         $this->load->model('Inicio_model');
-        $this->load->model('Articulo_model');
+				$this->load->model('Articulo_model');
+				
 	}
 
 	public function index()
@@ -30,16 +31,16 @@ class Articulo extends CI_Controller {
 	public function cargo_categorias()
 	{
 	  $query = $this->Articulo_model->select_categorias();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option  value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
-			echo "<option value='$item->id_cate'>".$item->nom_cate."</option>";
+			echo "<option  value='$item->id_cate'>".$item->nom_cate."</option>";
 		}
 	}
 
 	public function cargo_unidades()
 	{
 	  $query = $this->Articulo_model->select_unidades();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option  value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_unid'>".$item->nom_unid."</option>";
 		}
@@ -48,7 +49,7 @@ class Articulo extends CI_Controller {
 	public function cargo_monedas()
 	{
 	  $query = $this->Articulo_model->select_monedas();
-		echo"<option>--[ Seleecione ]--</option>";
+		echo"<option value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
@@ -89,11 +90,11 @@ class Articulo extends CI_Controller {
 	 echo json_encode(11);
  }
 	
- public function eliminar_productos()
+ public function eliminar_productos()  
  {
 	 $id =  $this->input->post('id');
 	 $query = $this->Articulo_model->eliminarProducto($id);
-	 echo json_encode($query );
+   echo $query[0]->rpta;
  }
 
 
