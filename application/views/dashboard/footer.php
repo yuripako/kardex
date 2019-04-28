@@ -26,6 +26,7 @@
    <script src="<?= base_url('public/js/moneda.js'); ?>"></script>
    <script src="<?= base_url('public/js/vendedor.js'); ?>"></script>
    <script src="<?= base_url('public/js/unmedida.js'); ?>"></script>
+   <script src="<?= base_url('public/js/conpago.js'); ?>"></script>
    
   <!--FIN DE QUERY -->
     <!--FIN DE QUERY -->
