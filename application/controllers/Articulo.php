@@ -97,7 +97,26 @@ class Articulo extends CI_Controller {
    echo $query[0]->rpta;
  }
 
+ public function actualizar_productos()
+ {
+	 $uid = $this->input->post('uid');
+	 $ucodigo = $this->input->post('ucodigo');
+	 $unombre= $this->input->post('unombre');
+	 $umoneda= $this->input->post('umoneda');
+	 $ucategoria= $this->input->post('ucategoria');
+	 $uestado= $this->input->post('uestado');
+	 $uunidad= $this->input->post('uunidad');
+	 $ulote= $this->input->post('ulote');
+	 $ubien= $this->input->post('ubien');
+	 $uimpuesto= $this->input->post('uimpuesto');
+	 $udescripcion= $this->input->post('udescripcion');
+	 $query = $this->Articulo_model->actualizando_productos($uid,$ucodigo,$unombre,$umoneda,$ucategoria,$uestado,$uunidad,$ulote,$ubien
+	 ,$uimpuesto,$udescripcion);
 
+	 echo json_encode(1);
+	 
+	
+ }
 
 
 

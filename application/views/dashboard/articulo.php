@@ -255,7 +255,7 @@
 <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-       
+    <form id="edit" method="post">  
        <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Editar  producto</h5>
@@ -268,10 +268,11 @@
         <div class="row">
            <div class="col-md-6">
            
+           <input type="hidden" id="uid" name="uid" val="">
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-3 col-form-label" >Código </label>
               <div class="col-sm-8">
-                <input type="text" class="form-control" id="ucodigo"  maxlength="10" required>
+                <input type="text" class="form-control" id="ucodigo" name="ucodigo" maxlength="10" required>
                 
               </div>
             </div>
@@ -281,7 +282,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Nombre </label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="unombre">
+                      <input type="text" class="form-control" id="unombre" name="unombre">
                     </div>
                   </div>
            </div>
@@ -311,7 +312,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
                       <div class="col-sm-8">
-                        <select class="form-control"  id="uestado">
+                        <select class="form-control"  id="uestado" name="uestado">
                           <option value="">--[ Seleecione ]--</option>
                           <option value="0">Inactivo</option>
                           <option value="1">Activo</option>
@@ -325,7 +326,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Unidades </label>
                       <div class="col-sm-8">
-                        <select class="form-control"  id="uunidad">
+                        <select class="form-control"  id="uunidad" name="uunidad">
                         
                         </select>
                       </div>
@@ -336,7 +337,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">N°ro Lote </label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" id="ulote"   maxlength="20">
+                      <input type="text" class="form-control" id="ulote" name="ulote"   maxlength="20">
                     </div>
                   </div>
            </div>
@@ -345,7 +346,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bien </label>
                       <div class="col-sm-8">
-                      <select class="form-control"  id="ubien">
+                      <select class="form-control"  id="ubien" name="ubien">
                           <option value="">--[ Seleecione ]--</option>
                           <option value="0">Bienes</option>
                           <option value="1">Servicios</option>
@@ -358,7 +359,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Impuesto </label>
                       <div class="col-sm-8">
-                        <select class="form-control"  id="uimpuesto" >
+                        <select class="form-control"  id="uimpuesto" name="uimpuesto" >
                           <option  value="">--[ Seleecione ]--</option>
                           <option value="0">NoAfecto</option>
                           <option value="1">Afecto</option>
@@ -372,18 +373,18 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Descripción </label>
                     <div class="col-sm-8">
-                      <textarea  id="udescripcion" class="form-control"></textarea>
+                      <textarea  id="udescripcion" name="udescripcion" class="form-control"></textarea>
                     </div>
                   </div>
            </div>
 
-
+         </form>
         </div>
 
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a onclick= "actualizar_producto();" class="btn btn-primary" href="#">Actualizar producto</a>
+          <a onclick="update_producto();" class="btn btn-primary" href="#">Actualizar producto</a>
         </div>
       </div>
 

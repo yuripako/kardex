@@ -154,9 +154,8 @@ function eliminar_producto(id) {
 
   function editar_producto(id,codigo,nombre,moneda,categoria,estado,unidad,lote,bien,impuesto,descripcion)
 	 {
-	
-		alert(unidad);
-		$("#id").val(id);
+
+		$("#uid").val(id);
 		$("#ucodigo").val(codigo);
 	    $("#unombre").val(nombre);
 		$("#umoneda").val(moneda);
@@ -169,3 +168,24 @@ function eliminar_producto(id) {
 	    $("#udescripcion").val(descripcion);
 	
   }
+
+  function update_producto() {
+		var form = $("#edit").serialize();
+		
+		$.ajax({
+			type: "post",
+			url: "Articulo/actualizar_productos",
+			data: form,
+			success: function (response) {
+				switch (JSON.parse(response)) {
+					case 1:
+								alert("se actualizo correctamente!");
+					window.location.href="Articulo";             
+					break; 
+					default: 
+					 alert("ERROR EN EL SISTEMA");
+					}
+			}
+		});
+		
+	}

@@ -66,7 +66,13 @@ class Articulo_model extends CI_Model {
 		$query = $this->db->query("SELECT @rpta as rpta;");  
         return $query->result();
 	}
-
+	
+	public function actualizando_productos($uid,$ucodigo,$unombre,$umoneda,$ucategoria,$uestado,$uunidad,$ulote,$ubien
+	,$uimpuesto,$udescripcion)
+	{
+		$query =  $this->db->query("CALL ACTUALIZAR_PRODUCTOS( '".$uid."', '".$ucodigo."', '".$unombre."', '".$umoneda."', '".$ucategoria."', 
+		'".$uestado."', '".$uunidad."', '".$ulote."', '".$ubien."', '".$uimpuesto."', '".$udescripcion."') ");
+	}
 
 
 
