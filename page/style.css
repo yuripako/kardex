@@ -94,7 +94,7 @@ a:hover, a:active {
 --------------------------------*/
 .site-branding {
     width: calc(100% - 24px);
-    padding: 20px 0;
+    /*padding: 20px 0; paco */ 
 }
 
 .site-branding a {

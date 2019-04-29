@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-12 d-flex flex-wrap justify-content-between align-items-center">
                         <div class="site-branding d-flex align-items-center">
-                           <a class="d-block" href="index.html" rel="home"><img class="d-block" src="<?= base_url('page/images/logo.png')?>" alt="logo"></a>
+                           <a class="d-block" href="index.html" rel="home"><img  width="300" height="80" class="d-block" src="<?= base_url('page/images/logo.png')?>" alt="logo"></a>
                         </div><!-- .site-branding -->
 
                         <nav class="site-navigation d-flex justify-content-end align-items-center">
