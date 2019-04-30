@@ -13,16 +13,10 @@ function agregar_conpago () {
             estado : estado
          },  
          success: function (response) {
-             //console.log(response);
-             switch (JSON.parse(response)) {
-                   
-                case 1:
-                    alert ("Se agrego correctamente");               
-                        window.location.href='Conpago';                  
-                  break; 
-                default: 
-                 alert("ERROR EN EL SISTEMA");
-              }
+            alert (response) ; //Aqui recibo mi mensajede mivariable output. Insert, delete, update.
+            window.location.href='Conpago';  
+            //console.log(response);
+             
          }
      });
     
@@ -54,16 +48,8 @@ function updateconpago() {
             id_cond : id_cond
         },  
         success: function (response) {
-            //console.log(response);
-            switch (JSON.parse(response)) {
-               
-                case 1:
-                    alert ("Se actualizó correctamente");                   
-                        window.location.href='Conpago';                     
-                  break; 
-                default: 
-                 alert("ERROR EN EL SISTEMA");
-              }
+            alert (response) ;
+            window.location.href='Conpago';  
         }
     });
 }
@@ -77,15 +63,8 @@ function eliminar_conpago(cod) {
             cod : cod
         },
         success: function (response) {
-            //console.log(response);
-            switch (JSON.parse(response)) {               
-                case 1:
-                    alert ("Se eliminó correctamente");               
-                        window.location.href='Conpago';                  
-                  break; 
-                default: 
-                 alert("ERROR EN EL SISTEMA");
-              }
+            alert (response) ;
+            window.location.href='Conpago';              
         }
     });
 }
