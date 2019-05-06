@@ -175,7 +175,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-4 col-form-label">Moneda TC </label>
                       <div class="col-sm-8">
-                        <select class="form-control" name="umonedatc"  id="monedatc">
+                        <select class="form-control" name="umonedatc"  id="umonedatc">
                          
                         </select>
                       </div>
