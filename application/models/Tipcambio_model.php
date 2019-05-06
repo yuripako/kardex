@@ -19,7 +19,18 @@ class Tipcambio_model extends CI_Model {
     
     public function select_monedas()
 	{
-		$sql = " CALL SELECT_ARTICULOS(2)";
+        $opc = 5;
+        $sql = " CALL select_articulos(2); ";
+		$query =  $this->db->query($sql);
+		$res = $query->result();
+		$query->next_result();
+		$query->free_result();
+		return $res;
+    }
+    public function select_monebas()
+	{
+        $opc = 6;
+        $sql = " CALL select_articulos(4);";
 		$query =  $this->db->query($sql);
 		$res = $query->result();
 		$query->next_result();
@@ -29,24 +40,24 @@ class Tipcambio_model extends CI_Model {
 
 //###########################################  OUTPUT  ##############################################
 //Retorno mi mensaje cuando creo mi variable de salida OUTCONPAGO, menos el load SP
-    public function agregar_tipcambio ($cod_unid,$nom_unid,$ind_ori,$estado) 
+    public function agregar_tipcambio ($monetc,$monebas,$fechacam,$valortc) 
     {
         $opc = 2;        
-        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','','".$nom_unid."','".$cod_unid."','".$ind_ori."','".$estado."',@outtipcambio) ");   
+        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','".$monetc."','".$monebas."','".$fechacam."','".$valortc."','',@outtipcambio) ");   
         $query = $this->db->query("Select @outtipcambio  as mensaje;"); 
         return $query->result();
     }
-    public function actualiza_tipcambio($id_tipcambio,$cod_unid,$nom_unid,$ind_ori,$estado)
+    public function actualiza_tipcambio($monetc,$monebas,$fechacam,$valortc)
     {
         $opc = 3;        
-        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','".$id_tipcambio."','".$nom_unid."','".$cod_unid."','".$ind_ori."','".$estado."',@outtipcambio) ");           
+        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','".$monetc."','".$monebas."','".$fechacam."','".$valortc."',@outtipcambio) ");           
         $query = $this->db->query("Select @outtipcambio  as mensaje;"); 
         return $query->result();
     }
-    public function borrar_tipcambio($cod)
+    public function borrar_tipcambio($cod,$fecha)
     {
         $opc = 4;
-        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','".$cod."','','','','',@outtipcambio) ");
+        $query = $this->db->query(" CALL SP_TIPCAMBIO('".$opc."','".$cod."','','".$fecha."','','',@outtipcambio) ");
         $query = $this->db->query("Select @outtipcambio  as mensaje;"); 
         return $query->result();
     }

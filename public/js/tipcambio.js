@@ -1,36 +1,49 @@
 $(document).ready(function () {	
-	cargomoneda();
+    cargomoneda();
+    cargomonedabase();
 });
 function cargomoneda() {
 	$.ajax({
 		type: "post",
-		url: "Articulo/cargo_monedas",
+		url: "Tipcambio/cargo_monedas",
 		data: {},
 		success: function (response) {
 			//console.log(response);
-		  $("#moneda").html(response);
+		  $("#monedatc").html(response);
+		  $("#umoneda").html(response);
+		}
+	});
+}
+function cargomonedabase() {
+	$.ajax({
+		type: "post",
+		url: "Tipcambio/cargo_monebas",
+		data: {},
+		success: function (response) {
+			//console.log(response);
+		  $("#monedabas").html(response);
 		  $("#umoneda").html(response);
 		}
 	});
 }
 
-function agregar_tipcambio () {    
-    var codigo = $("#codigound").val();
-    var nombre = $("#nombreund").val();
-    var indori = $("#indori").val();    
-    var estado = $("#estadound").val();
+function agregar_tipcambio () {        
+    var monetc = $("#monedatc").val();
+    var monebas = $("#monebas").val();
+    var fechacam = $("#fechacam").val();
+    var valortc = $("#valortc").val();        
      $.ajax({
          type: "post",
-         url: "Conpago/addtipcambio",
+         url: "Tipcambio/addtipcambio",
          data: {           
-            codigo : codigo,
-            nombre : nombre,           
-            indori : indori,            
-            estado : estado
+            fechacam : fechacam,
+            monetc : monetc,           
+            monebas : monebas,   
+            valortc : valortc,                        
          },  
          success: function (response) {
             alert (response) ; //Aqui recibo mi mensajede mivariable output. Insert, delete, update.
-            window.location.href='Conpago';  
+            window.location.href='Tipcambio';  
             //console.log(response);
              
          }
@@ -38,49 +51,46 @@ function agregar_tipcambio () {
     
 }
 
-function actualizar_tipcambio(id_cond,nom_cond,cod_cond,ind_ori,estado) {
-    $("#ucodigound").val(nom_cond);    
-    $("#unombreund").val(cod_cond);
-    $("#uindori").val(ind_ori);    
-    $("#uestadound").val(estado);
-    $("#uidtipcambio").val(id_cond);    
+function actualizar_tipcambio(moneda_cod_mone,fecha_cam,monbas,tipocambio) {
+    $("#monedatc").val(moneda_cod_mone);    
+    $("#umonedabas").val(monbas);
+    $("#ufechacam").val(fecha_cam);    
+    $("#uvalortc").val(tipocambio);      
 }
 
 function updatetipcambio() {
-    var codigo = $("#ucodigound").val();
-    var nombre = $("#unombreund").val();
-    var indori = $("#uindori").val();    
-    var estado = $("#uestadound").val();
-    var id_cond = $("#uidtipcambio").val();
-
+    var monedabas = $("#umonedabas").val();
+    var monedatc = $("#monedatc").val();
+    var fechacam = $("#ufechacam").val();    
+    var valortc = $("#uvalortc").val();    
     $.ajax({
         type: "post",
-        url: "Conpago/updtipcambio",
+        url: "Tipcambio/updtipcambio",
         data: {
-            codigo : codigo,
-            nombre : nombre,
-            indori : indori,                   
-            estado : estado,
-            id_cond : id_cond
+            monedabas : monedabas,
+            monedatc : monedatc,
+            fechacam : fechacam,                   
+            valortc : valortc            
         },  
         success: function (response) {
             alert (response) ;
-            window.location.href='Conpago';  
+            window.location.href='Tipcambio';  
         }
     });
 }
 
 
-function eliminar_tipcambio(cod) {
+function eliminar_tipcambio(cod,fecha) {
     $.ajax({
         type: "post",
-        url: "Conpago/deltipcambio",
+        url: "Tipcambio/deltipcambio",
         data: {
-            cod : cod
+            cod : cod,
+            fecha : fecha
         },
         success: function (response) {
             alert (response) ;
-            window.location.href='Conpago';              
+            window.location.href='Tipcambio';              
         }
     });
 }

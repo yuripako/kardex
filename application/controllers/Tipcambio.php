@@ -30,23 +30,28 @@ class Tipcambio extends CI_Controller {
 
     public function cargo_monedas()
 	{
-	  $query = $this->Articulo_model->select_monedas();
+	  $query = $this->Tipcambio_model->select_monedas();
 		echo"<option value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
     }
+    public function cargo_monebas()
+	{
+      $query = $this->Tipcambio_model->select_monebas();
+      /* $data['base'] = $query;     	   
+	  $this->load->view('dashboard/tipcambio', $data);	 */
+      
+	}
     
-//###########################################  METODO PARA MI MODELO TIPO OUTPUT  ##############################################
-//Retorno mi mensaje cuando creo mi variable de salida OUTCONPAGO, menos el load SP
     public function addtipcambio()
     {
-        $cod_unid = $this->input->post('codigo');
-        $nom_unid = $this->input->post('nombre');
-        $ind_ori = $this->input->post('indori');         
-        $estado = $this->input->post('estado');
+        $fechacam = $this->input->post('fechacam');
+        $monetc = $this->input->post('monetc');
+        $monebas = $this->input->post('monebas');
+        $valortc = $this->input->post('valortc');                 
 
-        $query = $this->Tipcambio_model->agregar_tipcambio($cod_unid,$nom_unid,$ind_ori,$estado);
+        $query = $this->Tipcambio_model->agregar_tipcambio($monetc,$monebas,$fechacam,$valortc);
         
         //echo json_encode($query);
 
@@ -54,19 +59,19 @@ class Tipcambio extends CI_Controller {
     }
     public function updtipcambio()
     {
-        $id_tipcambio = $this->input->post('id_cond');
-        $cod_unid = $this->input->post('codigo');
-        $nom_unid = $this->input->post('nombre');
-        $ind_ori = $this->input->post('indori');        
-        $estado = $this->input->post('estado');
+        $monetc = $this->input->post('monedatc');
+        $monebas = $this->input->post('monedabas');
+        $fechacam = $this->input->post('fechacam');
+        $valortc = $this->input->post('valortc');                
 
-        $query = $this->Tipcambio_model->actualiza_tipcambio($id_tipcambio,$cod_unid,$nom_unid,$ind_ori,$estado);
+        $query = $this->Tipcambio_model->actualiza_tipcambio($monetc,$monebas,$fechacam,$valortc);
         echo $query[0]->mensaje; 
        //echo json_encode($query);
     }
     public function deltipcambio(){
         $cod = $this->input->post('cod');
-        $query = $this->Tipcambio_model->borrar_tipcambio($cod);
+        $fecha = $this->input->post('fecha');
+        $query = $this->Tipcambio_model->borrar_tipcambio($cod,$fecha);
         echo $query[0]->mensaje; 
        //echo json_encode($query);
 

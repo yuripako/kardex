@@ -48,8 +48,8 @@
                      <td><?= $item->tipocambio; ?></td>                                          
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR tipcambio" onclick="eliminar_tipcambio('<?= $item->moneda_cod_mone ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR tipcambio" onclick="actualizar_tipcambio('<?= $item->moneda_cod_mone ?>','<?=$item->fecha_cam ?>','<?=$item->monbas ?>','<?=$item->tipocambio ?>');"  data-toggle="modal" data-target="#modaleditartipcambio"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="ELIMINAR tipcambio" onclick="eliminar_tipcambio('<?= $item->moneda_cod_mone ?>','<?=$item->fecha_cam ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR tipcambio" onclick="actualizar_tipcambio('<?= $item->moneda_cod_mone ?>','<?=$item->fecha_cam ?>','<?=$item->monbas ?>','<?=$item->tipocambio ?>');"  data-toggle="modal" data-target="#modaleditarcambio"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -86,20 +86,31 @@
       </div>
       <div class="modal-body">                                                       
             <!-- formulario -->
-            <div class="row">
+            <div class="row">                                                             
+            <div class="col-md-6">
+                <fieldset disabled> 
+              <div class="form-group row">
+                <label for="disabledTextInput" class="col-sm-4 col-form-label">Moneda base </label>
+                <div class="col-sm-8">                   
+                  <input type="text" class="form-control" id="monedabas" placeholder="">                    
+                </div>
+              </div>
+              </fieldset>
+            </div> 
+           
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Fecha de cambio </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Fecha </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="codigound">
+                  <input type="text" class="form-control" id="fechacam">
                 </div>
               </div>
             </div>            
             <div class="col-md-6">
                    <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-3 col-form-label">Moneda </label>
+                    <label for="inputPassword" class="col-sm-4 col-form-label">Moneda TC </label>
                       <div class="col-sm-8">
-                        <select class="form-control" name="moneda"  id="moneda">
+                        <select class="form-control" name="monedatc"  id="monedatc">
                          
                         </select>
                       </div>
@@ -107,13 +118,13 @@
            </div>      
            <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Valor</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Valor TC</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="nombreund">
+                  <input type="text" class="form-control" id="valortc">
                 </div>
               </div>
             </div>                           
-
+            <!-- <input type="hidden" id="monedabas" name="ide">  -->      
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                      
@@ -125,13 +136,14 @@
     </div>
   </div>
 </div>
+</div>
 
- <!-- Modal Editar Unidad -->
- <div class="modal fade" id="modaleditartipcambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Editar Unidad -->
+<div class="modal fade" id="modaleditarcambio" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Unidad</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Tipo de cambio</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -139,49 +151,45 @@
       <div class="modal-body">
                 
             <!-- formulario -->
-            <div class="row">
+            <div class="row">                                                             
             <div class="col-md-6">
+                <fieldset disabled> 
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Codigo</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="ucodigound">
+                <label for="disabledTextInput" class="col-sm-4 col-form-label">Moneda base </label>
+                <div class="col-sm-8">                   
+                  <input type="text" class="form-control" id="umonedabas" placeholder="">                    
                 </div>
               </div>
-            </div>
+              </fieldset>
+            </div> 
+           
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Nombre</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Fecha </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="unombreund">
+                  <input type="text" class="form-control" id="ufechacam">
                 </div>
               </div>
-            </div>
+            </div>            
             <div class="col-md-6">
+                   <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-4 col-form-label">Moneda TC </label>
+                      <div class="col-sm-8">
+                        <select class="form-control" name="umonedatc"  id="monedatc">
+                         
+                        </select>
+                      </div>
+                  </div>
+           </div>      
+           <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Origen </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Valor TC</label>
                 <div class="col-sm-8">
-                    <select class="custom-select" id="uindori">
-                        <option selected>--[ seleccione origen ]--</option>
-                        <option value="0">Compras</option>
-                        <option value="1">Ventas</option>                        
-                    </select>
+                  <input type="text" class="form-control" id="uvalortc">
                 </div>
               </div>
-            </div>                    
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
-                <div class="col-sm-8">
-                  <select class="custom-select" id="uestadound">
-                      <option selected>--[ seleccione estado ]--</option>
-                      <option value="1">Activo</option>
-                      <option value="0">Inactivo</option>                        
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-          <input type="hidden" id="uidtipcambio" name="ide">
+            </div>                           
+            <!-- <input type="hidden" id="monedabas" name="ide">  -->      
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                                                        
