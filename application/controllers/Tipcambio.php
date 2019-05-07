@@ -38,10 +38,11 @@ class Tipcambio extends CI_Controller {
     }
     public function cargo_monebas()
 	{
-      $query = $this->Tipcambio_model->select_monebas();
-      /* $data['base'] = $query;     	   
-	  $this->load->view('dashboard/tipcambio', $data);	 */
-      
+      $query = $this->Tipcambio_model->select_monebas();      
+     
+      foreach ($query as $item) {
+        echo " <input type='text' class='form-control' id='monedabas' placeholder='' value='".$item->nom_mone."'>";
+      }           
 	}
     
     public function addtipcambio()

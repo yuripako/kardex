@@ -92,7 +92,7 @@
               <div class="form-group row">
                 <label for="disabledTextInput" class="col-sm-4 col-form-label">Moneda base </label>
                 <div class="col-sm-8">                   
-                  <input type="text" class="form-control" id="monedabas" placeholder="">                    
+                  <div id="monendabasload"></div>
                 </div>
               </div>
               </fieldset>
@@ -102,7 +102,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Fecha </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="fechacam">
+                  <input type="text" class="form-control"  id="fechacam" width="276">
                 </div>
               </div>
             </div>            
@@ -120,7 +120,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Valor TC</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="valortc">
+                  <input type="text" class="form-control" id="valortc" onkeypress="return isNumberKey(event)" >
                 </div>
               </div>
             </div>                           
@@ -167,7 +167,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Fecha </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="ufechacam">
+                  <input type="text" class="form-control" id="ufechacam" width="276">
                 </div>
               </div>
             </div>            
@@ -175,7 +175,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-4 col-form-label">Moneda TC </label>
                       <div class="col-sm-8">
-                        <select class="form-control" name="umonedatc"  id="umonedatc">
+                        <select class="form-control" name="umonedatc2"  id="umonedatc2">
                          
                         </select>
                       </div>

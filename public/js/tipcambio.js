@@ -1,6 +1,7 @@
 $(document).ready(function () {	
     cargomoneda();
     cargomonedabase();
+    
 });
 function cargomoneda() {
 	$.ajax({
@@ -9,7 +10,8 @@ function cargomoneda() {
 		data: {},
 		success: function (response) {
 			//console.log(response);
-		  $("#monedatc").html(response);
+          $("#monedatc").html(response);
+          $("#umonedatc2").html(response);
 		  $("#umoneda").html(response);
 		}
 	});
@@ -20,16 +22,26 @@ function cargomonedabase() {
 		url: "Tipcambio/cargo_monebas",
 		data: {},
 		success: function (response) {
-			//console.log(response);
-		  $("#monedabas").html(response);
+            //console.log(response);
+            $("#monendabasload").html(response);
+		  /* $("#monedabas").val(response); */
 		  $("#umoneda").html(response);
 		}
 	});
 }
 
+function isNumberKey(evt)
+    {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 
+        && (charCode < 48 || charCode > 57))
+        return false;
+        return true;
+    }  
+            
 function agregar_tipcambio () {        
     var monetc = $("#monedatc").val();
-    var monebas = $("#monebas").val();
+    var monebas = $("#monedabas").val();
     var fechacam = $("#fechacam").val();
     var valortc = $("#valortc").val();        
      $.ajax({
@@ -39,7 +51,7 @@ function agregar_tipcambio () {
             fechacam : fechacam,
             monetc : monetc,           
             monebas : monebas,   
-            valortc : valortc,                        
+            valortc : valortc                      
          },  
          success: function (response) {
             alert (response) ; //Aqui recibo mi mensajede mivariable output. Insert, delete, update.
@@ -52,7 +64,7 @@ function agregar_tipcambio () {
 }
 
 function actualizar_tipcambio(moneda_cod_mone,fecha_cam,monbas,tipocambio) {
-    $("#umonedatc").val(moneda_cod_mone);    
+    $("#umonedatc2").val(moneda_cod_mone);     
     $("#umonedabas").val(monbas);
     $("#ufechacam").val(fecha_cam);    
     $("#uvalortc").val(tipocambio);      
@@ -60,7 +72,7 @@ function actualizar_tipcambio(moneda_cod_mone,fecha_cam,monbas,tipocambio) {
 
 function updatetipcambio() {
     var monedabas = $("#umonedabas").val();
-    var monedatc = $("#umonedatc").val();
+    var monedatc = $("#umonedatc2").val();
     var fechacam = $("#ufechacam").val();    
     var valortc = $("#uvalortc").val();    
     $.ajax({
