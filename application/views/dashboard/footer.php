@@ -29,6 +29,7 @@
    <script src="<?= base_url('public/js/unmedida.js'); ?>"></script>
    <script src="<?= base_url('public/js/conpago.js'); ?>"></script>
    <script src="<?= base_url('public/js/tipcambio.js'); ?>"></script>
+   <script src="<?= base_url('public/js/ubigeo.js'); ?>"></script>
    
    <script>
       $('#fechacam').datepicker({
