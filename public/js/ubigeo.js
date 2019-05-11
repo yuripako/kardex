@@ -53,7 +53,7 @@ function updateubigeo() {
 
 
 function eliminar_ubigeo(cod) {
-    var rpta = window.confirm("¿Realmente desea eliminar el registro?");
+    var rpta = window.confirm("¿Desea eliminar el registro?");
     if (rpta == true) {
         $.ajax({
             type: "post",
