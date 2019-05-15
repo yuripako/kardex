@@ -36,10 +36,9 @@
 
       $(document).ready(function () {
         $(".card-header ").removeAttr("style");
-
-
         $(".card-header").attr('style',  'background-color:#00a4b4');
-        $(".breadcrumb ").attr('style',  'background-color:#28ecff');
+        $(".breadcrumb ").attr('style',  'background-color:#08e9ff');
+        $(".card-footer").attr('style',  'display:none');
       });
 
       $('#fechacam').datepicker({
