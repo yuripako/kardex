@@ -72,7 +72,7 @@
 <!-- LOGO INICIO -->
   <div id="cardi">
         <div id="logogo" class="card" style="background-color: #212529;border: 0px;margin: 0px auto;">
-          <img id="imgu" src="<?= base_url('public/images/user.png'); ?> " style="width: 150px;margin: 0 auto;"   class="card-img-top" >
+          <img id="imgu" src="<?= base_url('public/images/user.png'); ?> " style="width: 190px;margin: 0 auto;"   class="card-img-top" >
           <div class="card-body" style="  color: #ccc;    text-align: center;">
               <h5 class="card-title"><?= $this->session->userdata('username') ?></h5>
               <p class="card-text"><?= $this->session->userdata('nom_rol') ?></p>
