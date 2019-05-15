@@ -3288,7 +3288,7 @@ input[type="button"].btn-block {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #ffc107;
+  background-color: #46c3f8;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -10528,7 +10528,7 @@ body {
 }
 
 .sidebar .nav-item .nav-link:active, .sidebar .nav-item .nav-link:focus, .sidebar .nav-item .nav-link:hover {
-  color:#fdc006; /*PACO*/
+  color:#46c3f8; /*PACO*/
 }
 
 .sidebar.toggled {
