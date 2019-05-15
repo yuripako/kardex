@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="<?= base_url('public/vendor/datatables/dataTables.bootstrap4.css'); ?>">
   <!-- Custom styles for this template-->
   <link rel="stylesheet" href="<?= base_url('public/css/sb-admin.css'); ?>">
- 
+  <!-- date picker-->
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body id="page-top">

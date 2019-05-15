@@ -17,8 +17,9 @@
   <!-- Demo scripts for this page-->
  <script src="<?= base_url('public/js/demo/datatables-demo.js'); ?>"></script>
  <script src="<?= base_url('public/js/demo/chart-area-demo.js'); ?>"></script>
-
-  <!--AQUI VA NUESTRO JS SE DEBE LLAMAR IGUAL QUE EL CONTROLADOR PERO MINUSCULA hhhh-->
+ <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+  
+<!--AQUI VA NUESTRO JS SE DEBE LLAMAR IGUAL QUE EL CONTROLADOR PERO MINUSCULA hhhh-->
    <script src="<?= base_url('public/js/inicio.js'); ?>"></script>
    <script src="<?= base_url('public/js/categorias.js'); ?>"></script>
    <script src="<?= base_url('public/js/articulo.js'); ?>"></script>
@@ -27,8 +28,18 @@
    <script src="<?= base_url('public/js/vendedor.js'); ?>"></script>
    <script src="<?= base_url('public/js/unmedida.js'); ?>"></script>
    <script src="<?= base_url('public/js/conpago.js'); ?>"></script>
+   <script src="<?= base_url('public/js/tipcambio.js'); ?>"></script>
+   <script src="<?= base_url('public/js/ubigeo.js'); ?>"></script>
+   <script src="<?= base_url('public/js/tipomov.js'); ?>"></script>
    
-  <!--FIN DE QUERY -->
+   <script>
+      $('#fechacam').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd'
+    });
+    </script>
+   <!--FIN DE QUERY -->
+
     <!--FIN DE QUERY -->
 
 </body>
