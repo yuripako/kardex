@@ -59,6 +59,16 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
+    <br>
+    <div class="card" style="background-color: #212529;border: 0px;margin: 0px auto;">
+      <img src="<?= base_url('public/images/user.png'); ?> "style="width: 200px;"   class="card-img-top" >
+      <div class="card-body" style="  color: #ccc;    text-align: center;">
+          <h5 class="card-title"><?= $this->session->userdata('username') ?></h5>
+          <p class="card-text"><?= $this->session->userdata('nom_rol') ?></p>
+      </div>
+    </div>
+  <br>
+
 
     <li class="nav-item active">
       <a class="nav-link" href="<?= base_url('Inicio') ?>">

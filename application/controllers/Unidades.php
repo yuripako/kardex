@@ -15,6 +15,7 @@ class Unidades extends CI_Controller {
 
 	public function index()
 	{
+	   $data['titulo']  = '';
 	   $data['header']  = 'dashboard/header';
 	   $data['footer']  = 'dashboard/footer';
 	   //esto va si o si ,carga de los modulos, esto siempre va ya que al carga los modulos carga esto tambien
