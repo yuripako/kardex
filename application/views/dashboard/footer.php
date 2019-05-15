@@ -36,10 +36,10 @@
 
       $(document).ready(function () {
         $(".card-header ").removeAttr("style");
-        $("thead").removeClass();
+
 
         $(".card-header").attr('style',  'background-color:#00a4b4');
-        $("thead").attr('style',  'background-color:#46c3f8');
+       
       });
 
       $('#fechacam').datepicker({
