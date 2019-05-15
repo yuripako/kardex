@@ -10540,6 +10540,17 @@ body {
   .sidebar {
     width: 275px !important; /* width: 225px !important; */
   }
+  .sidebar.toggled  #imgu{
+    overflow: visible;
+    width: 90px !important;
+ 
+  }
+  .sidebar.toggled  #cardi{
+    overflow: visible;
+    width: 90px !important;
+ 
+  }
+
   .sidebar .nav-item .nav-link {
     display: block;
     width: 100%;
@@ -10718,7 +10729,9 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 @media (min-width: 768px) {
-  body.sidebar-toggled footer.sticky-footer {
+  body.sidebar-toggled footer.sticky-footer   {
     width: calc(100% - 90px);
+    
   }
+
 }
