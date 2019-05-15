@@ -39,7 +39,7 @@
 
 
         $(".card-header").attr('style',  'background-color:#00a4b4');
-       
+        $(".breadcrumb ").attr('style',  'background-color:#28ecff');
       });
 
       $('#fechacam').datepicker({
