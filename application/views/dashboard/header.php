@@ -81,8 +81,7 @@
  
     </div>
 <!--FIN DE LOGO INICIO -->
-<hr>
- <br>
+ <div style="padding:10px"></div>
     <li class="nav-item active">
       <a class="nav-link" href="<?= base_url('Inicio') ?>">
             <i class="fa fa-home"></i>
