@@ -33,10 +33,23 @@
    <script src="<?= base_url('public/js/tipomov.js'); ?>"></script>
    
    <script>
+
+      $(document).ready(function () {
+        $(".card-header ").removeAttr("style");
+        $("thead").removeClass();
+
+        $(".card-header").attr('style',  'background-color:#00a4b4');
+        $("thead").attr('style',  'background-color:#46c3f8');
+      });
+
       $('#fechacam').datepicker({
         uiLibrary: 'bootstrap4',
         format: 'yyyy-mm-dd'
     });
+
+
+
+
     </script>
    <!--FIN DE QUERY -->
 
