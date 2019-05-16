@@ -12,15 +12,20 @@
           <li class="breadcrumb-item active">Tipos de Documentos</li>
         </ol>
 
-  
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Tipo de documentos</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Parametrización</a>            
+          </div>
+        </nav>
         <!-- Area Chart Example ponle asi para que no joda ya que depende del chart asi que mejor dejalo asi-->
-       <canvas id="myAreaChart" height="0"  style="display: none;"></canvas> 
-          
-      
+        <canvas id="myAreaChart" height="0"  style="display: none;"></canvas>
         <div class="alert alert-success" role="alert" id="borradocat">
 			 	  <label for="">Se Elimino el Tipo de documento </label>
-		</div>
-        <!-- DataTables Example -->
+		    </div>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
+              <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
@@ -32,12 +37,10 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>
-                    <th>Descripción tipo</th>
-                    <th>Prefijo</th>
-                    <th>Tipo</th>
-                    <th>Serie</th>
-                    <th>Correlativo</th>
-                    <th>Descipción</th>
+                    <th>Tipo Doc</th>
+                    <th>Descripción</th>
+                    <th>Código</th>                    
+                    <th>Tipo Movimiento</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
@@ -47,14 +50,10 @@
                 <?php $cont=1; foreach ($tipodocs as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->nom_doc; ?></td>
                      <td><?= $item->prefijo_doc; ?></td>
-                     <td><?= $item->cod_doc; ?></td>
-                     <td><?= $item->serie; ?></td>
-                     <td><?= $item->correlativo; ?></td>
-                     <td><?= $item->descripcion; ?></td>                     
-                     <td><?= $item->region; ?></td>                     
-                     
+                     <td><?= $item->nom_doc; ?></td>
+                     <td><?= $item->cod_doc; ?></td>                     
+                     <td><?= $item->tipomov; ?></td>                                          
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -64,13 +63,12 @@
                             echo "<span class='badge badge-danger'>Inactivo</span>";
                           }
                          
-                         ?>
-                        
+                         ?>                        
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR VENDEDOR" onclick="eliminar_vendedor('<?= $item->idvendedor ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR VENDEDOR" onclick="actualizar_vendedor('<?= $item->idvendedor ?>','<?=$item->nombre ?>','<?=$item->apellido ?>','<?=$item->dni_nif ?>','<?=$item->telefono ?>','<?=$item->correo ?>','<?=$item->zona ?>','<?=$item->region ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarvendedor"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="ELIMINAR TIPO_DOC" onclick="eliminar_tipodocs('<?= $item->cod_doc ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR TIPO_DOC" onclick="actualizar_tipodocs('<?= $item->cod_doc ?>','<?=$item->nom_doc ?>','<?=$item->prefijo_doc ?>','<?=$item->tipomov ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditartipodocs"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -81,6 +79,18 @@
           </div>
           <div class="card-footer small text-muted">Updated...</div>
         </div>
+
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...
+
+
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        </div>
+                   
+      
+        
+        
 
       </div>
       <!-- /.container-fluid -->
@@ -95,12 +105,12 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Modal Agredar Vendedor -->
-<div class="modal fade" id="modaladdvendedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal Agredar Tipodocs -->
+<div class="modal fade" id="modaladdtipodocs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Vendedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Tipo documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -110,67 +120,42 @@
             <div class="row">
 
             <div class="col-md-6">
-
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Nombre*</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Tipo </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="nombre_ven">
+                  <input type="text" class="form-control" id="tipodoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Apellido*</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="apellido_ven">
+                  <input type="text" class="form-control" id="descripciondoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Documento </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Código </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="documento_ven">
+                  <input type="text" class="form-control" id="codigodoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Teléfono </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Tipo Movimiento </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="telefono_ven">
+                  <input type="text" class="form-control" id="tipomovdoc">
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Correo </label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control" id="correo_ven">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Zona </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="zona_ven">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Región </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="region_ven">
-                </div>
-              </div>
-            </div>
+            </div>           
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
                 <div class="col-sm-8">
-                  <select class="custom-select" id="estado_ven">
+                  <select class="custom-select" id="estadodoc">
                       <option selected>--[ seleccione estado ]--</option>
                       <option value="1">Activo</option>
                       <option value="0">Inactivo</option>  
@@ -186,18 +171,18 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_vendedor();" type="button" class="btn btn-primary">Agregar vendedor</button>
+        <button onclick="agregar_tipodocs();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
       </div>
     </div>
   </div>
 </div>
 
-  <!-- Modal Editar Vendedor -->
-  <div class="modal fade" id="modaleditarvendedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal Editar Tipodocs -->
+  <div class="modal fade" id="modaleditartipodocs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Vendedor</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Tipo de documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -208,67 +193,42 @@
             <div class="row">
 
             <div class="col-md-6">
-
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Nombre*</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Tipo </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="unombre">
+                  <input type="text" class="form-control" id="utipodoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Apellido*</label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="uapellido">
+                  <input type="text" class="form-control" id="udescripciondoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Documento </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Código </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="udocumento">
+                  <input type="text" class="form-control" id="ucodigodoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Teléfono </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Tipo Movimiento </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="utelefono">
+                  <input type="text" class="form-control" id="utipomovdoc">
                 </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Correo </label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control" id="ucorreo">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Zona </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="uzona">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Región </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="uregion">
-                </div>
-              </div>
-            </div>
+            </div>           
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
                 <div class="col-sm-8">
-                  <select class="custom-select" id="uestado">
+                  <select class="custom-select" id="uestado_ven">
                       <option selected>--[ seleccione estado ]--</option>
                       <option value="1">Activo</option>
                       <option value="0">Inactivo</option>  
@@ -276,8 +236,8 @@
                 </div>
               </div>
             </div>
-          </div>          
-          <input type="hidden" id="uidevendedor" name="ide">
+          </div>       
+          <input type="hidden" id="uidetipodocs" name="ide">
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                                                        
@@ -285,7 +245,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick = "updatevendedor();" type="button" class="btn btn-primary">Guardar cambios</button>
+        <button onclick = "updatetipodocs();" type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>

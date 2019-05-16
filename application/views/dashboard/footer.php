@@ -31,6 +31,7 @@
    <script src="<?= base_url('public/js/tipcambio.js'); ?>"></script>
    <script src="<?= base_url('public/js/ubigeo.js'); ?>"></script>
    <script src="<?= base_url('public/js/tipomov.js'); ?>"></script>
+   <script src="<?= base_url('public/js/tipodocs.js'); ?>"></script>
    
    <script>
 
