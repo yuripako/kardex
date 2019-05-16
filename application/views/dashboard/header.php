@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="<?= base_url('public/css/sb-admin.css'); ?>">
   <!-- date picker-->
   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+  <!-- Icono -->
+  <link rel="shortcut icon" href="public/images/multiglass-hojas.ico" />
   
   <style>
     @media screen and (max-width: 700px) {
