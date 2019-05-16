@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>BAZAR - DON PEPE</title>
+  <title>Gestión Comercial</title>
 
   <!-- Custom fonts for this template-->
   <link rel="stylesheet" href="<?= base_url('public/vendor/fontawesome-free/css/all.min.css'); ?>">
