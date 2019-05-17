@@ -1,3 +1,7 @@
+$(document).ready(function () {
+    carga_roles();
+});
+
 function usuario(tipo, cod) {
    
  $.ajax({
@@ -21,6 +25,18 @@ function usuario(tipo, cod) {
  });
 
 
+}
+
+function carga_roles() {
+    $.ajax({
+        type: "post",
+        url: "Usuario/loadroles",
+        data: {},
+        success: function (response) {
+           
+               $("#inputGroupSelect02").html(response);
+        }
+    });
 }
 
 function agregar_usuario() {

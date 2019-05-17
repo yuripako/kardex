@@ -7,7 +7,20 @@ class Usuario_model extends CI_Model {
     
     public function load_usuario()
     {     //Select
-        $query =  $this->db->query(" CALL LOADUSUARIOS()");		
+        /* $query =  $this->db->query(" CALL LOADUSUARIOS()");		 */
+        $opc = 1;
+        $query =  $this->db->query(" CALL SP_USUARIOS('".$opc."','','','','','','','','','')");
+        $res = $query->result();        
+        $query->next_result();
+        $query->free_result();
+        return $res;
+    }
+        
+    public function load_roles()
+    {     //Select
+        /* $query =  $this->db->query(" CALL LOADUSUARIOS()");		 */
+        $opc = 4;
+        $query =  $this->db->query(" CALL SP_USUARIOS('".$opc."','','','','','','','','','')");
         $res = $query->result();        
         $query->next_result();
         $query->free_result();

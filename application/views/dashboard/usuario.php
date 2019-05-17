@@ -37,6 +37,7 @@
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Tipo Usuario</th>
+                <th>Estado</th>
                 <th>Opciones</th>
               </tr>
             </thead>
@@ -49,12 +50,22 @@
                   <td><?= $item->username ?></td>
                   <td><?= $item->nombre . ' ' . $item->apellido ?></td>
                   <td><?= $item->email ?></td>
-                  <td><?= $item->rol_id_rol ?></td>
+                  <td><?= $item->nom_tipo ?></td>
+                  <td>
+                        <?php
+                        if ($item->estado == '1') {
+                          echo "<span class='badge badge-success'>Activo</span>";
+                        }
+                        if ($item->estado == '0') {
+                          echo "<span class='badge badge-danger'>Inactivo</span>";
+                        }                        
+                        ?>                      
+                  </td>                  
                   <td class="text-center">
                     <div class="btn-group">
                       <button title="ELIMINAR PRODUCTO" class="btn btn-danger"> <i class="fas fa-trash "></i></button>
                       <!-- <button data-toggle="modal" data-target="#logoutModal3" class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button> -->
-                      <button title="EDITAR PRODUCTO" onclick=" edit_usuario(<?= $item->id_user ?>,'<?= $item->username ?>','<?= $item->nombre ?>','<?= $item->apellido ?>','<?= $item->email ?>','<?= $item->dni_nif?>','<?= $item->rol_id_rol?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
+                      <button title="EDITAR PRODUCTO" onclick=" edit_usuario(<?= $item->id_user ?>,'<?= $item->username ?>','<?= $item->nombre ?>','<?= $item->apellido ?>','<?= $item->email ?>','<?= $item->dni_nif?>','<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                     </div>
                   </td>
                 </tr>
@@ -149,11 +160,11 @@
 								<label for="inputPassword" class="col-sm-3 col-form-label">Perfil</label>
 								<div class="col-sm-8">
 									<select class="custom-select" id="editperfil">
-										<option selected>--[ seleccione Perfil ]--</option>
+										<!-- <option selected>--[ seleccione Perfil ]--</option>
 										<option value="1">Administrador</option>
 										<option value="2">Empleado</option>
 										<option value="3">Usuario de Venta</option>
-										<option value="4">Logistica (compras)</option>
+										<option value="4">Logistica (compras)</option> -->
 									</select>
 								</div>
 							</div>
@@ -243,12 +254,8 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Perfil * </label>
                 <div class="col-sm-8">
-                  <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>--[ seleccione Perfil ]--</option>
-                    <option value="1">Administrador</option>
-                    <option value="2">Empleado</option>
-                    <option value="3">Usuario de Venta</option>
-                    <option value="4">Logistica (compras)</option>
+                  <select class="custom-select" id="inputGroupSelect02" name="inputGroupSelect02">
+                    
                   </select>
                 </div>
               </div>

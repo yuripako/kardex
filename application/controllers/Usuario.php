@@ -33,11 +33,15 @@ class Usuario extends CI_Controller {
 	   $this->load->view('dashboard/usuario', $data);
     }
 
-    /* public function insert_usuario(){             //Método para inserta, actualizar, eliminar
-       $usuario = $this->input->post('user');
-       $query = $this->Usuario_model->insert_usuarios($usuario);
-       
-   } */
+    public function loadroles()
+	{
+        $query = $this->Usuario_model->load_roles(); 
+        echo"<option>-----[ Seleccione ]-----</option>";
+        foreach ($query as $item) 
+        {
+            echo"<option value='".$item->cod_rol."'>".$item->nom_rol."</option>";
+        }
+    }
     
    public function insertprobando(){
        $cod = $this->input->post('cod');
