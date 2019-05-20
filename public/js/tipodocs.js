@@ -24,20 +24,20 @@ function agregar_tipodocs () {
     
 }
 
-function actualizar_tipodocs(cod_doc,nom_doc,prefijo_doc,tipomov,estado) {
-    $("#utipodoc").val(prefijo_doc);     
+function actualizar_tipodocs(cod_doc,nom_doc,tip_doc,tip_mov,estado) {
+    $("#utipodoc").val(cod_doc);     
     $("#udescripciondoc").val(nom_doc);     
-    $("#ucodigodoc").val(cod_doc);
-    $("#utipomovdoc").val(tipomov);    
+    $("#ucodigodoc").val(tip_doc);
+    $("#utipomovdoc").val(tip_mov);    
     $("#uestadodoc").val(estado);      
 }
 
 function updatetipodocs() {
-    var valor01 = $("#ucodtipodocs").val();
-    var valor02 = $("#udetallemov").val();
-    var valor03 = $("#utipodocs").val();
-    var valor04 = $("#uprefijomov").val();    
-    var valor05 = $("#uestadomov").val();    
+    var valor01 = $("#utipodoc").val();
+    var valor02 = $("#udescripciondoc").val();
+    var valor03 = $("#ucodigodoc").val();
+    var valor04 = $("#utipomovdoc").val();    
+    var valor05 = $("#uestadodoc").val();    
     $.ajax({
         type: "post",
         url: "Tipodocs/updtipodocs",

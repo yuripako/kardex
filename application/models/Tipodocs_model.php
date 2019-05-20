@@ -21,8 +21,9 @@ class Tipodocs_model extends CI_Model {
 //Retorno mi mensaje cuando creo mi variable de salida OUTCONPAGO, menos el load SP
     public function agregar_tipodocs ($valor01,$valor02,$valor03,$valor04,$valor05) 
     {
-        $opc = 2;        
-        $query = $this->db->query(" CALL SP_TIPODOCS('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','','".$valor05."',@outtipodocs) ");   
+        $opc = 2;  
+        $estado = '1';      
+        $query = $this->db->query(" CALL SP_TIPODOCS('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','".$estado."','',@outtipodocs) ");   
         $query = $this->db->query("Select @outtipodocs  as mensaje;"); 
         return $query->result();
     }

@@ -9,7 +9,7 @@
           <li class="breadcrumb-item">
             <a href="#">Principal</a>
           </li>
-          <li class="breadcrumb-item active">Tipos de Documentos</li>
+          <li class="breadcrumb-item active">Serie y Numeros de Documentos</li>
         </ol>
 
         <!-- <nav>
@@ -20,16 +20,14 @@
         </nav> -->
         <!-- Area Chart Example ponle asi para que no joda ya que depende del chart asi que mejor dejalo asi-->
         <canvas id="myAreaChart" height="0"  style="display: none;"></canvas>
-        <div class="alert alert-success" role="alert" id="borradocat">
-			 	  <label for="">Se Elimino el Tipo de documento </label>
-		    </div>
+        
         <div class="tab-content" id="nav-tabContent">
           <!-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">... -->
               <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdtipodocs" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Tipo de documento</button>
+           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdserieynums" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Serie y numero de documento</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -38,32 +36,22 @@
                   <tr>
                     <th>N°ro</th>
                     <th>Tipo Doc</th>
+                    <th>Serie</th>
+                    <th>Correlativo</th>                    
                     <th>Descripción</th>
-                    <th>Código</th>                    
-                    <th>Tipo Movimiento</th>
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
   
                 <tbody >
-                <?php $cont=1; foreach ($tipodocs as $item) { ?>  
+                <?php $cont=1; foreach ($serieynum as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
                      <td><?= $item->cod_doc; ?></td>
-                     <td><?= $item->nom_doc; ?></td>
-                     <td><?= $item->tip_doc; ?></td>                                                                                 
-                     <td>
-                         <?php
-                         if ($item->tip_mov == 'C') {
-                           echo "<span class='badge badge-info'>Compra</span>";
-                         }
-                         if ($item->tip_mov == 'V') {
-                            echo "<span class='badge badge-info'>Venta</span>";
-                          }
-                         
-                         ?>                        
-                    </td>
+                     <td><?= $item->serie; ?></td>
+                     <td><?= $item->correlativo; ?></td>                                                                                 
+                     <td><?= $item->descripcion; ?></td>                                                                                                    
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -77,8 +65,8 @@
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR TIPO_DOC" onclick="eliminar_tipodocs('<?= $item->cod_doc ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR TIPO_DOC" onclick="actualizar_tipodocs('<?= $item->cod_doc ?>','<?=$item->nom_doc ?>','<?=$item->tip_doc ?>','<?=$item->tip_mov ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditartipodocs"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="ELIMINAR SERIEYNUMS" onclick="eliminar_serieynums('<?= $item->id_num ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR SERIEYNUMS" onclick="actualizar_serieynums('<?= $item->id_num ?>','<?=$item->cod_doc ?>','<?=$item->serie ?>','<?=$item->correlativo ?>','<?=$item->descripcion ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarserieynums"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -116,11 +104,11 @@
   </a>
 
   <!-- Modal Agredar Tipodocs -->
-<div class="modal fade" id="modaladdtipodocs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaladdserieynums" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Tipo documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Serie y numero de documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -174,14 +162,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_tipodocs();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
+        <button onclick="agregar_serieynums();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
       </div>
     </div>
   </div>
 </div>
 
   <!-- Modal Editar Tipodocs -->
-  <div class="modal fade" id="modaleditartipodocs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modaleditarserieynums" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -244,7 +232,7 @@
               </div>
             </div>
           </div>       
-          <input type="hidden" id="uidetipodocs" name="ide">
+          <input type="hidden" id="uideserieynums" name="ide">
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                                                        
@@ -252,7 +240,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick = "updatetipodocs();" type="button" class="btn btn-primary">Guardar cambios</button>
+        <button onclick = "updateserieynums();" type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>

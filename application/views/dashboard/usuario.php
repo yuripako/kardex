@@ -252,7 +252,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-3 col-form-label">Perfil * </label>
+                <label for="inputPassword" class="col-sm-3 col-form-label">Rol * </label>
                 <div class="col-sm-8">
                   <select class="custom-select" id="inputGroupSelect02" name="inputGroupSelect02">
                     
@@ -260,6 +260,18 @@
                 </div>
               </div>
             </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Perfil </label>
+                <div class="col-sm-8">
+                  <select class="custom-select" id="idperfil" name="idperfil">
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
           </div>
 
           <small id="passwordHelpBlock" class="form-text text-muted">
