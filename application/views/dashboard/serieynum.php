@@ -9,7 +9,7 @@
           <li class="breadcrumb-item">
             <a href="#">Principal</a>
           </li>
-          <li class="breadcrumb-item active">Serie y Numeros de Documentos</li>
+          <li class="breadcrumb-item active">Serie y Números de Documentos</li>
         </ol>
 
         <!-- <nav>
@@ -27,7 +27,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdserieynums" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Serie y numero de documento</button>
+           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdserieynums" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Serie y Número de documento</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -37,7 +37,7 @@
                     <th>N°ro</th>
                     <th>Tipo Doc</th>
                     <th>Serie</th>
-                    <th>Correlativo</th>                    
+                    <th>Numeración</th>                    
                     <th>Descripción</th>
                     <th>Estado</th>
                     <th>Acciones</th>
@@ -65,8 +65,8 @@
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR SERIEYNUMS" onclick="eliminar_serieynums('<?= $item->id_num ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR SERIEYNUMS" onclick="actualizar_serieynums('<?= $item->id_num ?>','<?=$item->cod_doc ?>','<?=$item->serie ?>','<?=$item->correlativo ?>','<?=$item->descripcion ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarserieynums"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="ELIMINAR SERIEYNUM" onclick="eliminar_serieynum('<?= $item->id_num ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR SERIEYNUM" onclick="actualizar_serieynum('<?= $item->id_num ?>','<?=$item->cod_doc ?>','<?=$item->serie ?>','<?=$item->correlativo ?>','<?=$item->descripcion ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarserieynums"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -108,7 +108,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Serie y numero de documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Serie y Número de documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -120,39 +120,37 @@
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-8 col-form-label">Tipo Documento </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="tipodoc">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="descripciondoc">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Código del tipo de Documento </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="codigodoc">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo de Movimiento </label>
                 <div class="col-sm-8">                  
-                  <select class="custom-select" id="tipomovdoc">
-                      <option selected>--[ seleccione estado ]--</option>
-                      <option value="C">Compra</option>
-                      <option value="V">Venta</option>  
+                  <select class="form-control" name="tiposerdoc"  id="tiposerdoc">
+                         
                   </select>
                 </div>
               </div>
-            </div>           
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Serie</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="serieserdoc">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Numeración </label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" id="numeracionserdoc">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="descripcionserdoc">
+                </div>
+              </div>
+            </div>                     
            
           </div>
 
@@ -162,7 +160,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_serieynums();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
+        <button onclick="agregar_serieynum();" type="button" class="btn btn-primary">Agregar Serie y Número de documento</button>
       </div>
     </div>
   </div>
@@ -173,7 +171,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Tipo de documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar  Serie y Número de documento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -184,55 +182,54 @@
             <div class="row">
 
             <div class="col-md-6">
+              <fieldset disabled> 
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-8 col-form-label">Tipo Documento </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="utipodoc">
+                  <input type="text" class="form-control" id="utiposerdoc">
                 </div>
               </div>
+              </fieldset>
             </div>
             <div class="col-md-6">
+            <fieldset disabled> 
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción</label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Serie</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="udescripciondoc">
+                  <input type="text" class="form-control" id="userieserdoc">
                 </div>
               </div>
+              </fieldset>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Código del tipo de Documento </label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Numeración </label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="ucodigodoc">
+                  <input type="number" class="form-control" id="unumeracionserdoc">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo de Movimiento </label>
-                <div class="col-sm-8">                  
-                  <select class="custom-select" id="utipomovdoc">
-                      <option selected>--[ seleccione estado ]--</option>
-                      <option value="C">Compra</option>
-                      <option value="V">Venta</option>  
-                  </select>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="udescripcionserdoc">
                 </div>
               </div>
-            </div>            
+            </div>
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-8 col-form-label">Estado </label>
-                <div class="col-sm-8">
-                  <select class="custom-select" id="uestadodoc">
+                <div class="col-sm-8">                  
+                  <select class="custom-select" id="uestadoserdoc">
                       <option selected>--[ seleccione estado ]--</option>
-                      <option value="1">Activo</option>
-                      <option value="0">Inactivo</option>  
+                      <option value="1">Activo </option>
+                      <option value="0">Inactivo </option>  
                   </select>
                 </div>
               </div>
-            </div>
-          </div>       
-          <input type="hidden" id="uideserieynums" name="ide">
+            </div>      
+          <input type="hidden" id="uidserieynum" name="ide">
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                                                        
@@ -240,7 +237,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick = "updateserieynums();" type="button" class="btn btn-primary">Guardar cambios</button>
+        <button onclick = "updateserieynum();" type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>

@@ -17,13 +17,23 @@ class Serieynum_model extends CI_Model {
 		return $res;
     }    
 
+    public function select_tipodocs()
+    {
+        $opc=5;
+        $query = $this->db->query(" CALL SP_SERIEYNUMS('".$opc."','','','','','','',@outserieynum);");
+        $res = $query->result();
+		$query->next_result();
+		$query->free_result();
+		return $res;
+    }
+
 //###########################################  OUTPUT  ##############################################
 //Retorno mi mensaje cuando creo mi variable de salida OUTCONPAGO, menos el load SP
     public function agregar_serieynum ($valor01,$valor02,$valor03,$valor04,$valor05) 
     {
         $opc = 2;  
         $estado = '1';      
-        $query = $this->db->query(" CALL SP_SERIEYNUMS('".$opc."','','".$valor02."','".$valor03."','".$valor04."','$valor05',".$estado."',@outserieynum) ");   
+        $query = $this->db->query(" CALL SP_SERIEYNUMS('".$opc."','','".$valor02."','".$valor03."','".$valor04."','$valor05','".$estado."',@outserieynum) ");   
         $query = $this->db->query("Select @outserieynum  as mensaje;"); 
         return $query->result();
     }

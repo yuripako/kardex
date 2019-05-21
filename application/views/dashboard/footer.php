@@ -32,6 +32,8 @@
    <script src="<?= base_url('public/js/ubigeo.js'); ?>"></script>
    <script src="<?= base_url('public/js/tipomov.js'); ?>"></script>
    <script src="<?= base_url('public/js/tipodocs.js'); ?>"></script>
+   <script src="<?= base_url('public/js/serieynum.js'); ?>"></script>
+   
    
    <script>
 
