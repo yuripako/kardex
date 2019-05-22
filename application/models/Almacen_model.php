@@ -33,14 +33,14 @@ class Almacen_model extends CI_Model {
     {
         $opc = 2;  
         $estado = '1';      
-        $query = $this->db->query(" CALL SP_ALMACEN('".$opc."','','".$valor02."','".$valor03."','".$valor04."','$valor05','".$estado."',@outalmacen) ");   
+        $query = $this->db->query(" CALL SP_ALMACEN('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','$valor05','".$estado."',@outalmacen) ");   
         $query = $this->db->query("Select @outalmacen  as mensaje;"); 
         return $query->result();
     }
-    public function actualiza_almacen($valor01,$valor02,$valor03,$valor04,$valor05,$valor06)
+    public function actualiza_almacen($valor01,$valor02,$valor03,$valor04,$valor05)
     {
         $opc = 3;        
-        $query = $this->db->query(" CALL SP_ALMACEN('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','".$valor05."','".$valor06."',@outalmacen) ");           
+        $query = $this->db->query(" CALL SP_ALMACEN('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','".$valor05."','',@outalmacen) ");           
         $query = $this->db->query("Select @outalmacen  as mensaje;"); 
         return $query->result();
     }

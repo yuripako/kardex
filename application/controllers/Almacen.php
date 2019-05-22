@@ -28,15 +28,6 @@ class Almacen extends CI_Controller {
 	   $this->load->view('dashboard/almacen', $data);
     }
     
-    public function cargo_tipodocs()
-    {
-       $query = $this->Almacen_model->select_tipodocs();
-        echo"<option value=''>--[ Seleccione ]--</option>";
-		foreach ($query as $item) {
-			echo "<option value='$item->cod_doc'>".$item->cod_doc." - ".$item->nom_doc."</option>";
-		}
-     
-    }
     public function addalmacen()
     {        
         $valor01 = $this->input->post('valor01');
@@ -57,10 +48,9 @@ class Almacen extends CI_Controller {
         $valor02 = $this->input->post('valor02');
         $valor03 = $this->input->post('valor03');
         $valor04 = $this->input->post('valor04');                
-        $valor05 = $this->input->post('valor05');                
-        $valor06 = $this->input->post('valor06');                
+        $valor05 = $this->input->post('valor05');                                      
 
-        $query = $this->Almacen_model->actualiza_almacen($valor01,$valor02,$valor03,$valor04,$valor05,$valor06);
+        $query = $this->Almacen_model->actualiza_almacen($valor01,$valor02,$valor03,$valor04,$valor05);
         echo $query[0]->mensaje; 
        //echo json_encode($query);
     }

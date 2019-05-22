@@ -33,6 +33,7 @@
    <script src="<?= base_url('public/js/tipomov.js'); ?>"></script>
    <script src="<?= base_url('public/js/tipodocs.js'); ?>"></script>
    <script src="<?= base_url('public/js/serieynum.js'); ?>"></script>
+   <script src="<?= base_url('public/js/almacen.js'); ?>"></script>
    
    
    <script>

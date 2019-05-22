@@ -136,7 +136,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Descripción </label>
                     <div class="col-sm-8">
-                      <textarea  id="udescripcion" name="udescripcion" class="form-control"></textarea>
+                      <textarea  id="desalm" name="desalm" class="form-control"></textarea>
                     </div>
                   </div>
            </div>
@@ -148,7 +148,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_almacen();" type="button" class="btn btn-primary">Agregar Unidad</button>
+        <button onclick="agregar_almacen();" type="button" class="btn btn-primary">Agregar Almacén</button>
       </div>
     </div>
   </div>
@@ -159,7 +159,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Unidad</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Almacena</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -209,7 +209,7 @@
                    <div class="form-group row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Descripción </label>
                     <div class="col-sm-8">
-                      <textarea  id="udescripcion" name="udescripcion" class="form-control"></textarea>
+                      <textarea  id="udesalm" name="udesalm" class="form-control"></textarea>
                     </div>
                   </div>
            </div>
