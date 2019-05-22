@@ -35,7 +35,7 @@ class Tipcambio extends CI_Controller {
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
-    }
+  }
     public function cargo_monebas()
 	{
       $query = $this->Tipcambio_model->select_monebas();      
