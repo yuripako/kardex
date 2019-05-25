@@ -33,7 +33,7 @@ class Articulo extends CI_Controller {
 	  $query = $this->Articulo_model->select_categorias();
 		echo"<option  value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
-			echo "<option  value='$item->id_cate'>".$item->nom_cate."</option>";
+			echo "<option  value='$item->id_cate'>".$item->descripcion."</option>";
 		}
 	}
 
