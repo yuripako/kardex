@@ -30,7 +30,7 @@ class Categorias extends CI_Controller {
 	public function load_jerarquias()
 	{
 		$query = $this->Categorias_model->load_jerarquia();
-		echo"<option>--------[ SELECCIONE  ]--------</option>";
+		echo"<option>---------[ SELECCIONE  ]---------</option>";
 		foreach ($query as $item)
 		{
 			echo "<option>".$item->descripcion."</option>";
