@@ -35,9 +35,10 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>
-                    <th>Código Iva</th>
-                    <th>Nombre Iva</th>
-                    <th>% de Iva</th>                                        
+                    <th>Código</th>
+                    <th>Nombre de Impuesto</th>
+                    <th>Porc % </th>                                        
+                    <th>Alterno</th> 
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
@@ -50,6 +51,7 @@
                      <td><?= $item->cod_iva; ?></td>
                      <td><?= $item->nom_iva; ?></td>
                      <td><?= $item->porc_iva; ?></td>                                                                                                      
+                     <td><?= $item->iva_sut; ?></td>                           
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -64,7 +66,7 @@
                      <td class="text-center">
                         <div class="btn-group">
                             <button title="ELIMINAR IMPUESTO" onclick="eliminar_impuesto('<?= $item->cod_iva ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR IMPUESTO" onclick="actualizar_impuesto('<?=$item->cod_iva ?>','<?=$item->nom_iva ?>','<?=$item->porc_iva ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarimpuesto"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="EDITAR IMPUESTO" onclick="actualizar_impuesto('<?=$item->cod_iva ?>','<?=$item->nom_iva ?>','<?=$item->porc_iva ?>','<?=$item->iva_sut ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarimpuesto"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -106,7 +108,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Serie y Número de documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Impuesto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -117,35 +119,33 @@
 
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo Documento </label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Código </label>
                 <div class="col-sm-8">                  
-                  <select class="form-control" name="tiposerdoc"  id="tiposerdoc">
-                         
-                  </select>
+                <input type="text" class="form-control" id="codiva">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Serie</label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="serieserdoc">
+                  <input type="text" class="form-control" id="nomiva">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Numeración </label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Porcentaje </label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" id="numeracionserdoc">
+                  <input type="number" class="form-control" id="poriva">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción </label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Prefijo Alterno </label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="descripcionserdoc">
+                  <input type="text" class="form-control" id="preiva">
                 </div>
               </div>
             </div>                     
@@ -158,7 +158,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_impuesto();" type="button" class="btn btn-primary">Agregar Serie y Número de documento</button>
+        <button onclick="agregar_impuesto();" type="button" class="btn btn-primary">Agregar Nuevo Impuesto</button>
       </div>
     </div>
   </div>
@@ -169,7 +169,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar  Serie y Número de documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Impuesto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -180,46 +180,42 @@
             <div class="row">
 
             <div class="col-md-6">
-              <fieldset disabled> 
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo Documento </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="utiposerdoc">
-                </div>
-              </div>
-              </fieldset>
-            </div>
-            <div class="col-md-6">
-            <fieldset disabled> 
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Serie</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="userieserdoc">
-                </div>
-              </div>
-              </fieldset>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Numeración </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="unumeracionserdoc">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Código </label>
+                <div class="col-sm-8">                  
+                <input type="text" class="form-control" id="ucodiva">
                 </div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción </label>
+                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" id="udescripcionserdoc">
+                  <input type="text" class="form-control" id="unomiva">
                 </div>
               </div>
             </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Porcentaje </label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" id="uporiva">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-8 col-form-label">Prefijo Alterno </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="upreiva">
+                </div>
+              </div>
+            </div>                                          
             <div class="col-md-6">
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-8 col-form-label">Estado </label>
                 <div class="col-sm-8">                  
-                  <select class="custom-select" id="uestadoserdoc">
+                  <select class="custom-select" id="uestadoiva">
                       <option selected>--[ seleccione estado ]--</option>
                       <option value="1">Activo </option>
                       <option value="0">Inactivo </option>  

@@ -34,9 +34,9 @@ class Impuesto extends CI_Controller {
         $valor02 = $this->input->post('valor02');
         $valor03 = $this->input->post('valor03');
         $valor04 = $this->input->post('valor04');                 
-        $valor05 = $this->input->post('valor05');                 
+                      
 
-        $query = $this->Impuesto_model->agregar_impuesto($valor01,$valor02,$valor03,$valor04,$valor05);
+        $query = $this->Impuesto_model->agregar_impuesto($valor01,$valor02,$valor03,$valor04);
         
         //echo json_encode($query);
 
@@ -48,10 +48,9 @@ class Impuesto extends CI_Controller {
         $valor02 = $this->input->post('valor02');
         $valor03 = $this->input->post('valor03');
         $valor04 = $this->input->post('valor04');                
-        $valor05 = $this->input->post('valor05');                
-        $valor06 = $this->input->post('valor06');                
+        $valor05 = $this->input->post('valor05');                                       
 
-        $query = $this->Impuesto_model->actualiza_impuesto($valor01,$valor02,$valor03,$valor04,$valor05,$valor06);
+        $query = $this->Impuesto_model->actualiza_impuesto($valor01,$valor02,$valor03,$valor04,$valor05);
         echo $query[0]->mensaje; 
        //echo json_encode($query);
     }
