@@ -189,3 +189,7 @@ function eliminar_producto(id) {
 		});
 		
 	}
+
+	function mamey(params) {
+		console.log("message ");
+	}
