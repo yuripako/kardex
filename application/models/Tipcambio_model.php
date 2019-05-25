@@ -20,7 +20,7 @@ class Tipcambio_model extends CI_Model {
     public function select_monedas()
 	{
         $opc = 5;
-        $sql = " CALL select_articulos(2); ";
+        $sql = " CALL SP_TIPCAMBIO(5); ";
 		$query =  $this->db->query($sql);
 		$res = $query->result();
 		$query->next_result();
@@ -30,7 +30,7 @@ class Tipcambio_model extends CI_Model {
     public function select_monebas()
 	{
         $opc = 6;
-        $sql = " CALL select_articulos(4);";
+        $sql = " CALL SP_TIPCAMBIO(6);";
 		$query =  $this->db->query($sql);
 		$res = $query->result();
 		$query->next_result();

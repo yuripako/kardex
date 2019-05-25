@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	cargocategoria();
 	cargounidades();
-	cargomoneda();
+	cargomoneda_art();
 });
 
 function cargocategoria() {
@@ -30,7 +30,7 @@ function cargounidades() {
 	});
 }
 
-function cargomoneda() {
+function cargomoneda_art() {
 	$.ajax({
 		type: "post",
 		url: "Articulo/cargo_monedas",

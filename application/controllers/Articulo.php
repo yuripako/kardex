@@ -53,6 +53,7 @@ class Articulo extends CI_Controller {
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
+		/* print_r($query); */
 	}
 
 	public function verificar_codigo()
