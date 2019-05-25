@@ -16,19 +16,18 @@ function cargomoneda() {
 		}
 	});
 }
+/*
 function cargomonedabase() {
 	$.ajax({
 		type: "post",
 		url: "Tipcambio/cargo_monebas",
 		data: {},
-		success: function (response) {
-            //console.log(response);
-            $("#monendabasload").html(response);
-		  /* $("#monedabas").val(response); */
+		success: function (response) {            
+            $("#monendabasload").html(response);		  
 		  $("#umoneda").html(response);
 		}
 	});
-}
+} */
 
 function isNumberKey(evt)
     {
