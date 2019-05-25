@@ -20,9 +20,7 @@
        <canvas id="myAreaChart" height="0"  style="display: none;"></canvas> 
           
       
-        <div class="alert alert-success" role="alert" id="borradocat">
-			 	  <label for="">Se Elimino la categoría correctamente!</label>
-		</div>
+       
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
@@ -88,10 +86,7 @@
           </button>
         </div>
         <div class="modal-body">
-            
-			 <div class="alert alert-success" role="alert" id="editado">
-			 	  <label for="">Se edito correctamente!</label>
-			</div>
+  
             
              <input type="hidden" id="ide" name="ide">
 
@@ -102,12 +97,15 @@
 			    </div>
 			  </div>
 
-			  <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
+			   <div class="form-group row">
+			    <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
 			    <div class="col-sm-9">
-			      <textarea id="descripcion2" class="form-control"></textarea>
+			      <!-- <textarea id="descripcion2" class="form-control"></textarea> -->
+            <select name="jerarquia" id="jerarquia"></select>
 			    </div>
 			  </div>
+
+        
 	 
 
         </div>
@@ -130,12 +128,7 @@
           </button>
         </div>
         <div class="modal-body">
-              <div class="alert alert-warning" role="alert" id="error">
-				 <label for="">No se permite valores vacio!</label>
-			   </div>
-			 <div class="alert alert-success" role="alert" id="correcto">
-			 	  <label for="">Se agregó correctamente!</label>
-			</div>
+              
 
 			  <div class="form-group row">
 			    <label for="inputPassword" class="col-sm-3 col-form-label"> categoría</label>
@@ -145,9 +138,10 @@
 			  </div>
 
 			  <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
+			    <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
 			    <div class="col-sm-9">
-			      <textarea id="descripcion" class="form-control"></textarea>
+              <select name="jerarquia1" id="jerarquia1" class="form-control"></select>
+              
 			    </div>
 			  </div>
 	 
