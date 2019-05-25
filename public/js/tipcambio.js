@@ -1,6 +1,6 @@
 $(document).ready(function () {	
-    cargomoneda();
-    cargomonedabase();
+   /*  cargomoneda(); */
+    /* cargomonedabase(); */
     
 });
 function cargomoneda() {
@@ -16,7 +16,7 @@ function cargomoneda() {
 		}
 	});
 }
-/*
+
 function cargomonedabase() {
 	$.ajax({
 		type: "post",
@@ -27,7 +27,7 @@ function cargomonedabase() {
 		  $("#umoneda").html(response);
 		}
 	});
-} */
+}
 
 function isNumberKey(evt)
     {

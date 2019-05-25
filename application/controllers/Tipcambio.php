@@ -28,15 +28,15 @@ class Tipcambio extends CI_Controller {
 	   $this->load->view('dashboard/tipcambio', $data);
     }
 
-    public function cargo_monedas()
+  /*   public function cargo_monedas()
 	{
 	  $query = $this->Tipcambio_model->select_monedas();
 		echo"<option value=''>--[ Seleecione ]--</option>";
 		foreach ($query as $item) {
 			echo "<option value='$item->cod_mone'>".$item->nom_mone."</option>";
 		}
-  }
-    public function cargo_monebas()
+  } */
+  /*   public function cargo_monebas()
 	{
       $query = $this->Tipcambio_model->select_monebas();      
      
@@ -44,7 +44,7 @@ class Tipcambio extends CI_Controller {
         echo " <input type='text' class='form-control' id='monedabas' placeholder='' value='".$item->nom_mone."'>";
       }           
 	}
-    
+     */
     public function addtipcambio()
     {
         $fechacam = $this->input->post('fechacam');
