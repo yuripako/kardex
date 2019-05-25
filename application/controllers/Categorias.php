@@ -23,7 +23,7 @@ class Categorias extends CI_Controller {
        //cargos mis categorias para el datatable.
 	   $query2 = $this->Categorias_model->load_categoria();
 	   $data['category'] = $query2;
-	   //data es un array para enviar datos ala vista
+	   //data es un array para enviar datos ala vista s
 	   $this->load->view('dashboard/categorias', $data);
 	}
    
