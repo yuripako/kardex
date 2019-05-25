@@ -27,7 +27,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdserieynums" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Tipo de impuesto</button>
+           <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdimpuesto" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Tipo de impuesto</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -35,23 +35,21 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>
-                    <th>Tipo Doc</th>
-                    <th>Serie</th>
-                    <th>Numeración</th>                    
-                    <th>Descripción</th>
+                    <th>Código Iva</th>
+                    <th>Nombre Iva</th>
+                    <th>% de Iva</th>                                        
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
   
                 <tbody >
-                <?php $cont=1; foreach ($serieynum as $item) { ?>  
+                <?php $cont=1; foreach ($impuesto as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->cod_doc; ?></td>
-                     <td><?= $item->serie; ?></td>
-                     <td><?= $item->correlativo; ?></td>                                                                                 
-                     <td><?= $item->descripcion; ?></td>                                                                                                    
+                     <td><?= $item->cod_iva; ?></td>
+                     <td><?= $item->nom_iva; ?></td>
+                     <td><?= $item->porc_iva; ?></td>                                                                                                      
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -65,8 +63,8 @@
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR SERIEYNUM" onclick="eliminar_serieynum('<?= $item->id_num ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR SERIEYNUM" onclick="actualizar_serieynum('<?= $item->id_num ?>','<?=$item->cod_doc ?>','<?=$item->serie ?>','<?=$item->correlativo ?>','<?=$item->descripcion ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarserieynums"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
+                            <button title="ELIMINAR IMPUESTO" onclick="eliminar_impuesto('<?= $item->cod_iva ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR IMPUESTO" onclick="actualizar_impuesto('<?=$item->cod_iva ?>','<?=$item->nom_iva ?>','<?=$item->porc_iva ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarimpuesto"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	
                         </div>
                     </td>
                   </tr>
@@ -104,7 +102,7 @@
   </a>
 
   <!-- Modal Agredar Tipodocs -->
-<div class="modal fade" id="modaladdserieynums" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modaladdimpuesto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -160,14 +158,14 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_serieynum();" type="button" class="btn btn-primary">Agregar Serie y Número de documento</button>
+        <button onclick="agregar_impuesto();" type="button" class="btn btn-primary">Agregar Serie y Número de documento</button>
       </div>
     </div>
   </div>
 </div>
 
   <!-- Modal Editar Tipodocs -->
-  <div class="modal fade" id="modaleditarserieynums" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modaleditarimpuesto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -229,7 +227,7 @@
                 </div>
               </div>
             </div>      
-          <input type="hidden" id="uidserieynum" name="ide">
+          <input type="hidden" id="uidimpuesto" name="ide">
           <small id="passwordHelpBlock" class="form-text text-muted">
             ( * ) Dato necesario
           </small>                                                        
@@ -237,7 +235,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick = "updateserieynum();" type="button" class="btn btn-primary">Guardar cambios</button>
+        <button onclick = "updateimpuesto();" type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
