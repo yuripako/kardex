@@ -19,6 +19,9 @@ class Categorias_model extends CI_Model {
 		return $query->result();
 	}
 
-  //cambio
+   public function agregar_categoria()
+   {
+	$query = $this->db->query(" CALL SP_CATEGORIAS( 1 ,'','',NULL,'',@response_spcat);");
+   }
 }
 

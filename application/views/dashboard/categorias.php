@@ -129,22 +129,22 @@
         </div>
         <div class="modal-body">
               
+        <form id="form_jerarquia">
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label"> categoría</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="categoria" name="categoria" >
+              </div>
+            </div>
 
-			  <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label"> categoría</label>
-			    <div class="col-sm-9">
-			      <input type="text" class="form-control" id="categoria" placeholder="">
-			    </div>
-			  </div>
-
-			  <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
-			    <div class="col-sm-9">
-              <select name="jerarquia1" id="jerarquia1" class="form-control"></select>
-              
-			    </div>
-			  </div>
-	 
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
+              <div class="col-sm-9">
+                  <select name="jerarquia1" id="jerarquia1" class="form-control"></select>
+                  
+              </div>
+            </div>
+	      </form>
 
         </div>
         <div class="modal-footer">

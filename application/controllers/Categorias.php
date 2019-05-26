@@ -33,11 +33,24 @@ class Categorias extends CI_Controller {
 		echo"<option>---------[ SELECCIONE  ]---------</option>";
 		foreach ($query as $item)
 		{
-			echo "<option>".$item->descripcion."</option>";
+			echo "<option value='".$item->id_cate."'>".$item->descripcion."</option>";
 		}
 
 	}
- 
+  
+	public function add_categoria()
+	{
+	  $categoria = $this->input->post('categoria');
+	  $jerarquia1 = $this->input->post('jerarquia1');
+	  if ($categoria=="" && $jerarquia1=="") 
+	  {
+		  echo "Seleccione datos";
+	  }else
+	  {
+		$query = $this->Categorias_model->agregar_categoria();
+	  }
+	 
+	}
 
 
    
