@@ -47,7 +47,8 @@ class Categorias extends CI_Controller {
 		  echo "Seleccione datos";
 	  }else
 	  {
-		$query = $this->Categorias_model->agregar_categoria();
+			$query = $this->Categorias_model->agregar_categoria($categoria,$jerarquia1);
+			echo $query[0]->response_spcat;
 	  }
 	 
 	}

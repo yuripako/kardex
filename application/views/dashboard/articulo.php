@@ -49,7 +49,7 @@
                     <td><?= $item->cod_item  ?></td>
                     <td><?= $item->nom_item  ?></td>
                     <td><?= $item->nom_mone  ?></td>
-                    <td><?= $item->nom_cate  ?></td>
+                    <td><?= $item->descripcion  ?></td>
                     <td>
                       <?php 
                       if ($item->estado == '0') { echo "<span class='badge badge-danger'>Inactivo</span>";} 

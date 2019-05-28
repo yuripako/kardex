@@ -33,8 +33,8 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
+                    
+                    <th>Categoría</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
@@ -43,12 +43,12 @@
                 <?php $cont=1; foreach ($category as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->nom_cate ?></td>
+                     
                      <td><?= $item->descripcion ?></td>
                      <td class="text-center">
                         <div class="btn-group">
                         	<button onclick="eliminar_cat(<?= $item->id_cate ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i> Eliminar</button>
-                        	<button onclick=" editar_cat(<?= $item->id_cate ?>,'<?= $item->nom_cate ?>','<?= $item->descripcion ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button>
+                        	<button onclick=" editar_cat(<?= $item->id_cate ?>,'<?= $item->descripcion ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button>
                         	
                         </div>
                     </td>

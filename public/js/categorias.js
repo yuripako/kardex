@@ -25,7 +25,8 @@ function agregar_categoria() {
 		data: form,
 		
 		success: function (response) {
-		alert(response);	
+			alert(response);	
+		 window.location.href='Categorias';
 		}
 	});
 }
