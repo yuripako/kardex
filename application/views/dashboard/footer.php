@@ -35,8 +35,7 @@
    <script src="<?= base_url('public/js/serieynum.js'); ?>"></script>
    <script src="<?= base_url('public/js/almacen.js'); ?>"></script>
    <script src="<?= base_url('public/js/impuesto.js'); ?>"></script>
-   
-   
+   <script src="<?= base_url('public/js/roles.js'); ?>"></script>
    <script>
 
       $(document).ready(function () {
