@@ -25,16 +25,17 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal" data-target="#logoutModal2" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar categoría</button>
+           <button data-toggle="modal" data-target="#logoutModal2" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Familias</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
               <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
-                    <th>N°ro</th>
-                    
-                    <th>Categoría</th>
+                    <th>N°ro</th>                    
+                    <th>Familia</th>
+                    <th>Subfamilia</th>
+                    <th>Estado</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
@@ -43,12 +44,22 @@
                 <?php $cont=1; foreach ($category as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     
+                     <td></td>
                      <td><?= $item->descripcion ?></td>
+                     <td>
+                         <?php
+                         if ($item->estado == '1') {
+                           echo "<span class='badge badge-success'>Activo</span>";
+                         }
+                         if ($item->estado == '0') {
+                            echo "<span class='badge badge-danger'>Inactivo</span>";
+                          }                         
+                         ?>                        
+                    </td>
                      <td class="text-center">
                         <div class="btn-group">
-                        	<button onclick="eliminar_cat(<?= $item->id_cate ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i> Eliminar</button>
-                        	<button onclick=" editar_cat(<?= $item->id_cate ?>,'<?= $item->descripcion ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button>
+                        	<button onclick="eliminar_cat(<?= $item->id_cate ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
+                        	<button onclick=" editar_cat(<?= $item->id_cate ?>,'<?= $item->descripcion ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                         	
                         </div>
                     </td>
