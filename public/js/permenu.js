@@ -13,3 +13,7 @@ function cargar_sumodulo(idrol) {
         }
     });
 }
+
+function permiso_mo() {
+    alert("hola mundo");
+}

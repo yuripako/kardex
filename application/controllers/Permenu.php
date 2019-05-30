@@ -41,7 +41,7 @@ class Permenu extends CI_Controller {
          
        echo"<li class='list-group-item d-flex justify-content-between align-items-center'>";
        echo $item->modulo;
-       echo"  <button type='button'class='btn btn-primary btn-sm'>Activado</button>";
+       echo"  <button type='button'class='btn btn-primary btn-sm' onclick='permiso_mo();'>Activado</button>";
        echo"</li>";
         
      }
