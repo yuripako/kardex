@@ -25,7 +25,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Roles</button>
+           <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Familias</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -33,18 +33,21 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>                    
-                    <th>Roles</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Perfil</th>
                     <th>Estado</th>
                     <th>Opciones</th>
                   </tr>
                 </thead>
   
                 <tbody >
-                <?php $cont=1; foreach ($roles as $item) { ?>  
+                <?php $cont=1; foreach ($permenus as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->nom_rol ?></td>
-                   
+                     <td><?= $item->datos ?></td>
+                     <td><?= $item->rol ?></td>
+                     <td><?= $item->perfil ?></td>
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -57,11 +60,8 @@
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                        	<button onclick="Eliminar_rol(<?= $item->id_rol ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
-                            <button onclick="editar_rol(
-                                <?= $item->id_rol ?>,'<?= $item->nom_rol ?>','<?= $item->estado ?>'
-                            
-                            );"  data-toggle="modal" data-target="#editroles"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
+                        	<button onclick="Eliminar_rol();" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
+                            <button onclick="editar_rol();"  data-toggle="modal" data-target="#editroles"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                         	
                         </div>
                     </td>
