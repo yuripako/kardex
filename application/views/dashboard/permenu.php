@@ -38,7 +38,7 @@
                     <th>Perfil</th>
                     <th>Estado</th>
               
-                    <th>Permisos</th>
+                    <th>Permisos Módulos</th>
                   </tr>
                 </thead>
   
