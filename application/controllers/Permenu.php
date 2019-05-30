@@ -27,7 +27,26 @@ class Permenu extends CI_Controller {
 	   $this->load->view('dashboard/permenu', $data);
 	}
    
+  public function load_permiso_rol()
+  {
+    $idrol = $this->input->post('idrol');
+    $query = $this->Permenu_model->load_permiso_rol($idrol);
 
+    echo"<ul class='list-group'>";
+    echo"<li class='list-group-item d-flex justify-content-between align-items-center active'>";
+    echo"Modulos Activos";
+    echo"        <small class='text'>ACTIVAR / DESACTIVAR</small>    ";
+    echo"</li>";
+     foreach ($query as $item) {
+         
+       echo"<li class='list-group-item d-flex justify-content-between align-items-center'>";
+       echo $item->modulo;
+       echo"  <button type='button'class='btn btn-primary btn-sm'>Activado</button>";
+       echo"</li>";
+        
+     }
+    echo"</ul>";
+  }
   
 
    

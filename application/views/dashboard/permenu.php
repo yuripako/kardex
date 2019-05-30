@@ -12,7 +12,7 @@
           <li class="breadcrumb-item">
             <a href="#">Principal</a>
           </li>
-          <li class="breadcrumb-item active">Roles</li>
+          <li class="breadcrumb-item active">Permiso Módulo</li>
         </ol>
 
   
@@ -25,7 +25,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Familias</button>
+           <!-- <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Familias</button> -->
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -37,7 +37,8 @@
                     <th>Rol</th>
                     <th>Perfil</th>
                     <th>Estado</th>
-                    <th>Opciones</th>
+              
+                    <th>Permisos</th>
                   </tr>
                 </thead>
   
@@ -58,12 +59,10 @@
                           }                         
                          ?>                        
                     </td>
+          
                      <td class="text-center">
-                        <div class="btn-group">
-                        	<button onclick="Eliminar_rol();" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
-                            <button onclick="editar_rol();"  data-toggle="modal" data-target="#editroles"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
-                        	
-                        </div>
+                     <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-warning btn-sm"> 
+                        <i class=" fas fa-eye "></i> Dar permisos</button><br>
                     </td>
                   </tr>
                 <?php } ?>
@@ -87,79 +86,27 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-<!--  Modal para editar ROLES-->
-<div class="modal fade" id="editroles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar rol</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-              
-        <form id="form_editroles">
-           <input type="hidden" id="ridrol" name="ridrol">
-            <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label"> Nombre Rol</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="rrol" name="rrol"  >
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label"> Estado Rol</label>
-              <div class="col-sm-9">
-                <select class="form-control" name="restado" id="restado">
-                  <option value="1">Activo</option>
-                  <option value="0">Inactivo</option>
-                </select>
-              </div>
-            </div>
-
-	      </form>
-
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a  class="btn btn-primary" href="#" onclick="update_rol();">Actualizar categoría</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
 
 
 
   <!--  Modal para añadir ROLES-->
-  <div class="modal fade" id="modalroles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modulosper" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo rol</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Modulos Asignados</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
               
-        <form id="form_roles">
-            <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label"> Nombre Rol</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="rol" name="rol"  >
-              </div>
-            </div>
-
-	      </form>
+        <div class="lista"></div> 
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a  class="btn btn-primary" href="#" onclick="agregar_rol();">Agregar categoría</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+        
         </div>
       </div>
     </div>
