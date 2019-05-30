@@ -17,9 +17,9 @@
        <canvas id="myAreaChart" height="0"  style="display: none;"></canvas> 
           
       
-        <div class="alert alert-success" role="alert" id="borradocat">
+        <!-- <div class="alert alert-success" role="alert" id="borradocat">
 			 	  <label for="">Se Elimino el vendedor correctamente!</label>
-		</div>
+		</div> -->
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">

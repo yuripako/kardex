@@ -20,9 +20,9 @@
         </nav> -->
         <!-- Area Chart Example ponle asi para que no joda ya que depende del chart asi que mejor dejalo asi-->
         <canvas id="myAreaChart" height="0"  style="display: none;"></canvas>
-        <div class="alert alert-success" role="alert" id="borradocat">
+        <!-- <div class="alert alert-success" role="alert" id="borradocat">
 			 	  <label for="">Se Elimino el Tipo de documento </label>
-		    </div>
+		    </div> -->
         <div class="tab-content" id="nav-tabContent">
           <!-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">... -->
               <!-- DataTables Example -->
