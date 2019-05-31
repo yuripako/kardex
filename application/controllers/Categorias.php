@@ -30,25 +30,35 @@ class Categorias extends CI_Controller {
 	public function load_jerarquias()
 	{
 		$query = $this->Categorias_model->load_jerarquia();
-		echo"<option>---------[ SELECCIONE  ]---------</option>";
+		echo"<option>------[ SELECCIONE  ]------</option>";
 		foreach ($query as $item)
 		{
-			echo "<option value='".$item->id_cate."'>".$item->descripcion."</option>";
+			echo "<option value='".$item->id_fam."'>".$item->nom_fam."</option>";
 		}
 
 	}
   
 	public function add_categoria()
 	{
-	  $categoria = $this->input->post('categoria');
+		$categoria = $this->input->post('categoria');
+		$tipofam = $this->input->post('tipofam');		
 	  $jerarquia1 = $this->input->post('jerarquia1');
 	  if ($categoria=="" && $jerarquia1=="") 
 	  {
 		  echo "Seleccione datos";
 	  }else
 	  {
-			$query = $this->Categorias_model->agregar_categoria($categoria,$jerarquia1);
-			echo $query[0]->response_spcat;
+			if ($tipofam == '0')
+			 {
+				$query = $this->Categorias_model->agregar_categoria2($categoria);
+				echo $query[0]->mensaje;
+			}
+			if ($tipofam == '1')
+			{
+				$query = $this->Categorias_model->agregar_categoria($jerarquia1,$categoria);
+				echo $query[0]->mensaje;
+			}
+			
 	  }
 	 
 	}

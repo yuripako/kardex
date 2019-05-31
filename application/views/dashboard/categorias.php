@@ -12,7 +12,7 @@
           <li class="breadcrumb-item">
             <a href="#">Principal</a>
           </li>
-          <li class="breadcrumb-item active">categoría</li>
+          <li class="breadcrumb-item active">Categoría</li>
         </ol>
 
   
@@ -44,14 +44,14 @@
                 <?php $cont=1; foreach ($category as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td></td>
+                     <td><?= $item->nom_fam ?></td>
                      <td><?= $item->descripcion ?></td>
                      <td>
                          <?php
-                         if ($item->estado == '1') {
+                         if ($item->estadosubfam == '1') {
                            echo "<span class='badge badge-success'>Activo</span>";
                          }
-                         if ($item->estado == '0') {
+                         if ($item->estadosubfam == '0') {
                             echo "<span class='badge badge-danger'>Inactivo</span>";
                           }                         
                          ?>                        
@@ -133,7 +133,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Agregar nueva categoría</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Agregar Nueva Familia de productos</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -142,14 +142,24 @@
               
         <form id="form_jerarquia">
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label"> categoría</label>
+              <label for="inputPassword" class="col-sm-3 col-form-label">descripción</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="categoria" name="categoria" >
               </div>
             </div>
+            <div class="form-group row">
+              <label for="inputPassword" class="col-sm-3 col-form-label">Tipo</label>
+              <div class="col-sm-9">                  
+                  <select class="custom-select" name="tipofam" id="tipofam">
+                      <option selected>--[ seleccione estado ]--</option>
+                      <option value="0">Familia</option>
+                      <option selected value="1">SubFamilia</option>  
+                  </select>
+              </div>
+            </div>
 
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
+              <label for="inputPassword" class="col-sm-3 col-form-label">Familia</label>
               <div class="col-sm-9">
                   <select name="jerarquia1" id="jerarquia1" class="form-control"></select>
                   
@@ -160,7 +170,7 @@
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a  class="btn btn-primary" href="#" onclick="agregar_categoria();">Agregar categoría</a>
+          <a  class="btn btn-primary" href="#" onclick="agregar_categoria();">Agregar Familia</a>
         </div>
       </div>
     </div>
