@@ -40,14 +40,14 @@ public function agregar_categoria2 ($valor01)
 public function actualiza_categoria($valor01,$valor02,$valor03,$valor04,$valor05)
 {
 	 $opc = 10;          //actualzia Subfamilia
-	 $query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','',@response_spcat) ");           
+	 $query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','".$valor02."','".$valor03."','".$valor01."','".$valor05."',@response_spcat) ");           
 	 $query = $this->db->query("Select @response_spcat  as mensaje;"); 
 	 return $query->result();
 }
 public function actualiza_categoria2($valor01,$valor02,$valor03,$valor04,$valor05)
 {
 	$opc = 11;        	//actualia la familia
-	$query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','',@response_spcat) ");           
+	$query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','".$valor02."','".$valor03."','','".$valor05."',@response_spcat) ");           
 	$query = $this->db->query("Select @response_spcat  as mensaje;"); 
 	return $query->result();
 }
@@ -55,8 +55,8 @@ public function actualiza_categoria2($valor01,$valor02,$valor03,$valor04,$valor0
 
 public function borrar_categoria($cod)
 {
-	 $opc = 4;
-	 $query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','".$cod."','','','','','',@response_spcat) ");
+	 $opc = 12;
+	 $query = $this->db->query(" CALL SP_CATEGORIAS('".$opc."','','','".$cod."','',@response_spcat) ");
 	 $query = $this->db->query("Select @response_spcat  as mensaje;"); 
 	 return $query->result();
 }

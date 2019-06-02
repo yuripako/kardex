@@ -42,7 +42,7 @@ class Categorias extends CI_Controller {
 	{
 		$categoria = $this->input->post('categoria');
 		$tipofam = $this->input->post('tipofam');		
-	  $jerarquia1 = $this->input->post('jerarquia1');
+		$jerarquia1 = $this->input->post('jerarquia1');		
 	  if ($categoria=="" && $jerarquia1=="") 
 	  {
 		  echo "Seleccione datos";
@@ -62,6 +62,41 @@ class Categorias extends CI_Controller {
 	  }
 	 
 	}
+	public function updcategoria()
+    {
+        $valor01 = $this->input->post('valor01');
+        $valor02 = $this->input->post('valor02');
+        $valor03 = $this->input->post('valor03');
+        $valor04 = $this->input->post('valor04');                
+				$valor05 = $this->input->post('valor05');                
+				$tipofam = $this->input->post('indica');                
+
+				if ($tipofam == '0')
+				{
+					$query = $this->Categorias_model->actualiza_categoria2($valor01,$valor02,$valor03,$valor04,$valor05);
+					echo $query[0]->mensaje; 
+					//echo json_encode($query);					
+				}
+				if ($tipofam == '1')
+				{
+					$query = $this->Categorias_model->actualiza_categoria($valor01,$valor02,$valor03,$valor04,$valor05);
+					echo $query[0]->mensaje; 
+					//echo json_encode($query);
+				}
+
+        
+    }
+    public function eliminar_categoria(){
+				$cod = $this->input->post('cod');   
+				$cod2 = $this->input->post('cod2');   
+        $query = $this->Categorias_model->borrar_categoria($cod,$cod2);
+        echo $query[0]->mensaje; 
+       //echo json_encode($query);
+
+    }
+	
+
+
 
 
    
