@@ -69,8 +69,8 @@
                     </td>
                      <td class="text-center">
                         <div class="btn-group">
-                            <button title="ELIMINAR PROVEEDOR" onclick="eliminar_proveedor('<?= $item->cod_doc ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR PROVEEDOR" onclick="actualizar_proveedor('<?= $item->cod_doc ?>','<?=$item->nom_doc ?>','<?=$item->tip_doc ?>','<?=$item->tip_mov ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarproveedor"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	                            
+                            <button title="ELIMINAR PROVEEDOR" onclick="eliminar_proveedor('<?= $item->id_proveedor ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
+                            <button title="EDITAR PROVEEDOR" onclick="actualizar_proveedor('<?= $item->id_proveedor ?>','<?=$item->nom_emp ?>','<?=$item->tip_doc ?>','<?=$item->ruc_nif ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarproveedor"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	                            
                         </div>
                     </td>
                   </tr>
