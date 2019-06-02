@@ -38,7 +38,8 @@
                     <th>Perfil</th>
                     <th>Estado</th>
               
-                    <th>Permisos Módulos</th>
+                    <th> Módulos Asignados</th>
+                    <th> Módulos Permiso</th>
                   </tr>
                 </thead>
   
@@ -62,6 +63,10 @@
           
                      <td class="text-center">
                      <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-warning btn-sm"> 
+                        <i class=" fas fa-eye "></i> Ver Asignados</button><br>
+                    </td>
+                    <td class="text-center">
+                     <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-primary btn-sm"> 
                         <i class=" fas fa-eye "></i> Dar permisos</button><br>
                     </td>
                   </tr>
