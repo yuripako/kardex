@@ -6,35 +6,40 @@ class Usuario_model extends CI_Model {
 
     
     public function load_usuario()
-    {     //Select
-        /* $query =  $this->db->query(" CALL LOADUSUARIOS()");		 */
+    {    
+        
         $opc = 1;
-        $query =  $this->db->query(" CALL SP_USUARIOS('".$opc."','','','','','','','','','')");
+        $query =  $this->db->query(" CALL SP_USUARIO(1,NULL,@response_spusuario); ");
         $res = $query->result();        
         $query->next_result();
         $query->free_result();
         return $res;
     }
         
-    public function load_roles()
-    {     //Select
-        /* $query =  $this->db->query(" CALL LOADUSUARIOS()");		 */
-        $opc = 4;
-        $query =  $this->db->query(" CALL SP_USUARIOS('".$opc."','','','','','','','','','')");
+    public function load_usuario_role()
+    {     
+        $query =  $this->db->query("  CALL SP_LOSROLES(1); ");
         $res = $query->result();        
         $query->next_result();
         $query->free_result();
         return $res;
     }
-/*
-    public function insert_usuarios($user){   //Insert, update, delete
-        $query = $this->db->query("CALL INSERTUSUARIO('".$user."') ");
 
+    public function load_usuario_perfil()
+    {     
+        $query =  $this->db->query("  CALL SP_LOSROLES(2); ");
+        $res = $query->result();        
+        $query->next_result();
+        $query->free_result();
+        return $res;
     }
-  */
-  public function insert_neousuario($nombre, $apellido, $documento, $correo, $usuario, $passwd, $perfil)
+
+
+  public function insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$selrol,$selper )
   {
-    $query = $this->db->query("CALL ADDUSUARIO('".$nombre."','".$apellido."','".$documento."','".$correo."','".$usuario."','".$passwd."','".$perfil."') ");
+    $query = $this->db->query("  ");
+    $query = $this->db->query("  "); 
+    return $query->result();
   }
 
   public function editar_model_usuario($username, $nombre, $apellido, $documento, $correo, $perfil)

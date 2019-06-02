@@ -33,16 +33,28 @@ class Usuario extends CI_Controller {
 	   $this->load->view('dashboard/usuario', $data);
     }
 
-    public function loadroles()
+    public function load_usuario_roles()
 	{
-        $query = $this->Usuario_model->load_roles(); 
+        $query = $this->Usuario_model->load_usuario_role(); 
         echo"<option>-----[ Seleccione ]-----</option>";
         foreach ($query as $item) 
         {
-            echo"<option value='".$item->cod_rol."'>".$item->nom_rol."</option>";
+            echo"<option value='".$item->id_rol."'>".$item->nom_rol."</option>";
         }
     }
     
+    public function load_usuario_perfils()
+	{
+        $query = $this->Usuario_model->load_usuario_perfil(); 
+        echo"<option>-----[ Seleccione ]-----</option>";
+        foreach ($query as $item) 
+        {
+            echo"<option value='".$item->id_tipo."'>".$item->nom_tipo."</option>";
+        }
+    }
+
+
+
    public function insertprobando(){
        $cod = $this->input->post('cod');
        $tipo = $this->input->post('tipo');
@@ -59,14 +71,19 @@ class Usuario extends CI_Controller {
         $correo = $this->input->post('correo');
         $usuario = $this->input->post('usuario');
         $passwd = $this->input->post('passwd');
-        $perfil = $this->input->post('selrol');
-               
-       if ($nombre =="" || $usuario =="") {
-           echo json_encode(1);
-       }else {
-           $query = $this->Usuario_model->insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$perfil);
-           echo json_encode(2);
-       }
+        $selrol = $this->input->post('selrol');
+        $selper = $this->input->post('selper');
+        echo json_encode($selrol);
+        if ($nombre =="" || $apellido =="" || $documento =="" || $correo =="" || $usuario =="" || $passwd =="" 
+        || $selrol =="" || $selper =="") 
+        {
+              echo "Se requiere llenar el formulario.";
+        }else 
+        {
+          $query = $this->Usuario_model->insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$selrol,
+          $selper );
+          echo $query[0]->response_spusuario;
+        }
        
    }
    public function editar_usuario()

@@ -19,9 +19,7 @@
     <canvas id="myAreaChart" height="0" style="display: none;"></canvas>
 
 
-    <div class="alert alert-success" role="alert" id="borradocat">
-      <label for="">Se Elimino usuario correctamente!</label>
-    </div>
+
     <!-- DataTables Example -->
     <div class="card mb-3">
       <div class="card-header " style=" background-color: #00a65a;">
@@ -48,7 +46,7 @@
                 <tr>
                   <td><?= $cont++; ?></td>
                   <td><?= $item->username ?></td>
-                  <td><?= $item->nombre . ' ' . $item->apellido ?></td>
+                  <td><?= $item->nombre ?> <?= $item->Apellido ?></td>
                   <td><?= $item->email ?></td>
                   <td><?= $item->nom_tipo ?></td>
                   <td>
@@ -65,7 +63,11 @@
                     <div class="btn-group">
                       <button title="ELIMINAR PRODUCTO" class="btn btn-danger"> <i class="fas fa-trash "></i></button>
                       <!-- <button data-toggle="modal" data-target="#logoutModal3" class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button> -->
-                      <button title="EDITAR PRODUCTO" onclick=" edit_usuario(<?= $item->id_user ?>,'<?= $item->username ?>','<?= $item->nombre ?>','<?= $item->apellido ?>','<?= $item->email ?>','<?= $item->dni_nif?>','<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
+                      <button title="EDITAR PRODUCTO" onclick=" edit_usuario(
+                        <?= $item->id_user ?>,'<?= $item->username ?>',
+                        '<?= $item->nombre ?>','<?= $item->Apellido ?>',
+                        '<?= $item->email ?>','<?= $item->dni_nif?>',
+                        '<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                     </div>
                   </td>
                 </tr>
@@ -192,13 +194,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <div class="alert alert-warning" role="alert" id="error">
-            <label for="">No se permite valores vacio!</label>
-          </div>
-          <div class="alert alert-success" role="alert" id="correcto">
-            <label for="">Se agregó correctamente!</label>
-          </div>
-
+          
           <div class="row">
 
             <div class="col-md-6">
@@ -264,7 +260,7 @@
               <div class="form-group row">
                 <label for="inputPassword" class="col-sm-3 col-form-label">Perfil </label>
                 <div class="col-sm-8">
-                  <select class="custom-select" id="idperfil" name="idperfil">
+                  <select class="custom-select" id="inputGroupSelect03" name="inputGroupSelect03">
                     
                   </select>
                 </div>
@@ -275,7 +271,9 @@
           </div>
 
           <small id="passwordHelpBlock" class="form-text text-muted">
-            ( * ) Dato necesario
+          &nbsp;&nbsp;( * ) Dato necesario. <br>
+          &nbsp;&nbsp; OBS. <span style="    font-weight: bold;"> Rol :  Superadmin </span> y <span style="   
+           font-weight: bold;">Perfil : admin </span>para usuario definitivo con todo los permisos de  Administrador.
           </small>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

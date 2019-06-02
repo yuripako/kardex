@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    carga_roles();
+    carga_roles_roll();
+    carga_roles_perfill();
 });
 
 function usuario(tipo, cod) {
@@ -27,10 +28,10 @@ function usuario(tipo, cod) {
 
 }
 
-function carga_roles() {
+function carga_roles_roll() {
     $.ajax({
         type: "post",
-        url: "Usuario/loadroles",
+        url: "Usuario/load_usuario_roles",
         data: {},
         success: function (response) {
            
@@ -38,6 +39,20 @@ function carga_roles() {
         }
     });
 }
+
+
+function carga_roles_perfill() {
+    $.ajax({
+        type: "post",
+        url: "Usuario/load_usuario_perfils",
+        data: {},
+        success: function (response) {
+           
+               $("#inputGroupSelect03").html(response);
+        }
+    });
+}
+
 
 function agregar_usuario() {
 	var nombre   = $("#nombre").val();
@@ -47,6 +62,7 @@ function agregar_usuario() {
     var usuario = $("#usuario").val();
     var passwd = $("#passwd").val();
     var selrol = $("#inputGroupSelect02").val();
+    var selper = $("#inputGroupSelect03").val();
 	$.ajax({
 		url: "Usuario/add_usuario",
 		type: "post",
@@ -57,29 +73,13 @@ function agregar_usuario() {
             correo : correo,
             usuario : usuario,
             passwd : passwd,
-            selrol : selrol		  
+            selrol : selrol	,
+            selper : selper  
 		},
-		success: function (datos) {
-			//console.log(datos);
-		    switch (JSON.parse(datos)) {
-               
-                  case 1:
-                   $("#error").show();
-                     window.setTimeout(function(){ 
-						    $("#error").hide();
-						} ,3000);
-                    break; 
-                  case 2:
-                    $("#correcto").show();
-                    window.setTimeout(function(){ 
-					   window.location.href='Usuario';
-					} ,3000);
-                    
-                    break; 
-                  default: 
-                   alert("ERROR EN EL SISTEMA");
-                }
-           
+		success: function (response) {
+			console.log(response);
+		//    alert(response);
+        //    window.location.href = "Usuario";
 		}
 	});
 
