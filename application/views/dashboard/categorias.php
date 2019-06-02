@@ -56,11 +56,11 @@
                           }                         
                          ?>                        
                     </td>
+                    
                      <td class="text-center">
                         <div class="btn-group">
-                        	<button onclick="eliminar_cat(<?= $item->id_cate ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
-                        	<button onclick=" editar_cat(<?= $item->id_cate ?>,'<?= $item->descripcion ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
-                        	
+                        	<button onclick="eliminar_cat(<?= $item->id_cate ?>,<?= $item->id_fam ?>);" class="btn btn-danger" > <i class="fas fa-trash "></i></button>
+                        	<button onclick="editar_cat(<?= $item->id_cate ?>,<?= $item->id_fam ?>,'<?= $item->nom_fam ?>','<?= $item->descripcion ?>','<?= $item->jerarquia ?>','<?= $item->estadosubfam ?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                        	
                         </div>
                     </td>
                   </tr>
@@ -97,28 +97,46 @@
           </button>
         </div>
         <div class="modal-body">
-  
             
-             <input type="hidden" id="ide" name="ide">
+             <input type="hidden" id="uidecat" name="uidecat">
+             <input type="hidden" id="uidefam" name="uidefam">
+             <!-- <form id="form_jerarquia"> -->
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="ucategoria" name="ucategoria" >
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Tipo</label>
+                  <div class="col-sm-9">                  
+                      <select class="custom-select disable" name="utipofam" id="utipofam">
+                          <option selected>--[ seleccione estado ]--</option>
+                          <option value="0">Familia</option>
+                          <option selected value="1">SubFamilia</option>  
+                      </select>
+                  </div>
+                </div>
 
-			  <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label"> categoría</label>
-			    <div class="col-sm-9">
-			      <input type="text" class="form-control" id="categoria2" placeholder="">
-			    </div>
-			  </div>
-
-			   <div class="form-group row">
-			    <label for="inputPassword" class="col-sm-3 col-form-label">Jerarquía</label>
-			    <div class="col-sm-9">
-			      <!-- <textarea id="descripcion2" class="form-control"></textarea> -->
-            <select name="jerarquia" id="jerarquia"></select>
-			    </div>
-			  </div>
-
-        
-	 
-
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-3 col-form-label">Familia</label>
+                  <div class="col-sm-9">
+                      <select name="ujerarquia1" id="ujerarquia1" class="form-control"></select>
+                      
+                  </div>
+                </div>                
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
+                    <div class="col-sm-9">
+                      <select class="custom-select" id="uestadocat">
+                          <option selected>--[ seleccione estado ]--</option>
+                          <option value="1">Activo</option>
+                          <option value="0">Inactivo</option>                        
+                      </select>
+                    </div>
+                  </div>                
+            <!-- </form> -->
+        	 
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
@@ -142,7 +160,7 @@
               
         <form id="form_jerarquia">
             <div class="form-group row">
-              <label for="inputPassword" class="col-sm-3 col-form-label">descripción</label>
+              <label for="inputPassword" class="col-sm-3 col-form-label">Descripción</label>
               <div class="col-sm-9">
                 <input type="text" class="form-control" id="categoria" name="categoria" >
               </div>
@@ -157,7 +175,6 @@
                   </select>
               </div>
             </div>
-
             <div class="form-group row">
               <label for="inputPassword" class="col-sm-3 col-form-label">Familia</label>
               <div class="col-sm-9">
