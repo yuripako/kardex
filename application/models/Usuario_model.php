@@ -43,6 +43,17 @@ class Usuario_model extends CI_Model {
     return $query->result();
   }
 
+
+ public function delete_usuario($iduser)
+ {
+    $query = $this->db->query(" CALL SP_USUARIO(3,'".$iduser."','','','','','','',NULL,NULL,@response_spusuario);  ");
+    $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
+    return $query->result();
+ }
+
+
+
+
   public function editar_model_usuario($username, $nombre, $apellido, $documento, $correo, $perfil)
 	{
 		//$sql = " UPDATE categoria SET nom_cate='".$categoria2."', descripcion='".$descripcion2."'  WHERE id_cate= '".$ide."'  ";

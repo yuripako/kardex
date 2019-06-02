@@ -55,14 +55,6 @@ class Usuario extends CI_Controller {
 
 
 
-   public function insertprobando(){
-       $cod = $this->input->post('cod');
-       $tipo = $this->input->post('tipo');
-       $query = $this->Usuario_model->insert_neousuario($cod,$tipo);
-       
-        echo json_encode (1);
-
-   }
    public function add_usuario()
    {
         $nombre = $this->input->post('nombre');
@@ -73,7 +65,7 @@ class Usuario extends CI_Controller {
         $passwd = $this->input->post('passwd');
         $selrol = $this->input->post('selrol');
         $selper = $this->input->post('selper');
-        echo json_encode($selrol);
+        
         if ($nombre =="" || $apellido =="" || $documento =="" || $correo =="" || $usuario =="" || $passwd =="" 
         || $selrol =="" || $selper =="") 
         {
@@ -86,6 +78,16 @@ class Usuario extends CI_Controller {
         }
        
    }
+
+  public function delete_usuarios()
+  {
+    $iduser = $this->input->post('iduser');
+    $query = $this->Usuario_model->delete_usuario($iduser);
+    echo $query[0]->response_spusuario;
+  }
+
+
+
    public function editar_usuario()
     {
         $username = $this->input->post('username');        

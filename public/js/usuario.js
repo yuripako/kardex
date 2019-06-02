@@ -77,13 +77,30 @@ function agregar_usuario() {
             selper : selper  
 		},
 		success: function (response) {
-			console.log(response);
-		//    alert(response);
-        //    window.location.href = "Usuario";
+      //console.log(response);
+		 alert(response);
+          window.location.href = "Usuario";
 		}
 	});
 
 }
+
+function delete_usuario(iduser) {
+   $.ajax({
+       type: "post",
+       url: "Usuario/delete_usuarios",
+       data: {
+        iduser:iduser
+       },
+       success: function (response) {
+        alert(response);
+        window.location.href = "Usuario";
+       }
+   });
+}
+
+
+
 
 function edit_usuario(id_user, username, nombre,apellido,correo,dni,rol) {
     $("#editnombre").val(nombre);

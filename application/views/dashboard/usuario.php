@@ -61,7 +61,7 @@
                   </td>                  
                   <td class="text-center">
                     <div class="btn-group">
-                      <button title="ELIMINAR PRODUCTO" class="btn btn-danger"> <i class="fas fa-trash "></i></button>
+                      <button title="ELIMINAR PRODUCTO" onclick="delete_usuario(<?= $item->id_user ?>);"; class="btn btn-danger"> <i class="fas fa-trash "></i></button>
                       <!-- <button data-toggle="modal" data-target="#logoutModal3" class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button> -->
                       <button title="EDITAR PRODUCTO" onclick=" edit_usuario(
                         <?= $item->id_user ?>,'<?= $item->username ?>',
