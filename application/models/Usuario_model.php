@@ -38,7 +38,7 @@ class Usuario_model extends CI_Model {
   public function insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$selrol,$selper )
   {
     $query = $this->db->query("  CALL SP_USUARIO(2,NULL,'".$nombre."','".$apellido."','".$documento."','".$correo."',
-    '".$usuario."','".$passwd."','".$selper."','".$selrol."',@response_spusuario);");
+    '".$usuario."','".$passwd."','".$selrol."','".$selper."',@response_spusuario);");
     $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
     return $query->result();
   }
