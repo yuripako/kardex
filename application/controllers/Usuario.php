@@ -72,7 +72,7 @@ class Usuario extends CI_Controller {
               echo "Se requiere llenar el formulario.";
         }else 
         {
-          $query = $this->Usuario_model->insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$selrol,$passwd,
+          $query = $this->Usuario_model->insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$selrol,
           $selper );
           echo $query[0]->response_spusuario;
         }
