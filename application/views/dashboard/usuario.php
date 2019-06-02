@@ -33,7 +33,10 @@
                 <th>N°ro</th>
                 <th>Usuario</th>
                 <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>DNI</th>
                 <th>Email</th>
+                <th>Rol</th>
                 <th>Tipo Usuario</th>
                 <th>Estado</th>
                 <th>Opciones</th>
@@ -46,8 +49,12 @@
                 <tr>
                   <td><?= $cont++; ?></td>
                   <td><?= $item->username ?></td>
+                  <td><?= $item->Apellido ?></td>
+                  
                   <td><?= $item->nombre ?> <?= $item->Apellido ?></td>
+                  <td><?= $item->dni_nif ?></td>
                   <td><?= $item->email ?></td>
+                  <td><?= $item->nom_rol ?></td>
                   <td><?= $item->nom_tipo ?></td>
                   <td>
                         <?php
@@ -64,10 +71,10 @@
                       <button title="ELIMINAR PRODUCTO" onclick="delete_usuario(<?= $item->id_user ?>);"; class="btn btn-danger"> <i class="fas fa-trash "></i></button>
                       <!-- <button data-toggle="modal" data-target="#logoutModal3" class="btn btn-warning"> <i class="fas fa-edit "></i> Editar</button> -->
                       <button title="EDITAR PRODUCTO" onclick=" edit_usuario(
-                        <?= $item->id_user ?>,'<?= $item->username ?>',
+                        <?= $item->id_user ?>,<?= $item->id_tipo ?>,<?= $item->id_rol ?>,
                         '<?= $item->nombre ?>','<?= $item->Apellido ?>',
                         '<?= $item->email ?>','<?= $item->dni_nif?>',
-                        '<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal3"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
+                        '<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal333"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                     </div>
                   </td>
                 </tr>
@@ -93,7 +100,7 @@
 </a>
 
 <!--  Modal para editar Usuario-->
-<div class="modal fade" id="logoutModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="logoutModal333" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -103,12 +110,10 @@
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="alert alert-success" role="alert" id="editado">
-					<label for="">Se edito correctamente!</label>
-				</div>
-				<input type="hidden" id="ide" name="ide">
+				
 					<div class="row">
 						<!-- Revisado -->
+            <input type="hidden" id="uiduser" name="uiduser">
 						<div class="col-md-6">
 							<div class="form-group row">
 								<label for="inputPassword" class="col-sm-3 col-form-label">Nombre</label>
@@ -141,38 +146,28 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group row">
-								<label for="inputPassword" class="col-sm-3 col-form-label">Contraseña</label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" id="editpasswd">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group row">
-								<label for="inputPassword" class="col-sm-3 col-form-label">Nueva contraseña</label>
-								<div class="col-sm-8">
-									<input type="password" class="form-control" id="editnewpasswd">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-6">
-							<div class="form-group row">
-								<label for="inputPassword" class="col-sm-3 col-form-label">Perfil</label>
-								<div class="col-sm-8">
-									<select class="custom-select" id="editperfil">
-										<!-- <option selected>--[ seleccione Perfil ]--</option>
-										<option value="1">Administrador</option>
-										<option value="2">Empleado</option>
-										<option value="3">Usuario de Venta</option>
-										<option value="4">Logistica (compras)</option> -->
-									</select>
-								</div>
-							</div>
-						</div>
-						<!-- OK -->
-					</div>
+						
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Rol * </label>
+                <div class="col-sm-8">
+                  <select class="custom-select" id="inputGroupSelect022" name="inputGroupSelect022">
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group row">
+                <label for="inputPassword" class="col-sm-3 col-form-label">Perfil </label>
+                <div class="col-sm-8">
+                  <select class="custom-select" id="inputGroupSelect033" name="inputGroupSelect033">
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
 
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>

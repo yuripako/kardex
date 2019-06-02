@@ -36,6 +36,7 @@ function carga_roles_roll() {
         success: function (response) {
            
                $("#inputGroupSelect02").html(response);
+               $("#inputGroupSelect022").html(response);
         }
     });
 }
@@ -49,6 +50,7 @@ function carga_roles_perfill() {
         success: function (response) {
            
                $("#inputGroupSelect03").html(response);
+               $("#inputGroupSelect033").html(response);
         }
     });
 }
@@ -102,14 +104,18 @@ function delete_usuario(iduser) {
 
 
 
-function edit_usuario(id_user, username, nombre,apellido,correo,dni,rol) {
+function edit_usuario(id_user,id_per,id_rol, nombre,apellido,correo,dni,rol) {
+ 
+    $("#uiduser").val(id_user);
+    $("#inputGroupSelect022").val(id_rol);
+    $("#inputGroupSelect033").val(id_per);
     $("#editnombre").val(nombre);
 	$("#editapellido").val(apellido);
     $("#editcorreo").val(correo);
     $("#editnrodoc").val(dni);
     $("#editperfil").val(rol);
-    //$("#editusuario").val(username);
-    document.getElementById("editusuario").innerHTML = username;
+    
+  //aqui quedo
 }
 
 function editar_usuario() {
@@ -130,19 +136,10 @@ function editar_usuario() {
         username : username,        
         selrol : selrol	
     },
-     success: function (datos) {
-         //console.log(datos);
-         switch (JSON.parse(datos)) {
-            
-               case 1:
-                $("#editado").show();
-                  window.setTimeout(function(){ 
-                       window.location.href='Usuario';
-                     } ,2000);
-                 break; 
-               default: 
-                alert("ERROR EN EL SISTEMA");
-             }
+     success: function (response) {
+        alert(response);
+        window.location.href = "Usuario";
+     
         
     }
  });
