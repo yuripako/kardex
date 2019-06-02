@@ -54,8 +54,8 @@
                   <td><?= $item->nombre ?> <?= $item->Apellido ?></td>
                   <td><?= $item->dni_nif ?></td>
                   <td><?= $item->email ?></td>
-                  <td><?= $item->nom_rol ?></td>
-                  <td><?= $item->nom_tipo ?></td>
+                  <td><?=  "<span class='badge badge-info'>".$item->nom_rol."</span>" ?></td>
+                  <td><?= "<span class='badge badge-primary'>".$item->nom_tipo."</span>" ?></td>
                   <td>
                         <?php
                         if ($item->estado == '1') {
