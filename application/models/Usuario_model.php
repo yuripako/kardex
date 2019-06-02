@@ -9,7 +9,7 @@ class Usuario_model extends CI_Model {
     {    
         
         $opc = 1;
-        $query =  $this->db->query(" CALL SP_USUARIO(1,NULL,@response_spusuario); ");
+        $query =  $this->db->query("CALL SP_USUARIO(1,NULL,'','','','','','',NULL,NULL,@response_spusuario); ");
         $res = $query->result();        
         $query->next_result();
         $query->free_result();
@@ -37,8 +37,9 @@ class Usuario_model extends CI_Model {
 
   public function insert_neousuario($nombre, $apellido,$documento,$correo,$usuario,$passwd,$selrol,$selper )
   {
-    $query = $this->db->query("  ");
-    $query = $this->db->query("  "); 
+    $query = $this->db->query("  CALL SP_USUARIO(2,NULL,'".$nombre."','".$apellido."','".$documento."','".$correo."',
+    '".$usuario."','".$passwd."','".$selper."','".$selrol."',@response_spusuario);");
+    $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
     return $query->result();
   }
 
