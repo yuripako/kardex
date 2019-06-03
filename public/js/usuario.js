@@ -104,7 +104,7 @@ function delete_usuario(iduser) {
 
 
 
-function edit_usuario(id_user,id_per,id_rol, nombre,apellido,correo,dni,rol) {
+function edit_usuario(id_user,id_per,id_rol, nombre,apellido,correo,dni,rol,estado) {
  
     $("#uiduser").val(id_user);
     $("#inputGroupSelect022").val(id_rol);
@@ -114,27 +114,31 @@ function edit_usuario(id_user,id_per,id_rol, nombre,apellido,correo,dni,rol) {
     $("#editcorreo").val(correo);
     $("#editnrodoc").val(dni);
     $("#editperfil").val(rol);
-    
+    $("#editestado").val(estado);
   //aqui quedo
 }
 
 function editar_usuario() {
+    var iduser = $("#uiduser").val();
     var nombre = $("#editnombre").val();
     var apellido = $("#editapellido").val();    
     var correo = $("#editcorreo").val();
     var documento = $("#editnrodoc").val();
-    var selrol = $("#editperfil").val();
-    var username = $("#editusuario").val();        
+    var selrol = $("#inputGroupSelect022").val();
+    var setperf = $("#inputGroupSelect033").val();     
+    var estado = $("#editestado").val();   
     $.ajax({
      url: "Usuario/editar_usuario",
      type: "post",
      data: {
+        iduser:iduser,
         nombre : nombre,
         apellido : apellido,
-        documento : documento,
-        correo : correo,
-        username : username,        
-        selrol : selrol	
+        correo : correo, 
+        documento : documento,   
+        selrol : selrol,
+        setperf:setperf	,
+        estado:estado
     },
      success: function (response) {
         alert(response);

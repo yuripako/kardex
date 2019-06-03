@@ -74,7 +74,7 @@
                         <?= $item->id_user ?>,<?= $item->id_tipo ?>,<?= $item->id_rol ?>,
                         '<?= $item->nombre ?>','<?= $item->Apellido ?>',
                         '<?= $item->email ?>','<?= $item->dni_nif?>',
-                        '<?= $item->nom_tipo?>');"  data-toggle="modal" data-target="#logoutModal333"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
+                        '<?= $item->nom_tipo?>','<?= $item->estado?>');"  data-toggle="modal" data-target="#logoutModal333"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>
                     </div>
                   </td>
                 </tr>
@@ -167,8 +167,23 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-md-6">
+              <div class="form-group row">
+                     <label for="inputPassword" class="col-sm-3 col-form-label">Estado </label>
+                    <div class="col-sm-8">
+                      <select class="custom-select" id="editestado" name="editestado">
+                        <option value="1">Activo</option>
+                        <option value="0">InActivo</option>
+                      </select>
+                    </div>
+              </div>
+            </div>
+
           </div>
 
+         
+          
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
 						<a class="btn btn-primary" href="#" onclick="editar_usuario()">Guardar cambios</a>
@@ -262,6 +277,8 @@
               </div>
             </div>
           </div>
+                 
+                          
 
           </div>
 

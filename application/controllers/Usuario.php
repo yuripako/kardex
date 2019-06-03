@@ -90,15 +90,17 @@ class Usuario extends CI_Controller {
 
    public function editar_usuario()
     {
-        $username = $this->input->post('username');        
+        $iduser = $this->input->post('iduser');        
         $nombre = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
+        $correo = $this->input->post('correo');   
         $documento = $this->input->post('documento');
-        $correo = $this->input->post('correo');        
-        //$passwd = $this->input->post('passwd');
-        $perfil = $this->input->post('selrol');
-        $query = $this->Usuario_model->editar_model_usuario($username,$nombre,$apellido,$documento,$correo,$perfil);
-        echo json_encode(1);
+        $rol = $this->input->post('selrol');
+        $setperf = $this->input->post('setperf');
+        $estado = $this->input->post('estado');
+        $query = $this->Usuario_model->editar_model_usuario($iduser,$nombre,$apellido,$correo,$documento,
+        $rol,$setperf, $estado);
+        echo $query[0]->response_spusuario;
 
     }
 

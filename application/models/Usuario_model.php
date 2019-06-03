@@ -9,7 +9,7 @@ class Usuario_model extends CI_Model {
     {    
         
         $opc = 1;
-        $query =  $this->db->query("CALL SP_USUARIO(1,NULL,'','','','','','',NULL,NULL,@response_spusuario); ");
+        $query =  $this->db->query("CALL SP_USUARIO(1,NULL,'','','','','','',NULL,NULL,'',@response_spusuario); ");
         $res = $query->result();        
         $query->next_result();
         $query->free_result();
@@ -39,7 +39,7 @@ class Usuario_model extends CI_Model {
   $selper )
   {
     $query = $this->db->query("  CALL SP_USUARIO(2,NULL,'".$nombre."','".$apellido."','".$documento."','".$correo."',
-    '".$usuario."','".$passwd."','".$selrol."','".$selper."',@response_spusuario);");
+    '".$usuario."','".$passwd."','".$selrol."','".$selper."','',@response_spusuario);");
     $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
     return $query->result();
   }
@@ -47,18 +47,19 @@ class Usuario_model extends CI_Model {
 
  public function delete_usuario($iduser)
  {
-    $query = $this->db->query(" CALL SP_USUARIO(3,'".$iduser."','','','','','','',NULL,NULL,@response_spusuario);  ");
+    $query = $this->db->query(" CALL SP_USUARIO(3,'".$iduser."','','','','','','',NULL,NULL,'',@response_spusuario);  ");
     $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
     return $query->result();
  }
 
 
-
-
-  public function editar_model_usuario($username, $nombre, $apellido, $documento, $correo, $perfil)
+  public function editar_model_usuario($iduser,$nombre,$apellido,$correo,$documento,
+  $rol,$setperf, $estado)
 	{
-		//$sql = " UPDATE categoria SET nom_cate='".$categoria2."', descripcion='".$descripcion2."'  WHERE id_cate= '".$ide."'  ";
-		$query  = $this->db->query("CALL EDITAR_USUARIO('".$username."','".$nombre."','".$apellido."','".$documento."','".$correo."','".$perfil."') ");
+    $query = $this->db->query("CALL SP_USUARIO(4,'".$iduser."','".$nombre."','".$apellido."','".$documento."',
+    '".$correo."','','','".$rol."','".$setperf."','".$estado."',@response_spusuario);   ");
+    $query = $this->db->query(" SELECT @response_spusuario AS response_spusuario;    "); 
+    return $query->result();
 		
 	}
 
