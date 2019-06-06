@@ -26,7 +26,19 @@ class Permenu extends CI_Controller {
 	   //data es un array para enviar datos ala vista s
 	   $this->load->view('dashboard/permenu', $data);
 	}
+  public function dar_permisomodulo()
+  {
    
+    $query = $this->Permenu_model->load_darpermiso();
+
+     echo "<option option value=''>--[Seleccione]--</option>";
+     foreach ($query as $item) {
+      echo "<option value='".$item->id_permiso."'>".$item->modulo."</option>";
+     }
+ 
+  }
+
+
   public function load_permiso_rol()
   {
     $idrol = $this->input->post('idrol');
@@ -35,21 +47,60 @@ class Permenu extends CI_Controller {
     echo"<ul class='list-group'>";
     echo"<li class='list-group-item d-flex justify-content-between align-items-center active'>";
     echo"Modulos Activos";
-    echo"        <small class='text'>ACTIVAR / DESACTIVAR</small>    ";
+    echo"        <small class='text'>Estado</small>    ";
     echo"</li>";
      foreach ($query as $item) {
          
        echo"<li class='list-group-item d-flex justify-content-between align-items-center'>";
        echo $item->modulo;
-       echo"  <button type='button'class='btn btn-primary btn-sm' onclick='permiso_mo();'>Activado</button>";
+       if ($item->estado==1) {
+        echo"  <button type='button'class='btn btn-success btn-sm' disabled>Habilitado</button>";
+       } if ($item->estado==0) {
+        echo"  <button type='button'class='btn btn-danger btn-sm' disabled>InHabilitado</button>";
+       }
+       
+       
        echo"</li>";
         
      }
     echo"</ul>";
   }
   
-
+  public function load_rolesmenus()
+  {
+    $query = $this->Permenu_model->load_rolesmenu();
+    echo "<option value=''>--[Seleccione]--</option>";
+    foreach ($query as $item) {
+      echo"<option value='".$item->id_rol."'>".$item->nom_rol."</option>";
+    }
+  }
    
+  public function darlepermiso()
+  {
+      $selecmod = $this->input->post('selecmod');
+      $selecrol = $this->input->post('selecrol');
+      $estado = $this->input->post('estado');
+      if ($selecmod=="" || $selecrol=="") {
+          echo"Seleccion las opciones";
+      } else {
+        $query = $this->Permenu_model->validandopermiso($selecmod,$selecrol,$estado);
+        echo $query[0]->response_permisomenu;
+      } 
+  }
+ 
+  public function denegarpermiso()
+  {
+      $selecmod = $this->input->post('selecmod');
+      $selecrol = $this->input->post('selecrol');
+      $estado = $this->input->post('estado');
+      if ($selecmod=="" || $selecrol=="") {
+          echo"Seleccion las opciones";
+      } else {
+        $query = $this->Permenu_model->deniegue_permiso($selecmod,$selecrol,$estado);
+        echo $query[0]->response_permisomenu;
+      } 
+  }
+ 
 
 }
 

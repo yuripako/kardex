@@ -3,33 +3,27 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Usuario extends CI_Controller {
-
-	public function __construct()
+    
+    public function __construct()
 	{
 		parent::__construct();
 		if (!$this->session->userdata('login')) {
             redirect(base_url());
         }	
-        $this->load->model('Inicio_model');  //Este si va  
-        $this->load->model('Usuario_model');                
+        $this->load->model('Inicio_model');
+        $this->load->model('Usuario_model');
 	}
-
+	
 	public function index()
 	{
-	   $data['header']  = 'dashboard/header';  //Si va
-       $data['footer']  = 'dashboard/footer';  //Si va       
+        $data['header']  = 'dashboard/header';
+        $data['footer']  = 'dashboard/footer';      
 	   //esto va si o si ,carga de los modulos, esto siempre va ya que al carga los modulos carga esto tambien
 	   $query = $this->Inicio_model->load_modulos($this->session->userdata('id_rol'));
-       $data['modulos'] = $query;       
+	   $data['modulos'] = $query;     
        //Cargo mis usuarios
        $query2 = $this->Usuario_model->load_usuario();
        $data['userload'] = $query2;
-
-        //Cargo mis roles
-     // $query3 = $this->Usuario_model->load_usuario222();
-       // $data['useraddrol'] = $query2;
-
-	   //data es un array para enviar datos ala vista
 	   $this->load->view('dashboard/usuario', $data);
     }
 

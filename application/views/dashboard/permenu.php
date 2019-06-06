@@ -25,7 +25,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <!-- <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Familias</button> -->
+          <button  data-toggle="modal" data-target="#modulosper2" onclick="darpermiso();"   class="btn btn-danger"><i class=" 	fas fa-unlock"></i> Permisos Módulos</button> 
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -39,7 +39,7 @@
                     <th>Estado</th>
               
                     <th> Módulos Asignados</th>
-                    <th> Módulos Permiso</th>
+                   
                   </tr>
                 </thead>
   
@@ -65,10 +65,7 @@
                      <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-warning btn-sm"> 
                         <i class=" fas fa-eye "></i> Ver Asignados</button><br>
                     </td>
-                    <td class="text-center">
-                     <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-primary btn-sm"> 
-                        <i class=" fas fa-eye "></i> Dar permisos</button><br>
-                    </td>
+                   
                   </tr>
                 <?php } ?>
                 </tbody>
@@ -92,9 +89,53 @@
   </a>
 
 
+  <!--  Modal para añadir ver darpermiso-->
+  <div class="modal fade bd-example-modal-lg" id="modulosper2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">PERMISOS MODULOS SEGÚN ROL</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
 
 
-  <!--  Modal para añadir ROLES-->
+        <div class="modal-body">
+        
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Modulos</th>
+                <th>Roles</th>
+                <th>Permitir permiso</th>
+                <th>Denegar permiso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                <select id="selecmod" name="selecmod" class="form-control"></select>
+                </td>
+                <td><select id="selecrol" name="selecrol" class="form-control"></select></td>
+                <td><button onclick="permitir(1);"   class="btn btn-success"><i class="fas fa-star	 "></i> Permitir</button></td>
+                <td><button onclick="denegar(0);"   class="btn btn-danger"><i class="fas fa-star	 "></i> Denegar</button></td>
+              </tr>
+              
+            </tbody>
+          </table>
+
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cerrar</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  Modal para añadir ver permiso-->
   <div class="modal fade" id="modulosper" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

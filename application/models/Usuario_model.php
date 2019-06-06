@@ -7,8 +7,6 @@ class Usuario_model extends CI_Model {
     
     public function load_usuario()
     {    
-        
-        $opc = 1;
         $query =  $this->db->query("CALL SP_USUARIO(1,NULL,'','','','','','',NULL,NULL,'',@response_spusuario); ");
         $res = $query->result();        
         $query->next_result();
