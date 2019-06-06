@@ -26,18 +26,7 @@ class Permenu extends CI_Controller {
 	   //data es un array para enviar datos ala vista s
 	   $this->load->view('dashboard/permenu', $data);
 	}
-  public function dar_permisomodulo()
-  {
-   
-    $query = $this->Permenu_model->load_darpermiso();
-
-     echo "<option option value=''>--[Seleccione]--</option>";
-     foreach ($query as $item) {
-      echo "<option value='".$item->id_permiso."'>".$item->modulo."</option>";
-     }
  
-  }
-
 
   public function load_permiso_rol()
   {
@@ -66,39 +55,61 @@ class Permenu extends CI_Controller {
     echo"</ul>";
   }
   
-  public function load_rolesmenus()
-  {
-    $query = $this->Permenu_model->load_rolesmenu();
-    echo "<option value=''>--[Seleccione]--</option>";
+
+ public function usuario_modulos()
+ {
+    $con=1;
+  $query = $this->Permenu_model->usuario_modulo();
+     echo " <table class='table table-bordered'>";
+      echo "<thead>";
+     echo "   <tr>";
+     echo "     <th>#</th>";
+     echo "     <th>Usuario</th>";
+    echo "      <th>Módulo</th>";
+    echo "      <th>Estado</th>";
+     echo "     <th>Acciones</th>";
+    echo "    </tr>";
+    echo "  </thead>";
+    echo "  <tbody>";
     foreach ($query as $item) {
-      echo"<option value='".$item->id_rol."'>".$item->nom_rol."</option>";
-    }
-  }
-   
+    echo "    <tr>";
+    echo "     <td>".$con++."</td>";
+     echo "     <td>".$item->nombre." ".$item->Apellido."</td>";
+  
+     echo "     <td><span class='badge badge-primary'>".$item->modulo."</span></td>";
+     echo "     <td>";
+     if ($item->estado==1) {
+      echo"  <button type='button'class='btn btn-info btn-sm' disabled>Habilitado</button>";
+     } if ($item->estado==0) {
+      echo"  <button type='button'class='btn btn-danger btn-sm' disabled>InHabilitado</button>";
+     }
+     echo "     </td>";
+    echo "      <td><button type='button' class='btn btn-success btn-sm'  onclick='permitir(1,$item->id)'>Permitir</button>";
+    echo "   <button type='button' class='btn btn-danger btn-sm' onclick='denegar(0,$item->id)'>Denegar</button></td>";
+    echo "    </tr>";
+      }
+     echo " </tbody>";
+   echo " </table>";
+ }
+
+
   public function darlepermiso()
   {
-      $selecmod = $this->input->post('selecmod');
-      $selecrol = $this->input->post('selecrol');
       $estado = $this->input->post('estado');
-      if ($selecmod=="" || $selecrol=="") {
-          echo"Seleccion las opciones";
-      } else {
-        $query = $this->Permenu_model->validandopermiso($selecmod,$selecrol,$estado);
+      $id = $this->input->post('id');
+     
+        $query = $this->Permenu_model->validandopermiso($id,$estado);
         echo $query[0]->response_permisomenu;
-      } 
+      
   }
  
   public function denegarpermiso()
   {
-      $selecmod = $this->input->post('selecmod');
-      $selecrol = $this->input->post('selecrol');
-      $estado = $this->input->post('estado');
-      if ($selecmod=="" || $selecrol=="") {
-          echo"Seleccion las opciones";
-      } else {
-        $query = $this->Permenu_model->deniegue_permiso($selecmod,$selecrol,$estado);
-        echo $query[0]->response_permisomenu;
-      } 
+    $estado = $this->input->post('estado');
+    $id = $this->input->post('id');
+    $query = $this->Permenu_model->deniegue_permiso($id,$estado);
+    echo $query[0]->response_permisomenu;
+     
   }
  
 

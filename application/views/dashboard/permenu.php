@@ -25,7 +25,8 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-          <button  data-toggle="modal" data-target="#modulosper2" onclick="darpermiso();"   class="btn btn-danger"><i class=" 	fas fa-unlock"></i> Permisos Módulos</button> 
+          <button onclick="userxmodulo();"  data-toggle="modal" data-target="#modulosper2"   class="btn btn-danger">
+          <i class=" 	fas fa-unlock"></i> Permisos Módulos</button> 
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -94,7 +95,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">PERMISOS MODULOS SEGÚN ROL</h5>
+          <h5 class="modal-title" id="exampleModalLabel">PERMISOS A LOS ACCESOS DE LOS MÓDULOS</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -102,29 +103,8 @@
 
 
         <div class="modal-body">
-        
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Modulos</th>
-                <th>Roles</th>
-                <th>Permitir permiso</th>
-                <th>Denegar permiso</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                <select id="selecmod" name="selecmod" class="form-control"></select>
-                </td>
-                <td><select id="selecrol" name="selecrol" class="form-control"></select></td>
-                <td><button onclick="permitir(1);"   class="btn btn-success"><i class="fas fa-star	 "></i> Permitir</button></td>
-                <td><button onclick="denegar(0);"   class="btn btn-danger"><i class="fas fa-star	 "></i> Denegar</button></td>
-              </tr>
-              
-            </tbody>
-          </table>
 
+          <div id="agenda" class="table-responsive">></div>
 
         </div>
         <div class="modal-footer">

@@ -1,22 +1,22 @@
 $(document).ready(function() {
-    darpermiso();
-    loadrolesper();
+ 
 });
 
 
-function darpermiso() {
+function userxmodulo(){
+
     $.ajax({
         type: "post",
-        url: "Permenu/dar_permisomodulo",
-        data: {
-           
-        },
-        success: function(response) {
-           // console.log(response);
-            $("#selecmod").html(response);
+        url: "Permenu/usuario_modulos",
+        data: {},
+        success: function (response) {
+           $("#agenda").html(response);
+            
         }
     });
-}
+
+  }
+
 
 
 function cargar_sumodulo(idrol) {
@@ -37,50 +37,36 @@ function darpermenu() {
     alert("hola mundo");
 }
 
-function loadrolesper(){
-    $.ajax({
-        type: "post",
-        url: "Permenu/load_rolesmenus",
-        data: {},
-        success: function(response) {
-         
-           $("#selecrol").html(response);
-        }
-    });
-}
 
-function permitir(estado) {
-    var selecmod = $("#selecmod").val();
-    var selecrol = $("#selecrol").val();
+
+function permitir(estado,id) {
+   
     
     $.ajax({
         type: "post",
         url: "Permenu/darlepermiso",
         data: {
-            selecmod:selecmod,
-            selecrol:selecrol,
-            estado : estado
+            estado : estado,
+            id:id
         },
         success: function(response) {
             alert(response);
+            window.location.href="Permenu";
         }
     });
 }
 
-function denegar(estado) {
-    var selecmod = $("#selecmod").val();
-    var selecrol = $("#selecrol").val();
-    
+function denegar(estado,id) {
     $.ajax({
         type: "post",
         url: "Permenu/denegarpermiso",
         data: {
-            selecmod:selecmod,
-            selecrol:selecrol,
-            estado : estado
+            estado : estado,
+            id:id
         },
         success: function(response) {
             alert(response);
+            window.location.href="Permenu";
         }
     });
 }
