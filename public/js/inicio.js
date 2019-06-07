@@ -39,3 +39,8 @@ $.ajax({
 });
 
 }
+
+function loadsubmenu(idsubmen) {
+ console.log(idsubmen);
+ 
+}

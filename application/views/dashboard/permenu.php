@@ -102,8 +102,8 @@
         </div>
 
 
-        <div class="modal-body">
-
+        <div class="modal-body ">
+   
           <div id="agenda" class="table-responsive">></div>
 
         </div>
