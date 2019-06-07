@@ -46,11 +46,18 @@
                 <?php $cont=1; foreach ($category as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><button onclick="loadinfocat(<?= $item->id_fam ?>)" class="btn btn-info btn-sm"><i class="fas fa-plus "></i></button>
+                     <td>
+                     <button   data-toggle="collapse" href="#collapseExample<?=$cont?>" 
+                     onclick="loadinfocat(<?= $item->id_fam ?>)" class="btn btn-info btn-sm"><i class="fas fa-plus "></i>
+                     </button>
                     </td>
                      <td><?= $item->nom_fam ?><br>
-                     <div class="col1"></div>
-                    
+                   
+                     <div class="collapse" id="collapseExample<?=$cont?>">
+                        <div class="card card-body">
+                            <div class="info"></div>
+                        </div>
+                      </div>
                      <td>
                          <?php
                          if ($item->estadosubfam == '1') {

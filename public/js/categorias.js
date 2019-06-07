@@ -1,5 +1,6 @@
 $( document ).ready(function() {
 	loadjerarquia();
+	
 });
 
  
@@ -13,7 +14,7 @@ function loadinfocat(idcate) {
 		 idcate : idcate	
 	 },
 	 success: function (response) {
-		$("tbody td .col1").html(response); 
+		$(".info").html(response); 
 	 }
  });
 

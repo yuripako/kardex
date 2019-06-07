@@ -32,12 +32,10 @@ public function infocate()
 {
 	$idcate = $this->input->post('idcate');
 	$query = $this->Categorias_model->info_categoria($idcate );
-  echo json_encode($query);
+    foreach ($query as $item) {
+		echo $item->descripcion;
+	}
 }
-
-
-
-
 
 	public function load_jerarquias()
 	{
