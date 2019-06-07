@@ -11,7 +11,17 @@ class Categorias_model extends CI_Model {
 		$query->free_result();
 		return $res;
 
-	}		
+	}	
+	
+	
+  public function info_categoria($idcate )
+  {
+	  
+		$query = $this->db->query("  CALL SP_CATEGORIAS( 6 ,'".$idcate."','',NULL,'',@response_spcat); ");
+		return $query->result();
+  }
+
+
 
 	public function load_jerarquia()
 	{

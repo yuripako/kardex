@@ -26,7 +26,19 @@ class Categorias extends CI_Controller {
 	   //data es un array para enviar datos ala vista s
 	   $this->load->view('dashboard/categorias', $data);
 	}
-   
+	 
+	
+public function infocate()
+{
+	$idcate = $this->input->post('idcate');
+	$query = $this->Categorias_model->info_categoria($idcate );
+  echo json_encode($query);
+}
+
+
+
+
+
 	public function load_jerarquias()
 	{
 		$query = $this->Categorias_model->load_jerarquia();

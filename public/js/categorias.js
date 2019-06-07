@@ -3,6 +3,24 @@ $( document ).ready(function() {
 });
 
  
+
+function loadinfocat(idcate) {
+
+ $.ajax({
+	 type: "post",
+	 url: "Categorias/infocate",
+	 data: {
+		 idcate : idcate	
+	 },
+	 success: function (response) {
+		$("tbody td .col1").html(response); 
+	 }
+ });
+
+}
+
+
+
 function loadjerarquia() {
 	$.ajax({
 		type: "post",

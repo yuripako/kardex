@@ -32,9 +32,11 @@
               <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
-                    <th>N°ro</th>                    
+                    <th>N°ro</th>    
+                    <th>Detalle</th>                    
+                
                     <th>Familia</th>
-                    <th>Subfamilia</th>
+                    
                     <th>Estado</th>
                     <th>Opciones</th>
                   </tr>
@@ -44,8 +46,11 @@
                 <?php $cont=1; foreach ($category as $item) { ?>  
                   <tr >
                      <td><?= $cont++; ?></td>
-                     <td><?= $item->nom_fam ?></td>
-                     <td><?= $item->descripcion ?></td>
+                     <td><button onclick="loadinfocat(<?= $item->id_fam ?>)" class="btn btn-info btn-sm"><i class="fas fa-plus "></i></button>
+                    </td>
+                     <td><?= $item->nom_fam ?><br>
+                     <div class="col1"></div>
+                    
                      <td>
                          <?php
                          if ($item->estadosubfam == '1') {
@@ -64,7 +69,9 @@
                         </div>
                     </td>
                   </tr>
+                   
                 <?php } ?>
+               
                 </tbody>
               </table>
             </div>
