@@ -25,7 +25,7 @@
         <div class="card mb-3">
           <div class="card-header " style=" background-color: #00a65a;">
            
-           <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Roles</button>
+           <button data-toggle="modal" data-target="#modalroles" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Precio</button>
           </div>
           <div class="card-body ">
             <div class="table-responsive">
