@@ -34,7 +34,7 @@ class Inicio extends CI_Controller {
 				 $query2 = $this->Inicio_model->load_submenu($item->idmenu);
 				 foreach ($query2 as $row) {
 
-		echo "<a href='".base_url($row->abreviatura)."'  class='dropdown-item' style='  margin-left: 30px; '> <i class='fas fa-ellipsis-h'></i> ".$row->nom_menusub."</a>";
+		echo "<a href='".base_url($row->abreviatura)."'  class='dropdown-item' style='  margin-left: 30px; '> <i class='fa fa-angle-right'></i> ".$row->nom_menusub."</a>";
 
 				 }
 
