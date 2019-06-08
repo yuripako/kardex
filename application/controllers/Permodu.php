@@ -112,6 +112,37 @@ class Permodu extends CI_Controller {
      
   }
  
+  public function select_usuarios()
+  {
+    $query = $this->Permodu_model->select_usuario();
+    echo"<option>------[ Seleccione]------</option>";
+     foreach ($query as $item) {
+       echo "<option value='".$item->id_rol."'>".$item->nom_rol."</option>";
+     }
+ 
+  }
+
+  public function select_modulos()
+  {
+    $query = $this->Permodu_model->select_modulo();
+    echo"<option>------[ Seleccione]------</option>";
+     foreach ($query as $item) {
+       echo "<option value='".$item->id_permiso."'>".$item->modulo."</option>";
+     }
+ 
+  }
+  public function permitir_acceso()
+  {
+    $moduser = $this->input->post('moduser');
+    $modmodulo = $this->input->post('modmodulo');
+    $query = $this->Permodu_model->addpermitido($moduser, $modmodulo);
+    echo $query[0]->response_modular;
+
+  }
+
+
+
+
 
 }
 

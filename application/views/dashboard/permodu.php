@@ -104,27 +104,24 @@
       <div class="modal-body">
           <form id="form_permodulo">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Usuarios / Empleados:</label>
-                <select name="moduser" id="moduser" class="form-control"></select>
-              </div>
-              <div class="form-group">
-                <div class="row">
-                   <div class="col-md-7">
-                      <label for="recipient-name" class="col-form-label">Módulos Activos:</label>
-                      <select name="modmodulo" id="modmodulo" class="form-control"></select>
+                 <div class="row">
+                   <div class="col-md-6">
+                     <label for="recipient-name" class="col-form-label">Rol:</label>
+                      <select name="moduser" id="moduser" class="form-control"></select>
                    </div>
-                   <div class="col-md-5">
-                     <label for="recipient-name" class="col-form-label">Permitir</label>
-                      <select name="modrespuesta" id="modrespuesta" class="form-control"></select>
+                   <div class="col-md-6">
+                   <label for="recipient-name" class="col-form-label">Módulos:</label>
+                      <select name="modmodulo" id="modmodulo" class="form-control"></select>
                    </div>
                 </div>
                 
               </div>
+              
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Agregar Módulo</button>
+        <button onclick="addmodulos();" type="button" class="btn btn-primary">Agregar Módulo</button>
       </div>
     </div>
   </div>

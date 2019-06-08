@@ -45,7 +45,36 @@ class Permodu_model extends CI_Model {
 			$query->free_result();
 			return $res;
 		}
-		
+
+		public function select_usuario()
+		{
+			$query = $this->db->query("CALL SP_ADDMODULO(1,NULL,NULL,@response_modular);");
+			$res = $query->result();
+			$query->next_result();
+			$query->free_result();
+			return $res;
+		}
+
+		public function select_modulo()
+		{
+			$query = $this->db->query("CALL SP_ADDMODULO(2,NULL,NULL,@response_modular);");
+			$res = $query->result();
+			$query->next_result();
+			$query->free_result();
+			return $res;
+		}
+	   
+		public function addpermitido($moduser, $modmodulo)
+		{
+			$query = $this->db->query("  CALL SP_ADDMODULO(3,'".$moduser."','".$modmodulo."',@response_modular);");
+			$query = $this->db->query("SELECT @response_modular AS response_modular; "); 
+			return $query->result();
+		}
+
+  
+
+
+
 }
 
 // asd 

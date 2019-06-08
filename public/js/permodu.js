@@ -1,5 +1,6 @@
 $(document).ready(function() {
- 
+    loadselec_usuario();
+    loadselec_modulo();
 });
 
 
@@ -16,7 +17,6 @@ function userxmodulo(){
     });
 
   }
-
 
 
 function cargar_sumodulo(idrol) {
@@ -70,3 +70,43 @@ function denegar(estado,id) {
         }
     });
 }
+
+
+// para la opcion de agregar permiso
+function loadselec_usuario(){  
+$.ajax({
+    type: "post",
+    url: "Permodu/select_usuarios",
+    data: {},
+    success: function (response) {
+        $("#moduser").html(response);
+    }
+});
+
+}
+
+function loadselec_modulo(){  
+    $.ajax({
+        type: "post",
+        url: "Permodu/select_modulos",
+        data: {},
+        success: function (response) {
+            $("#modmodulo").html(response);
+        }
+    });
+    
+    }
+
+
+    function addmodulos() {
+        var form = $("#form_permodulo").serialize();
+        $.ajax({
+            type: "post",
+            url: "Permodu/permitir_acceso",
+            data: form,
+            success: function (response) {
+                alert(response);
+                window.location.href="Permodu";
+            }
+        });
+      }
