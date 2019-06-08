@@ -30,11 +30,14 @@ class Inicio extends CI_Controller {
 		$query = $this->Inicio_model->load_menus($idpermiso);
 		foreach ($query as $item) {
 			if ($item->abreviatura=="0") {
-				echo "<a class='dropdown-item' data-toggle='collapse' href='#multiCollapseExample1' 
-				 aria-expanded='false' aria-controls='multiCollapseExample1'><i class='".$item->icono."'></i> ".$item->nom_menu."</a>";
+				 echo "<a href='#'  class='dropdown-item' > <i class='".$item->icono."'></i> ".$item->nom_menu."</a>";
+				 $query2 = $this->Inicio_model->load_submenu($item->idmenu);
+				 foreach ($query2 as $row) {
 
+		echo "<a href='".base_url($row->abreviatura)."'  class='dropdown-item' style='  margin-left: 30px; '> <i class='fas fa-ellipsis-h'></i> ".$row->nom_menusub."</a>";
 
-				// echo "<a href='#' onclick='loadsubmenu($item->idmenu)' class='dropdown-item' style='color: darkblue;'> <i class='".$item->icono."'></i> ".$item->nom_menu."</a>";
+				 }
+
 			} else {
 				echo "<a href='".base_url($item->abreviatura)."' class='dropdown-item'> <i class='".$item->icono."'></i> ".$item->nom_menu."</a>";
 
