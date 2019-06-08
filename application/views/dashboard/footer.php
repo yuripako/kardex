@@ -36,7 +36,7 @@
    <script src="<?= base_url('public/js/almacen.js'); ?>"></script>
    <script src="<?= base_url('public/js/impuesto.js'); ?>"></script>
    <script src="<?= base_url('public/js/roles.js'); ?>"></script>
-   <script src="<?= base_url('public/js/permenu.js'); ?>"></script>
+   <script src="<?= base_url('public/js/permodu.js'); ?>"></script>
 
 
 

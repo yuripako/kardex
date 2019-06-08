@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Permenu_model extends CI_Model {
+class Permodu_model extends CI_Model {
 
 	public function load_permenu()
 	{

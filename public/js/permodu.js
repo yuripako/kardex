@@ -7,7 +7,7 @@ function userxmodulo(){
 
     $.ajax({
         type: "post",
-        url: "Permenu/usuario_modulos",
+        url: "Permodu/usuario_modulos",
         data: {},
         success: function (response) {
            $("#agenda").html(response);
@@ -22,7 +22,7 @@ function userxmodulo(){
 function cargar_sumodulo(idrol) {
     $.ajax({
         type: "post",
-        url: "Permenu/load_permiso_rol",
+        url: "Permodu/load_permiso_rol",
         data: {
             idrol:idrol
         },
@@ -44,14 +44,14 @@ function permitir(estado,id) {
     
     $.ajax({
         type: "post",
-        url: "Permenu/darlepermiso",
+        url: "Permodu/darlepermiso",
         data: {
             estado : estado,
             id:id
         },
         success: function(response) {
             alert(response);
-            window.location.href="Permenu";
+            window.location.href="Permodu";
         }
     });
 }
@@ -59,14 +59,14 @@ function permitir(estado,id) {
 function denegar(estado,id) {
     $.ajax({
         type: "post",
-        url: "Permenu/denegarpermiso",
+        url: "Permodu/denegarpermiso",
         data: {
             estado : estado,
             id:id
         },
         success: function(response) {
             alert(response);
-            window.location.href="Permenu";
+            window.location.href="Permodu";
         }
     });
 }

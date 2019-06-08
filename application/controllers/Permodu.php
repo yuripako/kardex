@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Permenu extends CI_Controller {
+class Permodu extends CI_Controller {
 
 	public function __construct()
 	{
@@ -10,7 +10,7 @@ class Permenu extends CI_Controller {
             redirect(base_url());
         }	
         $this->load->model('Inicio_model');
-        $this->load->model('Permenu_model');
+        $this->load->model('Permodu_model');
 	}
 
 	public function index()
@@ -21,17 +21,17 @@ class Permenu extends CI_Controller {
 	   $query = $this->Inicio_model->load_modulos($this->session->userdata('id_rol'));
 	   $data['modulos'] = $query;
        //cargos mis categorias para el datatable.
-	   $query2 = $this->Permenu_model->load_permenu();
+	   $query2 = $this->Permodu_model->load_permenu();
 	   $data['permenus'] = $query2;
 	   //data es un array para enviar datos ala vista s
-	   $this->load->view('dashboard/permenu', $data);
+	   $this->load->view('dashboard/permodu', $data);
 	}
  
 
   public function load_permiso_rol()
   {
     $idrol = $this->input->post('idrol');
-    $query = $this->Permenu_model->load_permiso_rol($idrol);
+    $query = $this->Permodu_model->load_permiso_rol($idrol);
 
     echo"<ul class='list-group'>";
     echo"<li class='list-group-item d-flex justify-content-between align-items-center active'>";
@@ -59,7 +59,7 @@ class Permenu extends CI_Controller {
  public function usuario_modulos()
  {
     $con=1;
-  $query = $this->Permenu_model->usuario_modulo();
+  $query = $this->Permodu_model->usuario_modulo();
      echo " <table class='table table-bordered'>";
       echo "<thead>";
      echo "   <tr>";
@@ -98,7 +98,7 @@ class Permenu extends CI_Controller {
       $estado = $this->input->post('estado');
       $id = $this->input->post('id');
      
-        $query = $this->Permenu_model->validandopermiso($id,$estado);
+        $query = $this->Permodu_model->validandopermiso($id,$estado);
         echo $query[0]->response_permisomenu;
       
   }
@@ -107,7 +107,7 @@ class Permenu extends CI_Controller {
   {
     $estado = $this->input->post('estado');
     $id = $this->input->post('id');
-    $query = $this->Permenu_model->deniegue_permiso($id,$estado);
+    $query = $this->Permodu_model->deniegue_permiso($id,$estado);
     echo $query[0]->response_permisomenu;
      
   }

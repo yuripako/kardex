@@ -27,6 +27,8 @@
            
           <button onclick="userxmodulo();"  data-toggle="modal" data-target="#modulosper2"   class="btn btn-danger">
           <i class=" 	fas fa-unlock"></i> Permisos Módulos</button> 
+          <button  data-toggle="modal" data-target="#asignar"   class="btn btn-warning ">
+          <i class=" fas fa-plus "></i> Asignar Módulos</button> 
           </div>
           <div class="card-body ">
             <div class="table-responsive">
@@ -38,9 +40,7 @@
                     <th>Rol</th>
                     <th>Perfil</th>
                     <th>Estado</th>
-              
                     <th> Módulos Asignados</th>
-                   
                   </tr>
                 </thead>
   
@@ -63,7 +63,7 @@
                     </td>
           
                      <td class="text-center">
-                     <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-warning btn-sm"> 
+                     <button data-toggle="modal" data-target="#modulosper" onclick="cargar_sumodulo(<?= $item->id_rol ?>);"   class="btn btn-info btn-sm"> 
                         <i class=" fas fa-eye "></i> Ver Asignados</button><br>
                     </td>
                    
@@ -88,6 +88,50 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="asignar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">AGREGAR MÓDULOS A  LOS USUARIOS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form id="form_permodulo">
+              <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Usuarios / Empleados:</label>
+                <select name="moduser" id="moduser" class="form-control"></select>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                   <div class="col-md-7">
+                      <label for="recipient-name" class="col-form-label">Módulos Activos:</label>
+                      <select name="modmodulo" id="modmodulo" class="form-control"></select>
+                   </div>
+                   <div class="col-md-5">
+                     <label for="recipient-name" class="col-form-label">Permitir</label>
+                      <select name="modrespuesta" id="modrespuesta" class="form-control"></select>
+                   </div>
+                </div>
+                
+              </div>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Agregar Módulo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
   <!--  Modal para añadir ver darpermiso-->
