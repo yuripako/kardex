@@ -33,8 +33,6 @@
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>                    
-                    <th>Código Precio</th>
-                    <th>Nombre Precio</th>
                     <th>Código Item</th>
                     <th>Nombre Item</th>
                     <th>Precio Venta</th>
