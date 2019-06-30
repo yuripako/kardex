@@ -28,6 +28,17 @@ class Proveedor extends CI_Controller {
 	   $this->load->view('dashboard/proveedor', $data); 
     } 
      
+    public function cargo_tipodocid()
+    {
+       $query = $this->Proveedor_model->select_tipodocid();
+        echo"<option value=''>--[ Seleccione ]--</option>";
+		foreach ($query as $item) {
+            echo "<option value='$item->coddoc'>".$item->docs." </option>";
+            
+		}
+     
+    }
+
     public function addproveedor() 
     {         
         $valor01 = $this->input->post('valor01'); 
@@ -35,13 +46,29 @@ class Proveedor extends CI_Controller {
         $valor03 = $this->input->post('valor03'); 
         $valor04 = $this->input->post('valor04');                  
         $valor05 = $this->input->post('valor05');                  
- 
-        $query = $this->Proveedor_model->agregar_proveedor($valor01,$valor02,$valor03,$valor04,$valor05); 
+        $valor06 = $this->input->post('valor06');                  
+        $valor07 = $this->input->post('valor07');                  
+        $valor08 = $this->input->post('valor08');                  
+        $valor09 = $this->input->post('valor09');                  
+        $valor10 = $this->input->post('valor10');                  
+        $valor11 = $this->input->post('valor11');                  
+        $valor12 = $this->input->post('valor12');                  
+        $valor13 = $this->input->post('valor13');                  
+        $valor14 = $this->input->post('valor14');                  
+        $valor15 = $this->input->post('valor15');                  
+        $valor16 = $this->input->post('valor16');                  
+        $valor17 = $this->input->post('valor17');                  
+                
+        $query = $this->Proveedor_model->agregar_proveedor($valor01,$valor02,$valor03,$valor04,$valor05,
+                $valor06,$valor07,$valor08,$valor09,$valor10,$valor11,$valor12,$valor13,$valor14,$valor15,
+                $valor16,$valor17); 
          
         //echo json_encode($query); 
  
         echo $query[0]->mensaje;   //Muestra el mensaje de output de mi db.              
     } 
+    
+
     public function updproveedor() 
     { 
         $valor01 = $this->input->post('valor01'); 

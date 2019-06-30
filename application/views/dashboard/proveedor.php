@@ -36,12 +36,11 @@
               <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
-                    <th>N°ro</th>
+                    <th>N°</th>
                     <th>Nombre</th>
                     <th>Documento</th>
                     <th>Tipo</th>                    
-                    <th>Telefono</th>
-                    <th>Procedencia</th>
+                    <th>Telefono</th>                    
                     <th>Estado</th>
                     <th>Acciones</th>
                   </tr>
@@ -54,8 +53,7 @@
                      <td><?= $item->nom_emp; ?></td>
                      <td><?= $item->ruc_nif; ?></td>
                      <td><?= $item->tip_doc; ?></td>                                                                                 
-                     <td><?= $item->telf_emp; ?></td>       
-                     <td><?= $item->procedencia; ?></td>                       
+                     <td><?= $item->telf_emp; ?></td>                                              
                      <td>
                          <?php
                          if ($item->estado == '1') {
@@ -70,7 +68,8 @@
                      <td class="text-center">
                         <div class="btn-group">
                             <button title="ELIMINAR PROVEEDOR" onclick="eliminar_proveedor('<?= $item->id_proveedor ?>');" class="btn btn-danger" > <i class="fas fa-trash "></i></button>                          
-                            <button title="EDITAR PROVEEDOR" onclick="actualizar_proveedor('<?= $item->id_proveedor ?>','<?=$item->nom_emp ?>','<?=$item->tip_doc ?>','<?=$item->ruc_nif ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarproveedor"  class="btn btn-warning"> <i class="fas fa-edit "></i></button>                                                  	                            
+                            <button title="EDITAR PROVEEDOR" onclick="actualizar_proveedor('<?= $item->id_proveedor ?>','<?=$item->nom_emp ?>','<?=$item->tip_doc ?>','<?=$item->ruc_nif ?>','<?=$item->estado ?>');"  data-toggle="modal" data-target="#modaleditarproveedor"  class="btn btn-warning"> <i class="fas fa-edit "></i></button> 
+                            <button data-toggle="modal" data-target="#modulosper" onclick="detalle_proveedor(<?= $item->id_proveedor ?>);"   class="btn btn-info btn-sm"> <i class=" fas fa-eye "></i></button>
                         </div>
                     </td>
                   </tr>
@@ -107,8 +106,157 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Modal Agredar Tipodocs -->
+
+<!-- Modal Agredar Tipodocs -->
 <div class="modal fade" id="modaladdproveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Proveedor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">                                                       
+            <!-- formulario -->
+            <div class="row">
+
+            <div class="col-md-10 offset-md-1">
+                    <!-- <span class="anchor" id="formComplex"></span> -->
+                    <!-- <hr class="my-5"> -->
+                   <!--  <h3>Complex Form Example </h3> -->
+                    
+                    <!-- form complex example -->
+                    <div class="form-row mt-4">
+                        <div class="col-sm-12 pb-3">
+                            <label for="nomemp">Nombre de empresa</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user"></i></span></span></div>
+                              <input type="text" class="form-control" id="nomemp" placeholder="Empresa o persona natural" required>
+                            </div>                           
+                        </div>
+                        <div class="col-sm-5 pb-3">
+                            <label for="tipdoc">Tipo Documento de Identidad</label>
+                            <select class="form-control chosen" id="tipdoc">
+                               <!--  <option>--[ seleccione Tipo ]--</option> -->
+                            </select>
+                        </div>
+                        <div class="col-sm-2 pb-3">
+                            <label for="tipdocid"> Id. </label>
+                            <input type="text" class="form-control" id="tipdocid" placeholder="" disabled>
+                        </div>
+                        <div class="col-sm-5 pb-3">
+                            <label for="numdoc">Número </label>
+                            <div class="input-group">
+                                <div class="input-group-prepend"><span class="input-group-text">#</span></span></div>
+                                <input type="text" class="form-control" id="numdoc" placeholder="0000000" required>
+                            </div>
+                        </div> 
+                        <div class="col-sm-10 pb-3">
+                            <label for="diremp">Dirección </label>
+                            <div class="input-group">
+                              <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-edit"></i></span></span></div>
+                              <input type="text" class="form-control" id="diremp" placeholder="Dirección de empresa">
+                            </div>                           
+                        </div>
+                        <div class="col-sm-2 pb-3">
+                            <label for="ubiemp"> Ubigeo </label>
+                            <input type="text" class="form-control" id="ubiemp" placeholder="">
+                        </div>
+                        <div class="col-sm-4 pb-3">
+                            <label for="depemp">Departamento</label>                            
+                            <select class="form-control" id="depemp">
+                                <option>--[ seleccione Tipo ]--</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 pb-3">
+                            <label for="proemp">Provincia</label>
+                            <select class="form-control" id="proemp">
+                                <option>--[ seleccione Tipo ]--</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 pb-3">
+                            <label for="disemp">Distrito</label>                          
+                            <select class="form-control" id="disemp">
+                                <option>--[ seleccione Tipo ]--</option>
+                            </select>                            
+                        </div>                        
+                        <div class="col-sm-4 pb-3">
+                            <label for="telemp">Telefono</label>
+                            <input type="text" class="form-control" id="telemp">
+                        </div>
+                        <div class="col-sm-4 pb-3">
+                            <label for="celemp">Celular</label>
+                            <input type="text" class="form-control" id="celemp">
+                        </div>
+                        <div class="col-sm-4 pb-3">
+                            <label for="coremp">Correo</label>
+                            <input type="text" class="form-control" id="coremp">
+                        </div>
+                        <!-- <div class="col-md-6 pb-3">
+                            <label for="exampleAccount">Contactos</label>
+                            <div class="form-group small">
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Blue
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Red
+                                    </label>
+                                </div>
+                               
+                            </div>
+                        </div> -->                        
+                        <!-- <div class="col-12">
+                            <div class="form-row">
+                                 <label class="col-md col-form-label"  for="name">Generated Id</label>
+                                 <input type="text" class="form-control col-md-4" name="gid" id="gid" />
+                                 <label class="col-md col-form-label"  for="name">Date Assigned</label>
+                                 <input type="text" class="form-control col-md-4" name="da" id="da" />
+                            </div>
+                        </div> -->
+                        <div class="col-sm-8 pb-3">                            
+                            <input type="text" class="form-control" id="nomcon" placeholder="Contacto 1">
+                        </div>
+                        <div class="col-sm-4 pb-3">                            
+                            <input type="text" class="form-control" id="celcon" placeholder="Celular 1">
+                        </div>   
+                        <div class="col-sm-8 pb-3">                            
+                            <input type="text" class="form-control" id="nomcon2" placeholder="Contacto 2">
+                        </div>
+                        <div class="col-sm-4 pb-3">                            
+                            <input type="text" class="form-control" id="celcon2" placeholder="Celular 2">
+                        </div>  
+
+                        <div class="col-md-12 pb-3">
+                            <label for="notemp">Notas</label>
+                            <textarea class="form-control" id="notemp"></textarea>
+                            <small class="text-info">
+                              Observaciones o recordatorios del socio de negocio
+                            </small>
+                        </div>
+                    </div>
+
+                </div>        
+           
+          </div>
+
+          <small id="passwordHelpBlock" class="form-text text-muted">
+            ( * ) Dato necesario
+          </small>                      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button onclick="agregar_proveedor();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Modal Agredar Tipodocs -->
+<div class="modal fade" id="modaladdproveedor2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -274,6 +422,6 @@
       </div>
     </div>
   </div>
-
+<script> $(".chosen").chosen(); </script>
 
 <?php $this->load->view($footer); // aqui van los js ?>
