@@ -21,9 +21,10 @@
  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
  
   <!-- Librerías de choosen Seleccion-->
+  <!-- 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>  -->
 
 <!--AQUI VA NUESTRO JS SE DEBE LLAMAR IGUAL QUE EL CONTROLADOR PERO MINUSCULA hhhh-->
    <script src="<?= base_url('public/js/inicio.js'); ?>"></script>

@@ -1,9 +1,44 @@
 $(document).ready(function () {	
-    cargotipodocid();    
+    cargotipodocid();   
+    
+    busqueda();
    
+
+    
 });
 
+// busquedaaaaaaaaaaaaaaaaaaaaaa
 
+function busqueda() { 
+
+  var tipo = $("#tipodoc").val();
+  $.ajax({
+      type: "post",
+		url: "Proveedor/bus_tipo",
+      data: {
+       tipo:   tipo
+        },
+      success: function (response) {
+      
+       $("#data").html(response);
+        
+      }
+  });
+  
+ }
+
+
+function llenarcasilladoc(codigo,doc, nomcor) {
+    $("#tipdoc").val(codigo);
+    $("#tipdocid").val(nomcor);
+    $("#tipodoc").val(doc);
+    $("#invi").hide();    
+  }
+
+
+ 
+
+// fin de busqyueda
 function cargotipodocid() {
 	$.ajax({
 		type: "post",
@@ -14,7 +49,7 @@ function cargotipodocid() {
           $("#tipdoc").html(response);
           //$("#tipdocid").html(response);
         //    $("#utiposerdoc").html(response);		  
-        console.log(response);
+       
         
 		}
 	});
@@ -64,7 +99,7 @@ function agregar_proveedor() {
          success: function (response) {
             alert (response) ; //Aqui recibo mi mensajede mivariable output. Insert, delete, update.
             window.location.href='Proveedor';  
-            console.log(response);
+            // console.log(response);
              
          }
      });

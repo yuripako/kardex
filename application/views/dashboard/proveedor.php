@@ -136,13 +136,17 @@
                             </div>                           
                         </div>
                         <div class="col-sm-5 pb-3">
-                            <label for="tipdoc">Tipo Documento de Identidad</label>
-                            <select class="form-control chosen" id="tipdoc">
-                               <!--  <option>--[ seleccione Tipo ]--</option> -->
-                            </select>
+                            <label for="tipdoc">Detalle de documento</label>
+                            <!-- <select class="form-control chosen" id="tipdoc">
+                               
+                            </select> -->
+
+                            <input type="text" class="form-control" name="tipodoc" id="tipodoc" onkeyup="busqueda(this.value);">
+                             <input type="hidden" name="tipdoc" id="tipdoc">  <!--ID QUE REPRESETA CAMPO DE TEXTO LLENADO AUTOMATICO -->
+                             <div id="data"></div>
                         </div>
                         <div class="col-sm-2 pb-3">
-                            <label for="tipdocid"> Id. </label>
+                            <label for="tipdocid"> Tipo </label>
                             <input type="text" class="form-control" id="tipdocid" placeholder="" disabled>
                         </div>
                         <div class="col-sm-5 pb-3">
@@ -422,6 +426,5 @@
       </div>
     </div>
   </div>
-<script> $(".chosen").chosen(); </script>
 
 <?php $this->load->view($footer); // aqui van los js ?>

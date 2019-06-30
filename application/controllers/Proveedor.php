@@ -39,6 +39,30 @@ class Proveedor extends CI_Controller {
      
     }
 
+
+
+//--- load automatico
+
+public function bus_tipo()
+{
+$tipo = $this->input->post('tipo');
+if ($tipo=="") {
+  echo "";
+} else
+ {
+    $query = $this->Proveedor_model->carga_automatica($tipo); 
+ echo"<ul class='list-group' id='invi'>";
+ foreach ($query as $item) {
+     echo "<li  class='list-group-item'  onclick=\"llenarcasilladoc($item->coddoc,'".$item->nomdoc."' ,'".$item->nomcor."');\"  style='cursor: pointer;'>".$item->nomdoc."</li>";
+ }
+ echo"</ul>";
+}
+
+
+}
+
+
+
     public function addproveedor() 
     {         
         $valor01 = $this->input->post('valor01'); 

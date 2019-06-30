@@ -55,5 +55,23 @@ class Proveedor_model extends CI_Model {
         return $query->result();
     }
 
+
+
+//carga automatica
+
+public function carga_automatica($tipo)
+{
+   
+    $query =  $this->db->query(" SELECT * FROM tipdocid WHERE nomdoc LIKE '%".$tipo."%'");  // llama
+    
+    return $query->result();
+}
+
+
+
+
+
+
+
     
 }

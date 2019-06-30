@@ -25,9 +25,10 @@
   <!-- Icono -->
   <link rel="shortcut icon" href="public/images/multiglass-hojas.ico" />
   <!-- JqueryUI-->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <!-- Choosen seleccion-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+  <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">   -->
+
   
   <style>
     @media screen and (max-width: 700px) {
