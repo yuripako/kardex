@@ -29,32 +29,38 @@
           </div>
           <div class="card-body ">
             <div class="table">
-              <table  class="table table-hover" width="100%" cellspacing="0">
+              <table id="tablafactura"  class="table table-hover" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                 
-                    <th>N°ro</th>    
-                    <th>CODIGO</th>                             
-                    <th>DESCRIPCION</th>
+                 
+                    <th>CODIGO</th>  
+                    <th>CANTIDAD</th>                               
+                    <th>DESCRIPCION PRODUCTO</th>
                     <th>PRECIO UNIT.</th>
                     <th>PRECIO TOTAL	</th>
                   </tr>
                 </thead>
-  
+                  
                 <tbody >
-            
-                  <tr >
-                  <td></td>
-                     <td></td>
-                     <td></td>
-                     <td> <td>                   
-                    </td></td>
-                  </tr>
                    
-          
-               
                 </tbody>
+             
               </table>
+                <table  class="table " width="100%" cellspacing="0">
+                <tbody >
+                 <tr>      
+                   <td>SUBTOTAL $	</td>
+                 </tr>
+                 <tr>
+                   <td>IVA (15)% $		</td>
+                 </tr>
+                 <tr>
+                   <td>TOTAL $	</td>
+                 </tr>
+                 </tbody>
+                </table>
+
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -88,36 +94,32 @@
         <div class="modal-body">
 
         <div class="table-responsive">
-              <table id="compra" class="table table-hover" width="100%" cellspacing="0">
+              <table id="compra" class="table table-bordered" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
                     <th>N°ro</th>    
                     <th>Código</th>                       
                     <th>Producto</th>
                     <th>Cantidad</th>
-                    <th>Precio</th>
+                     <th>Precio</th>
                     <th>Agregar</th>
                   </tr>
                 </thead>
   
-                <tbody >
-             
+                <!-- <tbody >
                   <tr >
                      <td></td>
                      <td></td>
                      <td></td>
                     </td> <td>
                      <td></td>
-                    
                   <td class="text-center">
                      <button  class="btn btn-info btn-sm"><i class="fas fa-plus "></i>
                      </button>
                     </td>
                   </tr>
-                   
-               
-               
-                </tbody>
+                </tbody> -->
+
               </table>
             </div>
 
