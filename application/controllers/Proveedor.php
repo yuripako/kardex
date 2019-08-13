@@ -53,7 +53,7 @@ if ($tipo=="") {
     $query = $this->Proveedor_model->carga_automatica($tipo); 
  echo"<ul class='list-group' id='invi'>";
  foreach ($query as $item) {
-     echo "<li  class='list-group-item'  onclick=\"llenarcasilladoc($item->coddoc,'".$item->nomdoc."' ,'".$item->nomcor."');\"  style='cursor: pointer;'>".$item->nomdoc."</li>";
+     echo "<li  class='list-group-item'  onclick=\"llenarcasilladoc($item->coddoc,'".$item->docs."' ,'".$item->nomcor."');\"  style='cursor: pointer;'>".$item->docs."</li>";
  }
  echo"</ul>";
 }

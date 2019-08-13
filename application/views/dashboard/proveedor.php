@@ -137,19 +137,23 @@
                         </div>
                         <div class="col-sm-5 pb-3">
                             <label for="tipdoc">Detalle de documento</label>
-                            <!-- <select class="form-control chosen" id="tipdoc">
-                               
+                            <!-- <select class="form-control chosen" id="tipdoc">                               
                             </select> -->
-
-                            <input type="text" class="form-control" name="tipodoc" id="tipodoc" onkeyup="busqueda(this.value);">
-                             <input type="hidden" name="tipdoc" id="tipdoc">  <!--ID QUE REPRESETA CAMPO DE TEXTO LLENADO AUTOMATICO -->
-                             <div id="data"></div>
+                            <div class="input-group">
+                              <input type="text" class="form-control" name="tipodoc" id="tipodoc" onkeyup="busqueda(this.value);">                              
+                              <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">B</button>
+                              </span>
+                              <input type="hidden" name="tipdoc" id="tipdoc">  <!--ID QUE REPRESENTA CAMPO DE TEXTO LLENADO AUTOMATICO -->
+                              <div id="data"></div>                                                          
+                            </div>
+                            <!-- <button data-toggle="modal"  data-toggle="modal" data-target="#modaladdproveedor" class="btn btn-warning"><i class="fas fa-plus "></i> Agregar Proveedor</button> -->
                         </div>
-                        <div class="col-sm-2 pb-3">
+                        <div class="col-sm-3 pb-3">
                             <label for="tipdocid"> Tipo </label>
                             <input type="text" class="form-control" id="tipdocid" placeholder="" disabled>
                         </div>
-                        <div class="col-sm-5 pb-3">
+                        <div class="col-sm-4 pb-3">
                             <label for="numdoc">Número </label>
                             <div class="input-group">
                                 <div class="input-group-prepend"><span class="input-group-text">#</span></span></div>
@@ -165,14 +169,14 @@
                         </div>
                         <div class="col-sm-2 pb-3">
                             <label for="ubiemp"> Ubigeo </label>
-                            <input type="text" class="form-control" id="ubiemp" placeholder="">
+                            <input type="text" class="form-control" id="ubiemp" placeholder="" disabled>
                         </div>
                         <div class="col-sm-4 pb-3">
-                            <label for="depemp">Departamento</label>                            
-                            <select class="form-control" id="depemp">
+                            <label for="disemp">Distrito</label>                          
+                            <select class="form-control" id="disemp">
                                 <option>--[ seleccione Tipo ]--</option>
-                            </select>
-                        </div>
+                            </select>                            
+                        </div>                            
                         <div class="col-sm-4 pb-3">
                             <label for="proemp">Provincia</label>
                             <select class="form-control" id="proemp">
@@ -180,11 +184,11 @@
                             </select>
                         </div>
                         <div class="col-sm-4 pb-3">
-                            <label for="disemp">Distrito</label>                          
-                            <select class="form-control" id="disemp">
+                            <label for="depemp">Departamento</label>                            
+                            <select class="form-control" id="depemp">
                                 <option>--[ seleccione Tipo ]--</option>
-                            </select>                            
-                        </div>                        
+                            </select>
+                        </div>          
                         <div class="col-sm-4 pb-3">
                             <label for="telemp">Telefono</label>
                             <input type="text" class="form-control" id="telemp">

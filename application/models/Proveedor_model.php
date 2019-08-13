@@ -58,11 +58,13 @@ class Proveedor_model extends CI_Model {
 
 
 //carga automatica
-
+//CALL SP_PROVEEDOR('6','doc','','','','','','','','','','','','','','','','','','1',@outproveedor);
 public function carga_automatica($tipo)
 {
-   
-    $query =  $this->db->query(" SELECT * FROM tipdocid WHERE nomdoc LIKE '%".$tipo."%'");  // llama
+    $opc = 6;  
+    $estado = '1'; 
+    //$query =  $this->db->query(" SELECT * FROM tipdocid WHERE nomdoc LIKE '%".$tipo."%'");  // llama
+    $query =  $this->db->query(" CALL SP_PROVEEDOR('".$opc."','".$tipo."','','','','','','','','','','','','','','','','','','".$estado."',@outproveedor);");  // llama
     
     return $query->result();
 }
