@@ -47,6 +47,7 @@
    <script src="<?= base_url('public/js/listprecio.js'); ?>"></script>
    <script src="<?= base_url('public/js/proveedor.js'); ?>"></script>
    <script src="<?= base_url('public/js/ordcompra.js'); ?>"></script>
+   <script src="<?= base_url('public/js/cliente.js'); ?>"></script>
 
    <script>
 
