@@ -33,7 +33,7 @@ class Proveedor_model extends CI_Model {
     {
         $opc = 2;  
         $estado = '1'; 
-        $registro = 'now()';   
+        $registro = 'usuario';   
         $query = $this->db->query(" CALL SP_PROVEEDOR('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','".$valor05."','".$valor06."',
                                     '".$valor07."','".$valor08."','".$valor09."','".$valor10."','".$valor11."','".$valor12."','".$valor13."','".$valor14."',
                                     '".$valor15."','".$valor16."','".$valor17."','".$estado."','$registro',@outproveedor) ");   
@@ -66,6 +66,20 @@ public function carga_automatica($tipo)
     //$query =  $this->db->query(" SELECT * FROM tipdocid WHERE nomdoc LIKE '%".$tipo."%'");  // llama
     $query =  $this->db->query(" CALL SP_PROVEEDOR('".$opc."','".$tipo."','','','','','','','','','','','','','','','','','','".$estado."',@outproveedor);");  // llama
     
+    return $query->result();
+}
+
+public function busca_ubigeo($distrito,$opcion)
+{    
+    if ($opcion == "distri")
+        $opc = 7;
+    if ($opcion == "provi")
+        $opc = 8;
+    if ($opcion == "depa")
+        $opc = 9;
+    $estado = '1';
+    $query = $this->db->query(" CALL SP_PROVEEDOR('".$opc."','".$distrito."','','','','','','','','','','','','','','','','','','".$estado."',@outproveedor);");
+
     return $query->result();
 }
 

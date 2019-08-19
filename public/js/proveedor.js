@@ -1,10 +1,6 @@
 $(document).ready(function () {	
-    cargotipodocid();   
-    
-    busqueda();
-   
-
-    
+    cargotipodocid();       
+    busqueda();    
 });
 
 // busquedaaaaaaaaaaaaaaaaaaaaaa
@@ -14,28 +10,82 @@ function busqueda() {
   var tipo = $("#tipodoc").val();
   $.ajax({
       type: "post",
-		url: "Proveedor/bus_tipo",
+	  url: "Proveedor/bus_tipo",
       data: {
-       tipo:   tipo
+      tipo:   tipo
         },
-      success: function (response) {
-      
-       $("#data").html(response);
-        
+      success: function (response) {      
+        $("#data").html(response);        
       }
   });
   
  }
 
 
-function llenarcasilladoc(codigo,doc, nomcor) {
+function llenarcasilladoc(codigo,nomdoc,nomcor,docs) {
     $("#tipdoc").val(codigo);
     $("#tipdocid").val(nomcor);
-    $("#tipodoc").val(doc);
+    $("#tipodoc").val(nomdoc);
     $("#invi").hide();    
   }
 
+  //##########################33
+function buscadistri() {     
+    var valor = $("#disemp").val();           
+    var desc = "distri";
+    $.ajax({
+        type: "post",
+        url: "Proveedor/bus_distrito",
+        data: {
+        valor: valor,
+        desc: desc    
+        },
+        success: function (response) {        
+            $("#datadis").html(response);        
+        }
+    });
+    
+}
+function buscaprovi() {     
+    var valor = $("#proemp").val();    
+    var desc = "provi";       
+    $.ajax({
+        type: "post",
+        url: "Proveedor/bus_distrito",
+        data: {
+        valor: valor,
+        desc: desc
+        },
+        success: function (response) {        
+            $("#datadis").html(response);        
+        }
+    });
+    
+}
+function buscadepa() {     
+    var valor = $("#depemp").val();   
+    var desc = "depa";
+    $.ajax({
+        type: "post",
+        url: "Proveedor/bus_distrito",
+        data: {
+        valor: valor,
+        desc: desc
+        },
+        success: function (response) {        
+            $("#datadis").html(response);        
+        }
+    });
+    
+}
 
+function llenarubigeo(ubigeo, distri,provincia, depart) {
+    $("#ubiemp").val(ubigeo);
+    $("#disemp").val(distri);
+    $("#proemp").val(provincia);
+    $("#depemp").val(depart);    
+    $("#invidis").hide();    
+    }
  
 
 // fin de busqyueda
@@ -60,7 +110,7 @@ function agregar_proveedor() {
     var valor01 = null;
     var valor02 = $("#nomemp").val();
     var valor03 = $("#numdoc").val();
-    var valor04 = $("#tipdocid").val();
+    var valor04 = $("#tipdoc").val();
     var valor05 = $("#diremp").val();        
     var valor06 = $("#depemp").val();        
     var valor07 = $("#proemp").val();        
@@ -76,7 +126,7 @@ function agregar_proveedor() {
     var valor17 = $("#notemp").val();             
      $.ajax({
          type: "post",
-         url: "Serieynum/addserieynum",
+         url: "Proveedor/addproveedor",
          data: {           
             valor01 : valor01,
             valor02 : valor02,           
@@ -104,57 +154,4 @@ function agregar_proveedor() {
          }
      });
     
-}
-
-function actualizar_serieynum(id_num,cod_doc,serie,correlativo,descripcion,estado) {
-    $("#uidserieynum").val(id_num);     
-    $("#utiposerdoc").val(cod_doc);     
-    $("#userieserdoc").val(serie);     
-    $("#unumeracionserdoc").val(correlativo);
-    $("#udescripcionserdoc").val(descripcion);    
-    $("#uestadoserdoc").val(estado);      
-}
-
-function updateserieynum() {
-    var valor01 = $("#uidserieynum").val();
-    var valor02 = $("#utiposerdoc").val();
-    var valor03 = $("#userieserdoc").val();
-    var valor04 = $("#unumeracionserdoc").val();    
-    var valor05 = $("#udescripcionserdoc").val();    
-    var valor06 = $("#uestadoserdoc").val(); 
-    $.ajax({
-        type: "post",
-        url: "Serieynum/updserieynum",
-        data: {
-            valor01 : valor01,
-            valor02 : valor02,
-            valor03 : valor03,                   
-            valor04 : valor04,
-            valor05 : valor05,         
-            valor06 : valor06    
-        },  
-        success: function (response) {
-            alert (response) ;
-            window.location.href='Serieynum';  
-        }
-    });
-}
-
-function eliminar_serieynum(cod) {
-    var rpta = window.confirm("¿Desea eliminar el registro?");
-    if (rpta == true) {
-        $.ajax({
-            type: "post",
-            url: "Serieynum/delserieynum",
-            data: {
-                cod : cod            
-            },
-            success: function (response) {
-                alert (response) ;
-                window.location.href='Serieynum';              
-            }
-        });
-    } else {
-        window.location.href='Serieynum';   
-    }    
 }

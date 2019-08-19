@@ -141,9 +141,9 @@
                             </select> -->
                             <div class="input-group">
                               <input type="text" class="form-control" name="tipodoc" id="tipodoc" onkeyup="busqueda(this.value);">                              
-                              <span class="input-group-btn">
+                              <!-- <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button">B</button>
-                              </span>
+                              </span> -->
                               <input type="hidden" name="tipdoc" id="tipdoc">  <!--ID QUE REPRESENTA CAMPO DE TEXTO LLENADO AUTOMATICO -->
                               <div id="data"></div>                                                          
                             </div>
@@ -151,7 +151,7 @@
                         </div>
                         <div class="col-sm-3 pb-3">
                             <label for="tipdocid"> Tipo </label>
-                            <input type="text" class="form-control" id="tipdocid" placeholder="" disabled>
+                            <input type="text" class="form-control" id="tipdocid" placeholder="" disabled>                            
                         </div>
                         <div class="col-sm-4 pb-3">
                             <label for="numdoc">Número </label>
@@ -173,21 +173,24 @@
                         </div>
                         <div class="col-sm-4 pb-3">
                             <label for="disemp">Distrito</label>                          
-                            <select class="form-control" id="disemp">
+                            <input type="text" class="form-control divclick" name="disemp" id="disemp" onkeyup="buscadistri(this.value);">  
+                            <!-- <input type="hidden" name="disempr" id="disempr"> ID QUE REPRESENTA CAMPO DE TEXTO LLENADO AUTOMATICO -->
+                            <div id="datadis"></div>
+                            <!--<select class="form-control" id="disemp">
                                 <option>--[ seleccione Tipo ]--</option>
-                            </select>                            
+                            </select>                             -->
                         </div>                            
                         <div class="col-sm-4 pb-3">
                             <label for="proemp">Provincia</label>
-                            <select class="form-control" id="proemp">
-                                <option>--[ seleccione Tipo ]--</option>
-                            </select>
+                            <input type="text" class="form-control divclick" name="proemp" id="proemp" onkeyup="buscaprovi(this.value);"> 
+                            <div id="datapro"></div> 
+                            <!-- <input type="text" class="form-control" id="proemp" placeholder="" >                             -->
                         </div>
                         <div class="col-sm-4 pb-3">
-                            <label for="depemp">Departamento</label>                            
-                            <select class="form-control" id="depemp">
-                                <option>--[ seleccione Tipo ]--</option>
-                            </select>
+                            <label for="depemp">Departamento</label>  
+                            <input type="text" class="form-control divclick" name="depemp" id="depemp" onkeyup="buscadepa(this.value);">  
+                            <div id="datadep"></div>
+                            <!-- <input type="text" class="form-control" id="depemp" placeholder="" >                                                      -->
                         </div>          
                         <div class="col-sm-4 pb-3">
                             <label for="telemp">Telefono</label>
@@ -200,31 +203,7 @@
                         <div class="col-sm-4 pb-3">
                             <label for="coremp">Correo</label>
                             <input type="text" class="form-control" id="coremp">
-                        </div>
-                        <!-- <div class="col-md-6 pb-3">
-                            <label for="exampleAccount">Contactos</label>
-                            <div class="form-group small">
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Blue
-                                    </label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Red
-                                    </label>
-                                </div>
-                               
-                            </div>
-                        </div> -->                        
-                        <!-- <div class="col-12">
-                            <div class="form-row">
-                                 <label class="col-md col-form-label"  for="name">Generated Id</label>
-                                 <input type="text" class="form-control col-md-4" name="gid" id="gid" />
-                                 <label class="col-md col-form-label"  for="name">Date Assigned</label>
-                                 <input type="text" class="form-control col-md-4" name="da" id="da" />
-                            </div>
-                        </div> -->
+                        </div>                        
                         <div class="col-sm-8 pb-3">                            
                             <input type="text" class="form-control" id="nomcon" placeholder="Contacto 1">
                         </div>
@@ -257,87 +236,17 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_proveedor();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
+        <button onclick="agregar_proveedor();" type="button" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>
 </div>
-
-  <!-- Modal Agredar Tipodocs -->
-<div class="modal fade" id="modaladdproveedor2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Proveedor</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">                                                       
-            <!-- formulario -->
-            <div class="row">
-
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Nombre Empresa </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="emppro">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">RUC/DNI</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="docpro">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="tippro">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Teléfono </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="tlfpro">
-                </div>
-              </div>
-            </div>   
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Procedencia </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="procepro">
-                </div>
-              </div>
-            </div>         
-           
-          </div>
-
-          <small id="passwordHelpBlock" class="form-text text-muted">
-            ( * ) Dato necesario
-          </small>                      
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="agregar_proveedor();" type="button" class="btn btn-primary">Agregar Tipo de documento</button>
-      </div>
-    </div>
-  </div>
-</div>
-
   <!-- Modal Editar Tipodocs -->
   <div class="modal fade" id="modaleditarproveedor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Tipo de documento</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Proveedor</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -345,62 +254,8 @@
       <div class="modal-body">
                 
             <!-- formulario -->
-            <div class="row">
-
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo Documento </label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="utipodoc">
-                </div>
-              </div>
+            <div class="row">                                                                  
             </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Descripción</label>
-                <div class="col-sm-8">
-                  <input type="text" class="form-control" id="udescripciondoc">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Código del tipo de Documento </label>
-                <div class="col-sm-8">
-                  <input type="number" class="form-control" id="ucodigodoc">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Tipo de Movimiento </label>
-                <div class="col-sm-8">                  
-                  <select class="custom-select" id="utipomovdoc">
-                      <option selected>--[ seleccione estado ]--</option>
-                      <option value="C">Compra</option>
-                      <option value="V">Venta</option>  
-                  </select>
-                </div>
-              </div>
-            </div>            
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label for="inputPassword" class="col-sm-8 col-form-label">Estado </label>
-                <div class="col-sm-8">
-                  <select class="custom-select" id="uestadodoc">
-                      <option selected>--[ seleccione estado ]--</option>
-                      <option value="1">Activo</option>
-                      <option value="0">Inactivo</option>  
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>       
-          <input type="hidden" id="uideproveedor" name="ide">
-          <small id="passwordHelpBlock" class="form-text text-muted">
-            ( * ) Dato necesario
-          </small>                                                        
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

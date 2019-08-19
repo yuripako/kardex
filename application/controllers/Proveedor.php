@@ -27,7 +27,8 @@ class Proveedor extends CI_Controller {
 	   //data es un array para enviar datos ala vista 
 	   $this->load->view('dashboard/proveedor', $data); 
     } 
-     
+    
+    /*
     public function cargo_tipodocid()
     {
        $query = $this->Proveedor_model->select_tipodocid();
@@ -37,31 +38,58 @@ class Proveedor extends CI_Controller {
             
 		}
      
+    }  */
+
+    //--- load automatico
+    public function bus_tipo()
+    {
+        $tipo = $this->input->post('tipo');
+        if ($tipo=="") {
+            echo "";
+        } else
+        {
+            $query = $this->Proveedor_model->carga_automatica($tipo); 
+            echo"<ul class='list-group' id='invi'>";
+            foreach ($query as $item) {
+                echo "<li  class='list-group-item'  onclick=\"llenarcasilladoc($item->coddoc,'".$item->nomdoc."','".$item->nomcor."','".$item->docs."');\"  style='cursor: pointer;'>".$item->docs."</li>";
+            }
+            echo"</ul>";
+        }
     }
 
-
-
-//--- load automatico
-
-public function bus_tipo()
-{
-$tipo = $this->input->post('tipo');
-if ($tipo=="") {
-  echo "";
-} else
- {
-    $query = $this->Proveedor_model->carga_automatica($tipo); 
- echo"<ul class='list-group' id='invi'>";
- foreach ($query as $item) {
-     echo "<li  class='list-group-item'  onclick=\"llenarcasilladoc($item->coddoc,'".$item->docs."' ,'".$item->nomcor."');\"  style='cursor: pointer;'>".$item->docs."</li>";
- }
- echo"</ul>";
-}
-
-
-}
-
-
+    //busca ubigeo
+    public function bus_distrito()
+    {
+        $valor = $this->input->post('valor');
+        $desc  = $this->input->post('desc');
+        $query = $this->Proveedor_model->busca_ubigeo($valor,$desc);
+        switch ($desc) {
+            case "distri":                
+                echo"<ul class='list-group' id='invidis'>";
+                foreach ($query as $item) {
+                    echo "<li class='list-group-item' onclick=\"llenarubigeo($item->cod_ubi,'".$item->district."','".$item->provincia."','".$item->depart."','".$item->fubigeo."');\" style='cursor: pointer;'>".$item->fubigeo."</li>";
+                }
+                echo"</ul>";
+                break;
+            case "provi":
+                echo"<ul class='list-group' id='invidis'>";
+                foreach ($query as $item) {
+                    echo "<li class='list-group-item' onclick=\"llenarubigeo($item->cod_ubi,'".$item->district."','".$item->provincia."','".$item->depart."','".$item->fubigeo."');\" style='cursor: pointer;'>".$item->fubigeo."</li>";
+                }
+                echo"</ul>";
+                break;
+            case "depa":
+                echo"<ul class='list-group' id='invidis'>";
+                foreach ($query as $item) {
+                    echo "<li class='list-group-item' onclick=\"llenarubigeo($item->cod_ubi,'".$item->district."','".$item->provincia."','".$item->depart."','".$item->fubigeo."');\" style='cursor: pointer;'>".$item->fubigeo."</li>";
+                }
+                echo"</ul>";
+                break;
+            default:
+                ;
+                break;
+        }                
+    }
 
     public function addproveedor() 
     {         
