@@ -97,8 +97,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-                
+      <div class="modal-body">                
             <div class="form-group">
                 <label>Codigo</label>
                 <input type="text" class="form-control" id="codigo" placeholder="Codigo de moneda">                
@@ -115,12 +114,11 @@
             <div class="form-group">
                 <label>Estado</label>
                 <select class="custom-select" id="estado">
-                    <option selected>--[ seleccione estado ]--</option>
-                    <option value="1">Activo</option>
+                    <option value="">--[ seleccione estado ]--</option>
+                    <option value="1" selected>Activo</option>
                     <option value="0">Inactivo</option>                    
                 </select>
             </div>                              
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
