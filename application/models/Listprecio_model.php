@@ -23,14 +23,20 @@ class Listprecio_model extends CI_Model {
 		return $res;
     }
 
+    public function select_moneda()
+    {
+        $opc = 1;
+        $query = $this->db->query(" CALL SP_MONEDA('".$opc."','','','','');");
+        return $query->result();
+    }
 //###########################################  OUTPUT  ##############################################
 //Retorno mi mensaje cuando creo mi variable de salida OUTCONPAGO, menos el load SP
-    public function agregar_serieynum ($valor01,$valor02,$valor03,$valor04,$valor05) 
+    public function agregar_listaprecio ($valor01,$valor02,$valor03,$valor04) 
     {
         $opc = 2;  
-        $estado = '1';      
-        $query = $this->db->query(" CALL SP_SERIEYNUMS('".$opc."','','".$valor02."','".$valor03."','".$valor04."','$valor05','".$estado."',@outserieynum) ");   
-        $query = $this->db->query("Select @outserieynum  as mensaje;"); 
+        $estado = $valor04;      
+        $query = $this->db->query(" CALL SP_LISTAPRECIO2('".$opc."','".$valor01."','".$valor02."','".$valor03."','".$valor04."','','".$estado."',@outlistaprecio) ");   
+        $query = $this->db->query("Select @outlistaprecio  as mensaje;"); 
         return $query->result();
     }
     public function actualiza_serieynum($valor01,$valor02,$valor03,$valor04,$valor05,$valor06)

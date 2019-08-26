@@ -41,24 +41,30 @@ class Listprecio extends CI_Controller {
 	{
 		$valor = $this->input->post('valor');
 	 	$query = $this->Listprecio_model->load_listaprecio($valor);
-         echo json_encode($query);        
-    
+         echo json_encode($query);                
      }
 
-    public function addserieynum()
+     public function selemoneda()
+     {
+         $query = $this->Listprecio_model->select_moneda();
+         echo"<option value=''>--[ Seleccione ]--</option>";
+         foreach ($query as $item){
+             echo "<option value='".$item->cod_mone."'>".$item->cod_mone." - ".$item->nom_mone."</option>";
+         }
+     }
+
+    public function addlistaprecio()
     {        
         $valor01 = $this->input->post('valor01');
         $valor02 = $this->input->post('valor02');
         $valor03 = $this->input->post('valor03');
-        $valor04 = $this->input->post('valor04');                 
-        $valor05 = $this->input->post('valor05');                 
+        $valor04 = $this->input->post('valor04');                                    
 
-        $query = $this->Serieynum_model->agregar_serieynum($valor01,$valor02,$valor03,$valor04,$valor05);
-        
+        $query = $this->Listprecio_model->agregar_listaprecio($valor01,$valor02,$valor03,$valor04);        
         //echo json_encode($query);
-
         echo $query[0]->mensaje;   //Muestra el mensaje de output de mi db.             
     }
+    
     public function updserieynum()
     {
         $valor01 = $this->input->post('valor01');
