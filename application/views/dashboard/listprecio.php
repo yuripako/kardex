@@ -130,15 +130,30 @@
           <h5 class="modal-title" id="exampleModalLabel">Agregar Productos a Lista de Precios</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
-          </button>
+          </button>          
         </div>
-        <div class="modal-body">
-
+        <div class="form-group row " >        
+            <div class="col-md-6  ">  
+              <select name="sellispre2" id="sellispre2" class="custom-select" style="background-color: lightgreen;font-weight: bold;">                  
+              </select>  
+            </div>                  
+            <div class="col-md-1 ">                
+            </div>              
+            <div >                
+              <label for="inputPassword" class="col-sm-3 col-form-label">Moneda</label>
+            </div>                              
+              <div class="col-sm-3">                
+                <select name="lpselemoneda2" id="lpselemoneda2" class="custom-select" style="background-color: lightgreen;font-weight: bold;">                  
+                </select> 
+              </div>            
+        </div> 
+        
+        <div class="modal-body">             
             <div class="table-responsive">
               <table id="additemxlista" class="table table-bordered" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>     
-                    <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>                   
+                    <th><input type="checkbox" name="lpseletodos" value="1" id="lpseletodos" ></th>                   
                     <th>Código</th>                       
                     <th>Producto</th>
                     <th>Precio Base</th>

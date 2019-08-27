@@ -30,7 +30,7 @@ class Listprecio extends CI_Controller {
 	public function sele_listaprecio()
     {
        $query = $this->Listprecio_model->select_listaprecio();
-        echo"<option value=''>--[ Seleccione ]--</option>";
+        echo"<option value=''>--[ Seleccione Lista Precio ]--</option>";
 		foreach ($query as $item) {
             $dato = $item->id_list."->".$item->cod_mon;
 			echo "<option value='".$dato."'>".$item->cod_list." - ".$item->nom_list."</option>";

@@ -1,9 +1,18 @@
 $(document).ready(function () {	
     selelistaprecio();    
     selemoneda();
+    $('#lpseletodos').on("click",function() {
+        $(".case").prop("checked",this.checked);
+    });         
+    // if all checkbox are selected, check the selectall checkbox and viceversa
+    $(".case").on("click", function() {
+    if ($(".case").length == $(".case:checked").length) {
+        $("#lpseletodos").prop("checked", true);
+    } else {
+        $("#lpseletodos").prop("checked", false);
+    }
+    });
 
-    var a =1;
-    var p ="";
     $('#additemxlista').DataTable({     
         "language": {
             "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
@@ -16,35 +25,27 @@ $(document).ready(function () {
             // { data: null, "render" : function(){
             //     return a++;
             // } },
-            {   targets: 0,     
+            {   targets: 1,     
                 data: null,          
                 defaultContent: '',
                 orderable: false,
                 className: 'select-checkbox',
                 'render': function (data, type, full, meta){
-                    return '<input type="checkbox" name="id[]" value="' 
-                       + $('<div/>').text(data).html() + '">';}
+                    return '<input type="checkbox" name="case[]" value="' 
+                       + $('<div/>').text(data).html() + '" class="case">';}
             },
            { data: 'cod_item' },
            { data: 'nom_item' },
            {  data: null, "render" : function(data){
-             p= "<select id='cantidad"+data.id_item+"' class='form-control'>";
-             for (let index = 1; index <= 100; index++) {
-                p+= "<option value='"+index+"'>"+index+"</option>";
-                 
-             }
-               p+="</select>";
-               return p;
-            } 
+                return "<input class='form-control col-sm-8' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";                 
+             }                           
            },
           { data: null,"render" : function(data){
-            return "<input class='form-control' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";
+            return "<input class='form-control col-sm-8' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";
            } 
          },
          { data: null,"render" : function(data){
-            return "<div class='text-center'>"+
-            "<button onclick=\"agregar_itemxlista("+data.id_item+",'" + data.cod_item + "','" + data.nom_item + "');\"  "+
-            "  class='btn btn-info btn-sm '><i class='fas fa-plus'></i></button></div>";
+            return "<input class='form-control col-sm-8 ' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";
            } 
          }
         ],
@@ -53,9 +54,16 @@ $(document).ready(function () {
             style:    'os',
             selector: 'td:first-child'
         },
+        scrollY: "500px",
+        scrollCollapse: true,
+        paging: false,
+        scroller: true,
+        fixedHeader: {header: true}
+        
     });
 
 });
+
 function selelistaprecio() {
 	$.ajax({
 		type: "post",
@@ -64,7 +72,8 @@ function selelistaprecio() {
 		success: function (response) {
 		    console.log(response);
           $("#sellispre").html(response);
-          $("#monlispre").html(response);		  
+          $("#monlispre").html(response);
+          $("#sellispre2").html(response);		  
 		}
 	});
 }
@@ -72,10 +81,8 @@ function selelistaprecio() {
 function cargalistaprecio(valor){  
     
     var cadena = valor.split('->');
-    //  console.log(cadena[1]);
-     
-    $("#monlispre").val(cadena[1]);
-    
+    //  console.log(cadena[1]);     
+    $("#monlispre").val(cadena[1]);   
     $("#tablaprecio").DataTable({       
         ajax:{
             type: "post",
@@ -105,8 +112,7 @@ function cargalistaprecio(valor){
         destroy: true    
         //success: function (response) {
 		//    console.log(response);   }
-     });    
- 
+     });     
 }
 
 function editarlistaitem(v1,v2,v3,v4,v5) {
@@ -123,6 +129,7 @@ function selemoneda(){
         data : {},
         success : function (params) {
             $('#lpselemoneda').html(params);
+            $('#lpselemoneda2').html(params);
             //console.log(params);
         }
     });
@@ -155,6 +162,14 @@ function agregar_listaprecio() {
 
 function agregar_itemxlista() {
     console.log();
+}
+
+function cargalistaprecio2(valor){  
+    
+    var cadena = valor.split('->');
+    //  console.log(cadena[1]);     
+    $("#monlispre").val(cadena[1]);
+
 }
 
 function actualizar_serieynum(id_num,cod_doc,serie,correlativo,descripcion,estado) {
