@@ -81,9 +81,18 @@ function selelistaprecio() {
 function cargalistaprecio(valor){  
     
     var cadena = valor.split('->');
+<<<<<<< Updated upstream
     //  console.log(cadena[1]);     
     $("#monlispre").val(cadena[1]);   
     $("#tablaprecio").DataTable({       
+=======
+    //  console.log(cadena[1]);
+     
+    $("#monlispre").val(cadena[1]);
+    
+    $("#tablaprecio").DataTable({   
+            
+>>>>>>> Stashed changes
         ajax:{
             type: "post",
             url: "Listprecio/carga_listaprecio",
@@ -91,7 +100,12 @@ function cargalistaprecio(valor){
             data: {
                 valor : cadena[0]
             }
+<<<<<<< Updated upstream
         },        
+=======
+        },
+        
+>>>>>>> Stashed changes
         //order: [0, 'desc'],
         dom: "Bfrtip",
         sAjaxDataProp: "",

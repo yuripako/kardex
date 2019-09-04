@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    var a =1;
-    var p ="";
+
     $('#compra').DataTable({
      
         "language": {
@@ -11,24 +10,15 @@ $(document).ready(function() {
             dataSrc: ''
         },dom: "Bfrtip",
         columns: [
-            { data: null, "render" : function(){
-                return a++;
-            } },
           
            { data: 'cod_item' },
            { data: 'nom_item' },
            {  data: null, "render" : function(data){
-             p= "<select id='cantidad"+data.id_item+"' class='form-control'>";
-             for (let index = 1; index <= 100; index++) {
-                p+= "<option value='"+index+"'>"+index+"</option>";
-                 
-             }
-               p+="</select>";
-               return p;
+            return "<input class='form-control' type='number' id='cantidad"+data.id_item+"' placeholder='0'></imput>";
             } 
            },
           { data: null,"render" : function(data){
-            return "<input class='form-control' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></imput>";
+            return "<input class='form-control'  type='number'  id='precio"+data.id_item+"' placeholder='0.0'></imput>";
            } 
          },
          { data: null,"render" : function(data){
@@ -48,19 +38,44 @@ $(document).ready(function() {
 function agregar(item,codigo,producto) {
     var precio = $("#precio"+item).val();
     var cantidad = $("#cantidad"+item).val();
-    var codigo =  codigo;
-    var producto =  producto;
-
-    var htmlTags = '<tr>'+
-    '<td>' + codigo + '</td>'+
-    '<td>' + cantidad + '</td>'+
-    '<td>' + producto + '</td>'+
-    '<td>' + precio + '</td>'+
-    '<td>' + (precio*cantidad) + '</td>'+
    
-    '<td><i class="fas fa-trash "></i></td>'+
-  '</tr>';
-  
-$('#tablafactura tbody').append(htmlTags);
+   
+     if (precio=="" || cantidad=="") {
+       alert("Precio / cantidad no pueden ser nulos");
+     }else{
+      var codigo =  codigo;
+      var producto =  producto;
 
+      var subtotal = (precio*cantidad);
+      var igv = (subtotal*(0.18));
+      var total = (subtotal + igv);
+      $("#subtotal").val(subtotal);
+      $("#igv").val(igv);
+      $("#total").val(total);
+      
+      //  $.ajax({
+      //    type: "method",
+      //    url: "url",
+      //    data: "data",
+      //    dataType: "dataType",
+      //    success: function (response) {
+           
+      //    }
+      //  });
+
+  
+      var htmlTags = '<tr>'+
+      '<td>' + codigo + '</td>'+
+      '<td>' + cantidad + '</td>'+
+      '<td>' + producto + '</td>'+
+      '<td>' + precio + '</td>'+
+      '<td>' + (precio*cantidad) + '</td>'+
+      '<td><i class="fas fa-trash "></i></td>'+
+      " </tr>";
+
+  $('#tablafactura tbody').append(htmlTags);
+
+     }
+    
 }
+
