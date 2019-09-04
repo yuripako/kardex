@@ -31,7 +31,7 @@ $(document).ready(function () {
                 orderable: false,
                 className: 'select-checkbox',
                 'render': function (data, type, full, meta){
-                    return '<input type="checkbox" name="case[]" value="' 
+                    return '<input  type="checkbox" name="case[]" value="' 
                        + $('<div/>').text(data).html() + '" class="case">';}
             },
            { data: 'cod_item' },
@@ -64,17 +64,17 @@ $(document).ready(function () {
 
 });
 function lpsumar(){    
-    a = document.getElementById("lpprecio").value;
-    b = document.getElementById("lpdscto").value;
-    c = parseFloat(a) - parseFloat(b);
-    var resultado = redondeo(c,2);
-    console.log(a);
-    console.log(b);
-    console.log(c);
-    document.getElementById("lptotal").value = resultado;
-    //document.getElementById("lptotal").innerHTML = c;
-    //document.lptotal.value = c;
-}
+//     a = document.getElementById("lpprecio").value;
+//     b = document.getElementById("lpdscto").value;
+//     c = parseFloat(a) - parseFloat(b);
+//     var resultado = redondeo(c,2);
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+//     document.getElementById("lptotal").value = resultado;
+//     //document.getElementById("lptotal").innerHTML = c;
+//     //document.lptotal.value = c;
+ }
 function redondeo(num, dec) {
     return Number(num.toFixed(dec));
 }
@@ -96,56 +96,45 @@ function selelistaprecio() {
 	});
 }
 
-function cargalistaprecio(valor){  
-    
-    var cadena = valor.split('->');
-<<<<<<< Updated upstream
-    //  console.log(cadena[1]);     
-    $("#monlispre").val(cadena[1]);   
-    $("#tablaprecio").DataTable({       
-=======
-    //  console.log(cadena[1]);
+function cargalistaprecio(valor){   
      
-    $("#monlispre").val(cadena[1]);
-    
-    $("#tablaprecio").DataTable({   
-            
->>>>>>> Stashed changes
-        ajax:{
-            type: "post",
-            url: "Listprecio/carga_listaprecio",
-            //dataType : "json",
-            data: {
-                valor : cadena[0]
-            }
-<<<<<<< Updated upstream
-        },        
-=======
-        },
-        
->>>>>>> Stashed changes
-        //order: [0, 'desc'],
-        dom: "Bfrtip",
-        sAjaxDataProp: "",
-         columns : [
-            { data : "cod_item" },
-            { data : "nom_item" },
-            { data : "preciovta_base" },
-            { data : "prc_dscto" },
-            { data : "preciovta_fin" },
-            { data: null,"render" : function(data){
-                return "<div class='text-center'>"+
-            "<button onclick=\"editarlistaitem("+data.cod_lista+",'" + data.cod_prod + "','" + data.preciovta_base + "','" + data.prc_dscto +  "','" + data.preciovta_fin + "');\"  "+
-            "data-toggle='modal' data-target='#editalistaitem'  class='btn btn-info btn-sm '><i class='fas fa-edit'></i></button></div>";
-                }
-            }                     
-        ],
-        select: true,
-        destroy: true    
-        //success: function (response) {
-		//    console.log(response);   }
+    var cadena = valor.split('->'); 
+    //  console.log(cadena[1]); 
+      
+    $("#monlispre").val(cadena[1]); 
+     
+    $("#tablaprecio").DataTable({        
+        ajax:{ 
+            type: "post", 
+            url: "Listprecio/carga_listaprecio", 
+            //dataType : "json", 
+            data: { 
+                valor : cadena[0] 
+            } 
+        },         
+        //order: [0, 'desc'], 
+        dom: "Bfrtip", 
+        sAjaxDataProp: "", 
+         columns : [ 
+            { data : "cod_item" }, 
+            { data : "nom_item" }, 
+            { data : "preciovta_base" }, 
+            { data : "prc_dscto" }, 
+            { data : "preciovta_fin" }, 
+            { data: null,"render" : function(data){ 
+                return "<div class='text-center'>"+ 
+            "<button onclick=\"editarlistaitem("+data.cod_lista+",'" + data.cod_prod + "','" + data.preciovta_base + "','" + data.prc_dscto +  "','" + data.preciovta_fin + "');\"  "+ 
+            "data-toggle='modal' data-target='#editalistaitem'  class='btn btn-info btn-sm '><i class='fas fa-edit'></i></button></div>"; 
+                } 
+            }                      
+        ], 
+        select: true, 
+        destroy: true     
+        //success: function (response) { 
+		//    console.log(response);   } 
      });     
-}
+  
+} 
 
 function editarlistaitem(v1,v2,v3,v4,v5) {
     //alert('hello paquex'+ v1 + '->' + v2);
@@ -193,23 +182,45 @@ function agregar_listaprecio() {
 }
 
 function agregar_itemxlista() {
-    var listaprecio = $("#sellispre2").val();
-    //var valor02 = $("#lpselemoneda2").val();        
-    //console.log(valor01 + "--" + valor02);
-    var cadena = listaprecio.split('->');    
-    $.ajax({
-        type: "post",
-        url: "Listprecio/additemxlista",
-        data: {
-            valor01 : cadena[0],
-            valor02 : cadena[1]
-        },
-        success: function(response){
-            alert (response);            
-            window.location.href='Listprecio';
-        }
 
-    })
+    var cant = 0;
+    $(".case").each(function(){  //todos los que sean de la clase row1
+        if($(this).checked == true){
+          cant++;
+        }
+    });
+
+
+    var cells = [];
+    var rows = $("#additemxlista").dataTable().fnGetNodes();
+    for(var i=0;i<cant;i++)
+    {
+        // Get HTML of 3rd column (for example)
+      cells.push($(rows[i]).find("td:eq(1)").html()); 
+    }
+    console.log(cells);
+
+
+
+
+
+    // var listaprecio = $("#sellispre2").val();
+    // //var valor02 = $("#lpselemoneda2").val();        
+    // //console.log(valor01 + "--" + valor02);
+    // var cadena = listaprecio.split('->');    
+    // $.ajax({
+    //     type: "post",
+    //     url: "Listprecio/additemxlista",
+    //     data: {
+    //         valor01 : cadena[0],
+    //         valor02 : cadena[1]
+    //     },
+    //     success: function(response){
+    //         alert (response);            
+    //         window.location.href='Listprecio';
+    //     }
+
+    // })
 }
 
 function cargalistaprecio2(valor){  
