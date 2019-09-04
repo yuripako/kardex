@@ -41,7 +41,7 @@ class Listprecio extends CI_Controller {
 	{
 		$valor = $this->input->post('valor');
 	 	$query = $this->Listprecio_model->load_listaprecio($valor);
-         echo json_encode($query);                
+        echo json_encode($query);                
      }
 
      public function selemoneda()
@@ -65,6 +65,20 @@ class Listprecio extends CI_Controller {
         echo $query[0]->mensaje;   //Muestra el mensaje de output de mi db.             
     }
     
+    public function loaditems()
+	{
+	   $query  = $this->Listprecio_model->load_items();	
+	   echo json_encode($query);
+    }
+    
+    public function additemxlista()
+    {
+        $valor01 = $this->input->post('valor01');
+        $valor02 = $this->input->post('valor02');
+        $query = $this->Listprecio_modal->agregar_itemxlista($valor01,$valor02);
+        echo $query[0]->mensaje;
+    }
+
     public function updserieynum()
     {
         $valor01 = $this->input->post('valor01');

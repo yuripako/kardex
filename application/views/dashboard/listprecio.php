@@ -169,6 +169,7 @@
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
           <a  class="btn btn-primary" href="#" onclick="agregar_itemxlista();">Agregar</a>
+          <!-- <button title="EDITAR PRODUCTO" onclick="editar_moneda('<?= $item->cod_mone ?>','<?= $item->nom_mone ?>','<?= $item->descripcion ?>','<?= $item->estado ?>');" data-toggle="modal" data-target="#modaleditarmoneda"  class="btn btn-warning"> <i class="fas fa-edit "></i></button> -->
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ $(document).ready(function () {
             "url": "//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"
         },
         ajax: {
-            url: 'Ordcompra/loadproductos',
+            url: 'Listprecio/loaditems',
             dataSrc: ''
         },dom: "Bfrtip",
         columns: [
@@ -37,15 +37,15 @@ $(document).ready(function () {
            { data: 'cod_item' },
            { data: 'nom_item' },
            {  data: null, "render" : function(data){
-                return "<input class='form-control col-sm-8' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";                 
+                return "<input class='form-control col-sm-8' id='lpprecio"+data.id_item+"'   value='0.00' onkeyup='lpsumar();' ></input>";                 
              }                           
            },
           { data: null,"render" : function(data){
-            return "<input class='form-control col-sm-8' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";
+            return "<input class='form-control col-sm-8' id='lpdscto"+data.id_item+"' value='0.00' onkeyup='lpsumar();' ></input>";
            } 
          },
          { data: null,"render" : function(data){
-            return "<input class='form-control col-sm-8 ' id='precio"+data.id_item+"' value='"+data.id_item*100+"'></input>";
+            return "<input class='form-control col-sm-8 ' id='lptotal"+data.id_item+"' value='0.00' ></input>";
            } 
          }
         ],
@@ -63,14 +63,32 @@ $(document).ready(function () {
     });
 
 });
-
+function lpsumar(){    
+    a = document.getElementById("lpprecio").value;
+    b = document.getElementById("lpdscto").value;
+    c = parseFloat(a) - parseFloat(b);
+    var resultado = redondeo(c,2);
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    document.getElementById("lptotal").value = resultado;
+    //document.getElementById("lptotal").innerHTML = c;
+    //document.lptotal.value = c;
+}
+function redondeo(num, dec) {
+    return Number(num.toFixed(dec));
+}
+function seleccion(){    
+    document.getElementById("lpprecio").select();
+    //document.getElementById("lpdscto").select();
+}
 function selelistaprecio() {
 	$.ajax({
 		type: "post",
 		url: "Listprecio/sele_listaprecio",
 		data: {},
 		success: function (response) {
-		    console.log(response);
+		   // console.log(response);
           $("#sellispre").html(response);
           $("#monlispre").html(response);
           $("#sellispre2").html(response);		  
@@ -161,7 +179,23 @@ function agregar_listaprecio() {
 }
 
 function agregar_itemxlista() {
-    console.log();
+    var listaprecio = $("#sellispre2").val();
+    //var valor02 = $("#lpselemoneda2").val();        
+    //console.log(valor01 + "--" + valor02);
+    var cadena = listaprecio.split('->');    
+    $.ajax({
+        type: "post",
+        url: "Listprecio/additemxlista",
+        data: {
+            valor01 : cadena[0],
+            valor02 : cadena[1]
+        },
+        success: function(response){
+            alert (response);            
+            window.location.href='Listprecio';
+        }
+
+    })
 }
 
 function cargalistaprecio2(valor){  
