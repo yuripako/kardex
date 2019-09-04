@@ -28,12 +28,11 @@
            <button data-toggle="modal" data-target="#logoutModal2" class="btn btn-warning"><i class="fa fa-cart-plus"></i> Agregar Nueva Compra</button>
           </div>
           <div class="card-body ">
+
             <div class="table">
-              <table id="tablafactura"  class="table table-hover" width="100%" cellspacing="0">
+              <table id="tablafactura"  class="table table-hover" width="100%" cellspacing="0" style=" TEXT-ALIGN: RIGHT;">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
-                
-                 
                     <th>CODIGO</th>  
                     <th>CANTIDAD</th>                               
                     <th>DESCRIPCION PRODUCTO</th>
@@ -43,24 +42,41 @@
                 </thead>
                   
                 <tbody >
-                   
+                  
                 </tbody>
-             
+                  <table class="table" width="100%" cellspacing="0" style=" TEXT-ALIGN: RIGHT;">
+                  
+                    <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td>SUBTOTAL $	</td>
+                       <td> <input class="form-control" type="text" id="subtotal"> </td>
+                       <td style="  width: 67px;"></td>
+                    </tr>
+                    <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td>IGV (18)% $	</td>
+                       <td><input class="form-control" type="text" id="igv"></td>
+                       <td style="  width: 67px;"></td>
+                    </tr>
+                    <tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td>TOTAL $		</td>
+                       <td><input class="form-control" type="text" id="total"></td>
+                       <td style="  width: 67px;"></td>
+                    </tr>
+                  </table>
               </table>
-                <table  class="table " width="100%" cellspacing="0">
-                <tbody >
-                 <tr>      
-                   <td>SUBTOTAL $	</td>
-                 </tr>
-                 <tr>
-                   <td>IVA (15)% $		</td>
-                 </tr>
-                 <tr>
-                   <td>TOTAL $	</td>
-                 </tr>
-                 </tbody>
-                </table>
+               <div id="detalle">
+                
+                
 
+              </div>
             </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
@@ -97,7 +113,7 @@
               <table id="compra" class="table table-bordered" width="100%" cellspacing="0">
                 <thead class=" bg-primary " style="color: #fff">
                   <tr>
-                    <th>N°ro</th>    
+                
                     <th>Código</th>                       
                     <th>Producto</th>
                     <th>Cantidad</th>
@@ -106,26 +122,12 @@
                   </tr>
                 </thead>
   
-                <!-- <tbody >
-                  <tr >
-                     <td></td>
-                     <td></td>
-                     <td></td>
-                    </td> <td>
-                     <td></td>
-                  <td class="text-center">
-                     <button  class="btn btn-info btn-sm"><i class="fas fa-plus "></i>
-                     </button>
-                    </td>
-                  </tr>
-                </tbody> -->
-
               </table>
             </div>
 
         </div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Salir</button>
          
         </div>
       </div>
