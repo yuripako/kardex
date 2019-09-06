@@ -29,6 +29,87 @@
           </div>
           <div class="card-body ">
 
+           <div class="row">
+              
+             <div class="col-md-6">
+               
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de emisión. </label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control" id="fecha_emi" >
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Ruc cliente. </label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control"  >
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Moneda. </label>
+                  <div class="col-sm-4">
+                    <select name="" id="" class="form-control">
+                       <option value=""> [Seleccione] </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Tipo Serie. </label>
+                  <div class="col-sm-4">
+                    <select name="" id="" class="form-control">
+                    <option value="">[Seleccione]</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4">
+                  <input type="text" class="form-control"  >
+                  </div>
+                </div>
+
+             </div>
+             <div class="col-md-6">
+
+               <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de vencimiento. </label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control" id="fecha_ven" >
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Nombre cliente . </label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control"  >
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Condición . </label>
+                  <div class="col-sm-6">
+                    <select name="" id="" class="form-control">
+                    <option value="">[Seleccione]</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Estado . </label>
+                  <div class="col-sm-4">
+                    <select name="" id="" class="form-control">
+                    <option value="">[Seleccione]</option>
+                    </select>
+                  </div>
+                </div>
+
+               </div>
+
+               
+
+           </div>
+
+
             <div class="table">
               <table id="tablafactura"  class="table table-hover" width="100%" cellspacing="0" style=" TEXT-ALIGN: RIGHT;">
                 <thead class=" bg-primary " style="color: #fff">

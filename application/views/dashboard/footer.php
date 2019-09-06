@@ -64,6 +64,15 @@
     });
 
 
+    $('#fecha_emi').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd'
+    });
+
+    $('#fecha_ven').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'yyyy-mm-dd'
+    });
 
 
     </script>
