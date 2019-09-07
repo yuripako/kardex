@@ -34,14 +34,13 @@
              <div class="col-md-6">
                
                 <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de emisión. </label>
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Ruc cliente. </label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control" id="fecha_emi" >
+                  <input type="text" class="form-control"  >
                   </div>
                 </div>
-
                 <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Ruc cliente. </label>
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Nombre cliente . </label>
                   <div class="col-sm-8">
                   <input type="text" class="form-control"  >
                   </div>
@@ -57,36 +56,41 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Tipo Serie. </label>
-                  <div class="col-sm-4">
+                  
+                  <div class="col-sm-3">
                     <select name="" id="" class="form-control">
-                    <option value="">[Seleccione]</option>
+                    <option value="">[Seleccione Tipo]</option>
                     </select>
                   </div>
-                  <div class="col-sm-4">
-                  <input type="text" class="form-control"  >
+                  
+                  <div class="col-sm-3">
+                  <input type="text" class="form-control" placeholder="Serie" >
+                  </div>
+                  <div class="col-sm-6">
+                  <input type="text" class="form-control" title="Correlativo"  >
                   </div>
                 </div>
 
              </div>
              <div class="col-md-6">
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de emisión: </label>
+                  <div class="col-sm-8">
+                  <input type="text" class="form-control" id="fecha_emi" >
+                  </div>
+                </div>
 
                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de vencimiento. </label>
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Fecha de vcto: </label>
                   <div class="col-sm-8">
                   <input type="text" class="form-control" id="fecha_ven" >
                   </div>
                 </div>
 
-                <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Nombre cliente . </label>
-                  <div class="col-sm-8">
-                  <input type="text" class="form-control"  >
-                  </div>
-                </div>
+                
 
                 <div class="form-group row">
-                  <label for="inputPassword" class="col-sm-4 col-form-label">Condición . </label>
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Condición: </label>
                   <div class="col-sm-6">
                     <select name="" id="" class="form-control">
                     <option value="">[Seleccione]</option>
@@ -94,12 +98,10 @@
                   </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="form-group row" style="display: none;">
                   <label for="inputPassword" class="col-sm-4 col-form-label">Estado . </label>
                   <div class="col-sm-4">
-                    <select name="" id="" class="form-control">
-                    <option value="">[Seleccione]</option>
-                    </select>
+                      <input type="text" class="form-control"  >
                   </div>
                 </div>
 
