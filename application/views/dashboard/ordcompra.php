@@ -50,8 +50,8 @@
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-4 col-form-label">Moneda. </label>
                   <div class="col-sm-4">
-                    <select name="" id="" class="form-control">
-                       <option value=""> [Seleccione] </option>
+                    <select name="" id="monedass" class="form-control" >
+                      
                     </select>
                   </div>
                 </div>
@@ -60,7 +60,7 @@
                   
                   <div class="col-sm-3">
                     <select name="" id="" class="form-control">
-                    <option value="">[Seleccione Tipo]</option>
+                   
                     </select>
                   </div>
                   

@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  loadcondi() ;
+  loadcondi();
+  loadmonedaa();
     $('#compra').DataTable({
      
         "language": {
@@ -112,6 +113,20 @@ function loadcondi()
     success: function (response) {
      $("#condicion").html(response);
      //
+      
+    }
+  });  
+}
+
+function loadmonedaa() 
+{
+  $.ajax({
+    type: "post",
+    url: "Ordcompra/load_monedas",
+    data: { },
+    success: function (response) {
+     $("#monedass").html(response);
+     
       
     }
   });  

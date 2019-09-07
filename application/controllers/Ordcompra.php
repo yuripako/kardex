@@ -78,8 +78,19 @@ public function load_condiciones()
                    
     echo"   </select>";
 	
-}
 
+}
+public function load_monedas()
+{
+	$query  = $this->Ordcompra_model->load_moneda();
+
+   foreach ($query as $row) {
+	   echo" <option value='".$row->cod_mone."'>".$row->cod_mone."</option>";
+   }
+                   
+    
+	
+}
 
    
 
