@@ -54,8 +54,31 @@ class Ordcompra extends CI_Controller {
 
 	}
 
-
-
+  
+ public function buscaRuc()
+ {
+	 $ruc = $this->input->post("ruc");
+	 $query  = $this->Ordcompra_model->load_ruc($ruc);
+	 echo "<div class='list-group' >";
+	 foreach ($query as $row) {
+		echo" <a href='#' class='list-group-item list-group-item-action'
+		onclick=\"selecruc('".$row->ruc_nif."' , '".$row->nom_emp."');\">".$row->ruc_nif."</li>";
+	 }
+	 echo"</div>";
+ }
+  
+public function load_condiciones()
+{
+	$query  = $this->Ordcompra_model->load_condicion();
+	echo"<select  class='form-control'>";
+	echo"<option value=''>[Seleccione]</option>";
+   foreach ($query as $row) {
+	   echo" <option value='".$row->id_cond."'>".$row->nom_cond."</option>";
+   }
+                   
+    echo"   </select>";
+	
+}
 
 
    

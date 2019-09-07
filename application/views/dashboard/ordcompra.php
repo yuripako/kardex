@@ -36,13 +36,14 @@
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-4 col-form-label">Ruc cliente. </label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control"  >
+                  <input type="text" class="form-control"  id="ruc" onkeyup="busqueda_ruc(this.value);" >
+                  <div id="encontrado"></div>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-4 col-form-label">Nombre cliente . </label>
                   <div class="col-sm-8">
-                  <input type="text" class="form-control"  >
+                  <input type="text" class="form-control" id="nomcli">
                   </div>
                 </div>
 
@@ -92,9 +93,8 @@
                 <div class="form-group row">
                   <label for="inputPassword" class="col-sm-4 col-form-label">Condición: </label>
                   <div class="col-sm-6">
-                    <select name="" id="" class="form-control">
-                    <option value="">[Seleccione]</option>
-                    </select>
+                    <div id="condicion"></div>
+                    
                   </div>
                 </div>
 
@@ -102,6 +102,7 @@
                   <label for="inputPassword" class="col-sm-4 col-form-label">Estado . </label>
                   <div class="col-sm-4">
                       <input type="text" class="form-control"  >
+                  <input type="text" class="form-control"  >
                   </div>
                 </div>
 

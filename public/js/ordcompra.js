@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  loadcondi() ;
     $('#compra').DataTable({
      
         "language": {
@@ -79,3 +79,40 @@ function agregar(item,codigo,producto) {
     
 }
 
+
+function busqueda_ruc() {
+  var ruc =    $("#ruc").val();
+   $.ajax({
+     type: "post",
+     url: "Ordcompra/buscaRuc",
+     data: {
+       ruc :ruc
+     },
+     success: function (response) {
+      
+       $("#encontrado").html(response);
+       $("#encontrado").show();
+     }
+   });
+   
+} 
+
+function selecruc(ruc,nom) {
+  $("#ruc").val(ruc);
+  $("#nomcli").val(nom);
+  $("#encontrado").hide();
+}
+
+function loadcondi() 
+{
+  $.ajax({
+    type: "post",
+    url: "Ordcompra/load_condiciones",
+    data: { },
+    success: function (response) {
+     $("#condicion").html(response);
+     //
+      
+    }
+  });  
+}
