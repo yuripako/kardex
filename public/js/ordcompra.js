@@ -1,7 +1,16 @@
 $(document).ready(function() {
+  $( "#seriee" ).attr( "  <option value=''>[-Serie-]</option>" );
+  
+
+
+  $("#seriee").attr('disabled','disabled');
+  $("#correlativoo").attr('disabled','disabled');
+  
+
   loadcondi();
   loadmonedaa();
   loadtipodocss();
+
     $('#compra').DataTable({
      
         "language": {
@@ -145,4 +154,34 @@ function loadtipodocss()
       
     }
   });  
+}
+
+
+function habilitarSerie(e) {
+  var serie = e;
+  if (serie=="") {
+    $("#seriee").attr('disabled','disabled');
+    $("#correlativoo").attr('disabled','disabled');
+    $("#seriee").empty();
+  
+  }else {
+    $("#seriee").removeAttr('disabled');
+    $("#correlativoo").removeAttr('disabled');
+    
+    $.ajax({
+      type: "post",
+      url: "Ordcompra/load_series ",
+      data: {
+        serie:serie
+      },
+      success: function (response) {
+        $("#seriee").html(response);
+        
+       
+        
+      }
+    });
+
+
+  }
 }

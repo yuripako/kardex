@@ -71,7 +71,7 @@ public function load_condiciones()
 {
 	$query  = $this->Ordcompra_model->load_condicion();
 	echo"<select  class='form-control'>";
-	echo"<option value=''>[Seleccione]</option>";
+	echo"<option value=''>[--Seleccione--]</option>";
    foreach ($query as $row) {
 	   echo" <option value='".$row->id_cond."'>".$row->nom_cond."</option>";
    }
@@ -92,11 +92,27 @@ public function load_monedas()
 public function load_tipodocs()
 {
 	$query  = $this->Ordcompra_model->load_tipodoc();
-	echo" <option value=''>[ Tipo ]</option>";
+	echo" <option value=''>[-Tipo-]</option>";
    foreach ($query as $row) {
-	   echo" <option value=''>".$row->cod_doc."</option>";
+	   echo" <option value='$row->cod_doc' >".$row->nom_doc."</option>";
    }               
 	
+}
+
+public function load_series()
+{
+	$serieee = $this->input->post("serie");
+
+	$query  = $this->Ordcompra_model->loadserie($serieee );
+	echo" <option value=''>[-Serie-]</option>";
+   foreach ($query as $row) {
+	   if ($row->serie=="") {
+		echo" <option value='' >No existe</option>";
+	   }else {
+		echo" <option value='".$row->serie."' >".$row->serie."</option>";
+	   }
+	  
+   }       
 }
    
 

@@ -58,17 +58,20 @@
 
                 <div class="form-group row">
                   
-                  <div class="col-sm-3">
-                    <select name="" id="tipodoc" class="form-control">
+                  <div class="col-sm-4">
+                    <select name="" id="tipodoc" class="form-control"  onchange='habilitarSerie(this.value)'>
                    
                     </select>
                   </div>
                   
                   <div class="col-sm-3">
-                  <input type="text" class="form-control" placeholder="Serie" >
+                    <select name="" id="seriee" class="form-control">
+	                    
+                     
+                    </select>
                   </div>
-                  <div class="col-sm-6">
-                  <input type="text" class="form-control" title="Correlativo"  >
+                  <div class="col-sm-5">
+                  <input type="text" class="form-control" id="correlativoo" title="Correlativo"  placeholder="Correlativo" >
                   </div>
                 </div>
 
