@@ -176,12 +176,43 @@ function habilitarSerie(e) {
       },
       success: function (response) {
         $("#seriee").html(response);
-        
-       
-        
       }
     });
 
-
   }
+}
+
+    
+function busqueda_correlativo(e){
+  var filtro = e;
+
+  if (filtro=="") {
+    $("#encontrado_correlativo").hide();
+  } else {
+    
+ 
+
+  var tipodoc =  $("#tipodoc").val();
+  $.ajax({
+    type: "post",
+    url: "Ordcompra/filtro_correlativo",
+    data: {
+      filtro : filtro,
+      tipodoc : tipodoc
+    },
+    success: function (response) {
+     $("#encontrado_correlativo").html(response);
+     $("#encontrado_correlativo").show();
+      
+    }
+  });
+
+}
+
+}
+
+function seleccorrelativo(correlativo) {
+  $("#correlativoo").val(correlativo);
+
+  $("#encontrado_correlativo").hide();
 }

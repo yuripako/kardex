@@ -106,15 +106,27 @@ public function load_series()
 	$query  = $this->Ordcompra_model->loadserie($serieee );
 	echo" <option value=''>[-Serie-]</option>";
    foreach ($query as $row) {
-	   if ($row->serie=="") {
-		echo" <option value='' >No existe</option>";
-	   }else {
-		echo" <option value='".$row->serie."' >".$row->serie."</option>";
-	   }
-	  
+	   echo" <option value='".$row->serie."' >".$row->serie."</option>";
    }       
 }
-   
+
+public function filtro_correlativo()
+{
+	$filtro = $this->input->post("filtro");
+	$tipodoc = $this->input->post("tipodoc");
+	$query  = $this->Ordcompra_model->load_correlativooo($filtro,$tipodoc);
+	 echo "<div class='list-group' >";
+	 foreach ($query as $row) {
+		echo" <a href='#' class='list-group-item list-group-item-action'
+		onclick=\"seleccorrelativo('".$row->correlativo."' );\">".$row->correlativo."</li>";
+	 }
+	 echo"</div>";
+}
+
+
+
+
+
 
 }
 

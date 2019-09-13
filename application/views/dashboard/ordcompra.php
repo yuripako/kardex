@@ -71,7 +71,9 @@
                     </select>
                   </div>
                   <div class="col-sm-5">
-                  <input type="text" class="form-control" id="correlativoo" title="Correlativo"  placeholder="Correlativo" >
+                  <input type="text" class="form-control" id="correlativoo"  onkeyup="busqueda_correlativo(this.value);" title="Correlativo"  placeholder="Correlativo" >
+
+                  <div id="encontrado_correlativo"></div>
                   </div>
                 </div>
 
