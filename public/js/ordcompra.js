@@ -167,7 +167,7 @@ function habilitarSerie(e) {
   }else {
     $("#seriee").removeAttr('disabled');
     $("#correlativoo").removeAttr('disabled');
-    
+    $("#correlativoo").val("");
     $.ajax({
       type: "post",
       url: "Ordcompra/load_series ",
