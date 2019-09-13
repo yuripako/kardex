@@ -87,11 +87,17 @@ public function load_monedas()
    foreach ($query as $row) {
 	   echo" <option value='".$row->cod_mone."'>".$row->cod_mone."</option>";
    }
-                   
-    
+                 
+}
+public function load_tipodocs()
+{
+	$query  = $this->Ordcompra_model->load_tipodoc();
+	echo" <option value=''>[ Tipo ]</option>";
+   foreach ($query as $row) {
+	   echo" <option value=''>".$row->cod_doc."</option>";
+   }               
 	
 }
-
    
 
 }

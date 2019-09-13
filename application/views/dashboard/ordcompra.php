@@ -59,7 +59,7 @@
                 <div class="form-group row">
                   
                   <div class="col-sm-3">
-                    <select name="" id="" class="form-control">
+                    <select name="" id="tipodoc" class="form-control">
                    
                     </select>
                   </div>

@@ -41,5 +41,14 @@ class Ordcompra_model extends CI_Model {
 	$query->free_result();
 	return $res;
    }
+
+   public function load_tipodoc()
+   {
+	$query = $this->db->query("CALL SP_ORDCOMPRA(4,'') ");
+	$res = $query->result();
+	$query->next_result();
+	$query->free_result();
+	return $res;
+   }
 }
 

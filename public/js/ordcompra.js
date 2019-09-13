@@ -1,6 +1,7 @@
 $(document).ready(function() {
   loadcondi();
   loadmonedaa();
+  loadtipodocss();
     $('#compra').DataTable({
      
         "language": {
@@ -126,6 +127,20 @@ function loadmonedaa()
     data: { },
     success: function (response) {
      $("#monedass").html(response);
+     
+      
+    }
+  });  
+}
+
+function loadtipodocss() 
+{
+  $.ajax({
+    type: "post",
+    url: "Ordcompra/load_tipodocs",
+    data: { },
+    success: function (response) {
+     $("#tipodoc").html(response);
      
       
     }
